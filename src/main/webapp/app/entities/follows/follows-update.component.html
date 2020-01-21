@@ -1,0 +1,123 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-follows-heading" jhiTranslate="ebusinesApp.follows.home.createOrEditLabel">Create or edit a Follows</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.follows.slug" for="field_slug">Slug</label>
+                    <input type="text" class="form-control" name="slug" id="field_slug"
+                           formControlName="slug"/>
+                    <div *ngIf="editForm.get('slug')!.invalid && (editForm.get('slug')!.dirty || editForm.get('slug')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('slug')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.follows.userid" for="field_userid">Userid</label>
+                    <input type="number" class="form-control" name="userid" id="field_userid"
+                           formControlName="userid"/>
+                    <div *ngIf="editForm.get('userid')!.invalid && (editForm.get('userid')!.dirty || editForm.get('userid')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('userid')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('userid')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.follows.categoryid" for="field_categoryid">Categoryid</label>
+                    <input type="number" class="form-control" name="categoryid" id="field_categoryid"
+                           formControlName="categoryid"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.follows.productid" for="field_productid">Productid</label>
+                    <input type="number" class="form-control" name="productid" id="field_productid"
+                           formControlName="productid"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.follows.tourid" for="field_tourid">Tourid</label>
+                    <input type="number" class="form-control" name="tourid" id="field_tourid"
+                           formControlName="tourid"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.follows.evenementid" for="field_evenementid">Evenementid</label>
+                    <input type="number" class="form-control" name="evenementid" id="field_evenementid"
+                           formControlName="evenementid"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.follows.tourgroupid" for="field_tourgroupid">Tourgroupid</label>
+                    <input type="number" class="form-control" name="tourgroupid" id="field_tourgroupid"
+                           formControlName="tourgroupid"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.follows.alert" for="field_alert">Alert</label>
+                    <input type="checkbox" class="form-control" name="alert" id="field_alert"
+                           formControlName="alert"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.follows.alertEvenement" for="field_alertEvenement">Alert Evenement</label>
+                    <input type="checkbox" class="form-control" name="alertEvenement" id="field_alertEvenement"
+                           formControlName="alertEvenement"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.follows.followchild" for="field_followchild">Followchild</label>
+                    <input type="checkbox" class="form-control" name="followchild" id="field_followchild"
+                           formControlName="followchild"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.follows.createdat" for="field_createdat">Createdat</label>
+                    <div class="d-flex">
+                        <input id="field_createdat" type="datetime-local" class="form-control" name="createdat" formControlName="createdat" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.follows.updatedat" for="field_updatedat">Updatedat</label>
+                    <div class="d-flex">
+                        <input id="field_updatedat" type="datetime-local" class="form-control" name="updatedat" formControlName="updatedat" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.follows.category" for="field_category">Category</label>
+                    <select class="form-control" id="field_category" name="category" formControlName="categoryId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="categoryOption.id" *ngFor="let categoryOption of categories; trackBy: trackById">{{categoryOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.follows.product" for="field_product">Product</label>
+                    <select class="form-control" id="field_product" name="product" formControlName="productId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productOption.id" *ngFor="let productOption of products; trackBy: trackById">{{productOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.follows.evenement" for="field_evenement">Evenement</label>
+                    <select class="form-control" id="field_evenement" name="evenement" formControlName="evenementId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="evenementOption.id" *ngFor="let evenementOption of evenements; trackBy: trackById">{{evenementOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

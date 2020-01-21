@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="notification">
+            <h2><span jhiTranslate="ebusinesApp.notification.detail.title">Notification</span> {{notification.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ebusinesApp.notification.slug">Slug</span></dt>
+                <dd>
+                    <span>{{notification.slug}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.notification.userid">Userid</span></dt>
+                <dd>
+                    <span>{{notification.userid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.notification.urltarget">Urltarget</span></dt>
+                <dd>
+                    <span>{{notification.urltarget}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.notification.message">Message</span></dt>
+                <dd>
+                    <span>{{notification.message}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.notification.title">Title</span></dt>
+                <dd>
+                    <span>{{notification.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.notification.logo">Logo</span></dt>
+                <dd>
+                    <span>{{notification.logo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.notification.logodata">Logodata</span></dt>
+                <dd>
+                    <div *ngIf="notification.logodata">
+                        <a (click)="openFile(notification.logodataContentType!, notification.logodata)" jhiTranslate="entity.action.open">open</a>
+                        {{notification.logodataContentType}}, {{byteSize(notification.logodata)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.notification.isview">Isview</span></dt>
+                <dd>
+                    <span>{{notification.isview}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.notification.notificationmodel">Notificationmodel</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ebusinesApp.Notificationmodel.' + notification.notificationmodel}}">{{notification.notificationmodel}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.notification.createdat">Createdat</span></dt>
+                <dd>
+                    <span>{{notification.createdat}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.notification.updatedat">Updatedat</span></dt>
+                <dd>
+                    <span>{{notification.updatedat}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/notification', notification.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

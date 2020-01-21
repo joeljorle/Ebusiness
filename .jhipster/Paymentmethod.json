@@ -1,0 +1,58 @@
+{
+    "name": "Paymentmethod",
+    "fields": [
+        {
+            "fieldName": "slug",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "logo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "logodata",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "createdat",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "updatedat",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "paymentaction",
+            "otherEntityRelationshipName": "paymentmethod",
+            "javadoc": "Payments to many relationship.",
+            "relationshipName": "paymentaction"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "paymentcategory",
+            "otherEntityRelationshipName": "paymentmethod",
+            "relationshipName": "paymentcategory"
+        }
+    ],
+    "changelogDate": "20200121163915",
+    "entityTableName": "paymentmethod",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

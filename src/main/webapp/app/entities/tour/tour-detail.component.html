@@ -1,0 +1,167 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tour">
+            <h2><span jhiTranslate="ebusinesApp.tour.detail.title">Tour</span> {{tour.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ebusinesApp.tour.categoryid">Categoryid</span></dt>
+                <dd>
+                    <span>{{tour.categoryid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.userid">Userid</span></dt>
+                <dd>
+                    <span>{{tour.userid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.productid">Productid</span></dt>
+                <dd>
+                    <span>{{tour.productid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.evenementid">Evenementid</span></dt>
+                <dd>
+                    <span>{{tour.evenementid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.slug">Slug</span></dt>
+                <dd>
+                    <span>{{tour.slug}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.name">Name</span></dt>
+                <dd>
+                    <span>{{tour.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.islock">Islock</span></dt>
+                <dd>
+                    <span>{{tour.islock}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.lockdelay">Lockdelay</span></dt>
+                <dd>
+                    <span>{{tour.lockdelay}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.about">About</span></dt>
+                <dd>
+                    <span>{{tour.about}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.title">Title</span></dt>
+                <dd>
+                    <span>{{tour.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.tag">Tag</span></dt>
+                <dd>
+                    <span>{{tour.tag}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.tagcolor">Tagcolor</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ebusinesApp.Tagcolor.' + tour.tagcolor}}">{{tour.tagcolor}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.postalcode">Postalcode</span></dt>
+                <dd>
+                    <span>{{tour.postalcode}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.phones">Phones</span></dt>
+                <dd>
+                    <span>{{tour.phones}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.website">Website</span></dt>
+                <dd>
+                    <span>{{tour.website}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.facebook">Facebook</span></dt>
+                <dd>
+                    <span>{{tour.facebook}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.twitter">Twitter</span></dt>
+                <dd>
+                    <span>{{tour.twitter}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.gplus">Gplus</span></dt>
+                <dd>
+                    <span>{{tour.gplus}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.linkedin">Linkedin</span></dt>
+                <dd>
+                    <span>{{tour.linkedin}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.instagram">Instagram</span></dt>
+                <dd>
+                    <span>{{tour.instagram}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.email">Email</span></dt>
+                <dd>
+                    <span>{{tour.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.url">Url</span></dt>
+                <dd>
+                    <span>{{tour.url}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.position">Position</span></dt>
+                <dd>
+                    <span>{{tour.position}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.othercontacts">Othercontacts</span></dt>
+                <dd>
+                    <span>{{tour.othercontacts}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.otherfields">Otherfields</span></dt>
+                <dd>
+                    <span>{{tour.otherfields}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.createdat">Createdat</span></dt>
+                <dd>
+                    <span>{{tour.createdat}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.updatedat">Updatedat</span></dt>
+                <dd>
+                    <span>{{tour.updatedat}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.files">Files</span></dt>
+                <dd>
+                    <div *ngIf="tour.filesId">
+                        <a [routerLink]="['/files', tour.filesId, 'view']">{{tour.filesTourid}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.currency">Currency</span></dt>
+                <dd>
+                    <div *ngIf="tour.currencyId">
+                        <a [routerLink]="['/currency', tour.currencyId, 'view']">{{tour.currencyId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.location">Location</span></dt>
+                <dd>
+                    <div *ngIf="tour.locationId">
+                        <a [routerLink]="['/location', tour.locationId, 'view']">{{tour.locationId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.category">Category</span></dt>
+                <dd>
+                    <div *ngIf="tour.categoryId">
+                        <a [routerLink]="['/category', tour.categoryId, 'view']">{{tour.categoryId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="tour.productId">
+                        <a [routerLink]="['/product', tour.productId, 'view']">{{tour.productId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.tour.evenement">Evenement</span></dt>
+                <dd>
+                    <div *ngIf="tour.evenementId">
+                        <a [routerLink]="['/evenement', tour.evenementId, 'view']">{{tour.evenementId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tour', tour.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

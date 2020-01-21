@@ -1,0 +1,36 @@
+{
+  "ebusinesApp": {
+    "files": {
+      "home": {
+        "title": "Files",
+        "createLabel": "Créer un nouveau Files",
+        "createOrEditLabel": "Créer ou éditer un Files",
+        "notFound": "Aucun Files trouvé"
+      },
+      "created": "Un nouveau Files a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Files avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Files avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Files {{ id }} ?"
+      },
+      "detail": {
+        "title": "Files"
+      },
+      "slug": "Slug",
+      "userid": "Userid",
+      "categoryid": "Categoryid",
+      "productid": "Productid",
+      "tourid": "Tourid",
+      "tourgroupid": "Tourgroupid",
+      "tourcategoryid": "Tourcategoryid",
+      "evenementid": "Evenementid",
+      "islogoimg": "Islogoimg",
+      "isprofileimg": "Isprofileimg",
+      "iscoverimg": "Iscoverimg",
+      "issliderimg": "Issliderimg",
+      "isotherimg": "Isotherimg",
+      "createdat": "Createdat",
+      "updatedat": "Updatedat"
+    }
+  }
+}

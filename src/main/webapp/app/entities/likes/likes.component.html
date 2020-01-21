@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ebusinesApp.likes.home.title">Likes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-likes" [routerLink]="['/likes/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="ebusinesApp.likes.home.createLabel">
+            Create a new Likes
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="likes?.length === 0">
+        <span jhiTranslate="ebusinesApp.likes.home.notFound">No likes found</span>
+    </div>
+    <div class="table-responsive" *ngIf="likes?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="slug"><span jhiTranslate="ebusinesApp.likes.slug">Slug</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="userid"><span jhiTranslate="ebusinesApp.likes.userid">Userid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="categoryid"><span jhiTranslate="ebusinesApp.likes.categoryid">Categoryid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="productid"><span jhiTranslate="ebusinesApp.likes.productid">Productid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="tourid"><span jhiTranslate="ebusinesApp.likes.tourid">Tourid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="tourgroupid"><span jhiTranslate="ebusinesApp.likes.tourgroupid">Tourgroupid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="evenementid"><span jhiTranslate="ebusinesApp.likes.evenementid">Evenementid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="createdat"><span jhiTranslate="ebusinesApp.likes.createdat">Createdat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="updatedat"><span jhiTranslate="ebusinesApp.likes.updatedat">Updatedat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="categoryId"><span jhiTranslate="ebusinesApp.likes.category">Category</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="productId"><span jhiTranslate="ebusinesApp.likes.product">Product</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="evenementId"><span jhiTranslate="ebusinesApp.likes.evenement">Evenement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let likes of likes ;trackBy: trackId">
+                <td><a [routerLink]="['/likes', likes.id, 'view' ]">{{likes.id}}</a></td>
+                <td>{{likes.slug}}</td>
+                <td>{{likes.userid}}</td>
+                <td>{{likes.categoryid}}</td>
+                <td>{{likes.productid}}</td>
+                <td>{{likes.tourid}}</td>
+                <td>{{likes.tourgroupid}}</td>
+                <td>{{likes.evenementid}}</td>
+                <td>{{likes.createdat | date:'medium'}}</td>
+                <td>{{likes.updatedat | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="likes.categoryId">
+                        <a [routerLink]="['/category', likes.categoryId , 'view' ]" >{{likes.categoryId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="likes.productId">
+                        <a [routerLink]="['/product', likes.productId , 'view' ]" >{{likes.productId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="likes.evenementId">
+                        <a [routerLink]="['/evenement', likes.evenementId , 'view' ]" >{{likes.evenementId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/likes', likes.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/likes', likes.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(likes)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

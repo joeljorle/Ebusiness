@@ -1,0 +1,25 @@
+{
+  "ebusinesApp": {
+    "cartproducts": {
+      "home": {
+        "title": "Cartproducts",
+        "createLabel": "Create a new Cartproducts",
+        "createOrEditLabel": "Create or edit a Cartproducts",
+        "notFound": "No Cartproducts found"
+      },
+      "created": "A new Cartproducts is created with identifier {{ param }}",
+      "updated": "A Cartproducts is updated with identifier {{ param }}",
+      "deleted": "A Cartproducts is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cartproducts {{ id }}?"
+      },
+      "detail": {
+        "title": "Cartproducts"
+      },
+      "cartid": "Cartid",
+      "productid": "Productid",
+      "cartqty": "Cartqty",
+      "cart": "Cart"
+    }
+  }
+}

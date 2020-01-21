@@ -1,0 +1,161 @@
+{
+    "name": "Tourgroup",
+    "fields": [
+        {
+            "fieldName": "categoryid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "productid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "evenementid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "slug",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "islock",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "lockdelay",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "about",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tag",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tagcolor",
+            "fieldType": "Tagcolor",
+            "fieldValues": "RED,BLUE,GREEN,YELLOW,BLACK"
+        },
+        {
+            "fieldName": "postalcode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phones",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "website",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "facebook",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "twitter",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gplus",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "linkedin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "instagram",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "position",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "othercontacts",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "otherfields",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "createdat",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "updatedat",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "files",
+            "otherEntityRelationshipName": "tourgroup",
+            "relationshipName": "files",
+            "otherEntityField": "tourgroupid",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "location",
+            "otherEntityRelationshipName": "tourgroup",
+            "relationshipName": "location",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "category",
+            "otherEntityRelationshipName": "tourgroup",
+            "relationshipName": "category",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "product",
+            "otherEntityRelationshipName": "tourgroup",
+            "relationshipName": "product",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "evenement",
+            "otherEntityRelationshipName": "tourgroup",
+            "relationshipName": "evenement",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200121163904",
+    "entityTableName": "tourgroup",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,95 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="category">
+            <h2><span jhiTranslate="ebusinesApp.category.detail.title">Category</span> {{category.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ebusinesApp.category.slug">Slug</span></dt>
+                <dd>
+                    <span>{{category.slug}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.category.userid">Userid</span></dt>
+                <dd>
+                    <span>{{category.userid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.category.categoryid">Categoryid</span></dt>
+                <dd>
+                    <span>{{category.categoryid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.category.name">Name</span></dt>
+                <dd>
+                    <span>{{category.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.category.route">Route</span></dt>
+                <dd>
+                    <span>{{category.route}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.category.isheader">Isheader</span></dt>
+                <dd>
+                    <span>{{category.isheader}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.category.isgroup">Isgroup</span></dt>
+                <dd>
+                    <span>{{category.isgroup}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.category.islock">Islock</span></dt>
+                <dd>
+                    <span>{{category.islock}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.category.lockdelay">Lockdelay</span></dt>
+                <dd>
+                    <span>{{category.lockdelay}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.category.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ebusinesApp.Type.' + category.type}}">{{category.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.category.createdat">Createdat</span></dt>
+                <dd>
+                    <span>{{category.createdat}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.category.updatedat">Updatedat</span></dt>
+                <dd>
+                    <span>{{category.updatedat}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.category.files">Files</span></dt>
+                <dd>
+                    <div *ngIf="category.filesId">
+                        <a [routerLink]="['/files', category.filesId, 'view']">{{category.filesId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.category.categorydetails">Categorydetails</span></dt>
+                <dd>
+                    <div *ngIf="category.categorydetailsId">
+                        <a [routerLink]="['/categorydetails', category.categorydetailsId, 'view']">{{category.categorydetailsId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.category.location">Location</span></dt>
+                <dd>
+                    <div *ngIf="category.locationId">
+                        <a [routerLink]="['/location', category.locationId, 'view']">{{category.locationId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.category.category">Category</span></dt>
+                <dd>
+                    <div *ngIf="category.categoryId">
+                        <a [routerLink]="['/category', category.categoryId, 'view']">{{category.categoryId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/category', category.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

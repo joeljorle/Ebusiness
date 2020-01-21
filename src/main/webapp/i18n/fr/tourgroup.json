@@ -1,0 +1,51 @@
+{
+  "ebusinesApp": {
+    "tourgroup": {
+      "home": {
+        "title": "Tourgroups",
+        "createLabel": "Créer un nouveau Tourgroup",
+        "createOrEditLabel": "Créer ou éditer un Tourgroup",
+        "notFound": "Aucun Tourgroup trouvé"
+      },
+      "created": "Un nouveau Tourgroup a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Tourgroup avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Tourgroup avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Tourgroup {{ id }} ?"
+      },
+      "detail": {
+        "title": "Tourgroup"
+      },
+      "categoryid": "Categoryid",
+      "productid": "Productid",
+      "evenementid": "Evenementid",
+      "slug": "Slug",
+      "name": "Name",
+      "islock": "Islock",
+      "lockdelay": "Lockdelay",
+      "about": "About",
+      "title": "Title",
+      "tag": "Tag",
+      "tagcolor": "Tagcolor",
+      "postalcode": "Postalcode",
+      "phones": "Phones",
+      "website": "Website",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "gplus": "Gplus",
+      "linkedin": "Linkedin",
+      "instagram": "Instagram",
+      "email": "Email",
+      "position": "Position",
+      "othercontacts": "Othercontacts",
+      "otherfields": "Otherfields",
+      "createdat": "Createdat",
+      "updatedat": "Updatedat",
+      "files": "Files",
+      "location": "Location",
+      "category": "Category",
+      "product": "Product",
+      "evenement": "Evenement"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "ebusinesApp": {
+    "paymentmethod": {
+      "home": {
+        "title": "Paymentmethods",
+        "createLabel": "Create a new Paymentmethod",
+        "createOrEditLabel": "Create or edit a Paymentmethod",
+        "notFound": "No Paymentmethods found"
+      },
+      "created": "A new Paymentmethod is created with identifier {{ param }}",
+      "updated": "A Paymentmethod is updated with identifier {{ param }}",
+      "deleted": "A Paymentmethod is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Paymentmethod {{ id }}?"
+      },
+      "detail": {
+        "title": "Paymentmethod"
+      },
+      "slug": "Slug",
+      "name": "Name",
+      "logo": "Logo",
+      "logodata": "Logodata",
+      "createdat": "Createdat",
+      "updatedat": "Updatedat",
+      "paymentaction": "Paymentaction",
+      "paymentcategory": "Paymentcategory"
+    }
+  }
+}

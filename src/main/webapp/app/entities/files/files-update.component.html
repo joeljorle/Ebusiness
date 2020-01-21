@@ -1,0 +1,107 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-files-heading" jhiTranslate="ebusinesApp.files.home.createOrEditLabel">Create or edit a Files</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.files.slug" for="field_slug">Slug</label>
+                    <input type="text" class="form-control" name="slug" id="field_slug"
+                           formControlName="slug"/>
+                    <div *ngIf="editForm.get('slug')!.invalid && (editForm.get('slug')!.dirty || editForm.get('slug')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('slug')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.files.userid" for="field_userid">Userid</label>
+                    <input type="number" class="form-control" name="userid" id="field_userid"
+                           formControlName="userid"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.files.categoryid" for="field_categoryid">Categoryid</label>
+                    <input type="number" class="form-control" name="categoryid" id="field_categoryid"
+                           formControlName="categoryid"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.files.productid" for="field_productid">Productid</label>
+                    <input type="number" class="form-control" name="productid" id="field_productid"
+                           formControlName="productid"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.files.tourid" for="field_tourid">Tourid</label>
+                    <input type="number" class="form-control" name="tourid" id="field_tourid"
+                           formControlName="tourid"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.files.tourgroupid" for="field_tourgroupid">Tourgroupid</label>
+                    <input type="number" class="form-control" name="tourgroupid" id="field_tourgroupid"
+                           formControlName="tourgroupid"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.files.tourcategoryid" for="field_tourcategoryid">Tourcategoryid</label>
+                    <input type="number" class="form-control" name="tourcategoryid" id="field_tourcategoryid"
+                           formControlName="tourcategoryid"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.files.evenementid" for="field_evenementid">Evenementid</label>
+                    <input type="number" class="form-control" name="evenementid" id="field_evenementid"
+                           formControlName="evenementid"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.files.islogoimg" for="field_islogoimg">Islogoimg</label>
+                    <input type="checkbox" class="form-control" name="islogoimg" id="field_islogoimg"
+                           formControlName="islogoimg"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.files.isprofileimg" for="field_isprofileimg">Isprofileimg</label>
+                    <input type="checkbox" class="form-control" name="isprofileimg" id="field_isprofileimg"
+                           formControlName="isprofileimg"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.files.iscoverimg" for="field_iscoverimg">Iscoverimg</label>
+                    <input type="checkbox" class="form-control" name="iscoverimg" id="field_iscoverimg"
+                           formControlName="iscoverimg"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.files.issliderimg" for="field_issliderimg">Issliderimg</label>
+                    <input type="checkbox" class="form-control" name="issliderimg" id="field_issliderimg"
+                           formControlName="issliderimg"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.files.isotherimg" for="field_isotherimg">Isotherimg</label>
+                    <input type="checkbox" class="form-control" name="isotherimg" id="field_isotherimg"
+                           formControlName="isotherimg"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.files.createdat" for="field_createdat">Createdat</label>
+                    <div class="d-flex">
+                        <input id="field_createdat" type="datetime-local" class="form-control" name="createdat" formControlName="createdat" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinesApp.files.updatedat" for="field_updatedat">Updatedat</label>
+                    <div class="d-flex">
+                        <input id="field_updatedat" type="datetime-local" class="form-control" name="updatedat" formControlName="updatedat" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

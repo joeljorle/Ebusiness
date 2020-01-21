@@ -1,0 +1,37 @@
+{
+  "ebusinesApp": {
+    "bookingdetails": {
+      "home": {
+        "title": "Bookingdetails",
+        "createLabel": "Créer un nouveau Bookingdetails",
+        "createOrEditLabel": "Créer ou éditer un Bookingdetails",
+        "notFound": "Aucun Bookingdetails trouvé"
+      },
+      "created": "Un nouveau Bookingdetails a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Bookingdetails avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Bookingdetails avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Bookingdetails {{ id }} ?"
+      },
+      "detail": {
+        "title": "Bookingdetails"
+      },
+      "subtotal": "Subtotal",
+      "total": "Total",
+      "tax": "Tax",
+      "shipping": "Shipping",
+      "shippingstate": "Shippingstate",
+      "about": "About",
+      "couponconde": "Couponconde",
+      "qrcode": "Qrcode",
+      "code": "Code",
+      "url": "Url",
+      "token": "Token",
+      "paymentmode": "Paymentmode",
+      "startdate": "Startdate",
+      "enddate": "Enddate",
+      "enventstate": "Enventstate",
+      "places": "Places"
+    }
+  }
+}

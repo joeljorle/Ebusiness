@@ -1,0 +1,113 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="profile">
+            <h2><span jhiTranslate="ebusinesApp.profile.detail.title">Profile</span> {{profile.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ebusinesApp.profile.slug">Slug</span></dt>
+                <dd>
+                    <span>{{profile.slug}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.profile.userid">Userid</span></dt>
+                <dd>
+                    <span>{{profile.userid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.profile.name">Name</span></dt>
+                <dd>
+                    <span>{{profile.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.profile.islock">Islock</span></dt>
+                <dd>
+                    <span>{{profile.islock}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.profile.lockdelay">Lockdelay</span></dt>
+                <dd>
+                    <span>{{profile.lockdelay}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.profile.about">About</span></dt>
+                <dd>
+                    <span>{{profile.about}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.profile.fullname">Fullname</span></dt>
+                <dd>
+                    <span>{{profile.fullname}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.profile.defaultlanguage">Defaultlanguage</span></dt>
+                <dd>
+                    <span>{{profile.defaultlanguage}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.profile.postalcode">Postalcode</span></dt>
+                <dd>
+                    <span>{{profile.postalcode}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.profile.phones">Phones</span></dt>
+                <dd>
+                    <span>{{profile.phones}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.profile.website">Website</span></dt>
+                <dd>
+                    <span>{{profile.website}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.profile.facebook">Facebook</span></dt>
+                <dd>
+                    <span>{{profile.facebook}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.profile.twitter">Twitter</span></dt>
+                <dd>
+                    <span>{{profile.twitter}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.profile.gplus">Gplus</span></dt>
+                <dd>
+                    <span>{{profile.gplus}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.profile.linkedin">Linkedin</span></dt>
+                <dd>
+                    <span>{{profile.linkedin}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.profile.instagram">Instagram</span></dt>
+                <dd>
+                    <span>{{profile.instagram}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.profile.othercontacts">Othercontacts</span></dt>
+                <dd>
+                    <span>{{profile.othercontacts}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.profile.otherfields">Otherfields</span></dt>
+                <dd>
+                    <span>{{profile.otherfields}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.profile.createdat">Createdat</span></dt>
+                <dd>
+                    <span>{{profile.createdat}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.profile.updatedat">Updatedat</span></dt>
+                <dd>
+                    <span>{{profile.updatedat}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.profile.user">User</span></dt>
+                <dd>
+                    {{profile.userId}}
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.profile.location">Location</span></dt>
+                <dd>
+                    <div *ngIf="profile.locationId">
+                        <a [routerLink]="['/location', profile.locationId, 'view']">{{profile.locationId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/profile', profile.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

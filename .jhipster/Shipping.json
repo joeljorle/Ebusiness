@@ -1,0 +1,40 @@
+{
+    "name": "Shipping",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "createdat",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "updatedat",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "category",
+            "otherEntityRelationshipName": "shipping",
+            "relationshipName": "category",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200121163925",
+    "entityTableName": "shipping",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,143 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ebusinesApp.tour.home.title">Tours</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tour" [routerLink]="['/tour/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="ebusinesApp.tour.home.createLabel">
+            Create a new Tour
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="tours?.length === 0">
+        <span jhiTranslate="ebusinesApp.tour.home.notFound">No tours found</span>
+    </div>
+    <div class="table-responsive" *ngIf="tours?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="categoryid"><span jhiTranslate="ebusinesApp.tour.categoryid">Categoryid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="userid"><span jhiTranslate="ebusinesApp.tour.userid">Userid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="productid"><span jhiTranslate="ebusinesApp.tour.productid">Productid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="evenementid"><span jhiTranslate="ebusinesApp.tour.evenementid">Evenementid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="slug"><span jhiTranslate="ebusinesApp.tour.slug">Slug</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="name"><span jhiTranslate="ebusinesApp.tour.name">Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="islock"><span jhiTranslate="ebusinesApp.tour.islock">Islock</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="lockdelay"><span jhiTranslate="ebusinesApp.tour.lockdelay">Lockdelay</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="about"><span jhiTranslate="ebusinesApp.tour.about">About</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="title"><span jhiTranslate="ebusinesApp.tour.title">Title</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="tag"><span jhiTranslate="ebusinesApp.tour.tag">Tag</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="tagcolor"><span jhiTranslate="ebusinesApp.tour.tagcolor">Tagcolor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="postalcode"><span jhiTranslate="ebusinesApp.tour.postalcode">Postalcode</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="phones"><span jhiTranslate="ebusinesApp.tour.phones">Phones</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="website"><span jhiTranslate="ebusinesApp.tour.website">Website</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="facebook"><span jhiTranslate="ebusinesApp.tour.facebook">Facebook</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="twitter"><span jhiTranslate="ebusinesApp.tour.twitter">Twitter</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="gplus"><span jhiTranslate="ebusinesApp.tour.gplus">Gplus</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="linkedin"><span jhiTranslate="ebusinesApp.tour.linkedin">Linkedin</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="instagram"><span jhiTranslate="ebusinesApp.tour.instagram">Instagram</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="email"><span jhiTranslate="ebusinesApp.tour.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="url"><span jhiTranslate="ebusinesApp.tour.url">Url</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="position"><span jhiTranslate="ebusinesApp.tour.position">Position</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="othercontacts"><span jhiTranslate="ebusinesApp.tour.othercontacts">Othercontacts</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="otherfields"><span jhiTranslate="ebusinesApp.tour.otherfields">Otherfields</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="createdat"><span jhiTranslate="ebusinesApp.tour.createdat">Createdat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="updatedat"><span jhiTranslate="ebusinesApp.tour.updatedat">Updatedat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="filesTourid"><span jhiTranslate="ebusinesApp.tour.files">Files</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="currencyId"><span jhiTranslate="ebusinesApp.tour.currency">Currency</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="locationId"><span jhiTranslate="ebusinesApp.tour.location">Location</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="categoryId"><span jhiTranslate="ebusinesApp.tour.category">Category</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="productId"><span jhiTranslate="ebusinesApp.tour.product">Product</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="evenementId"><span jhiTranslate="ebusinesApp.tour.evenement">Evenement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let tour of tours ;trackBy: trackId">
+                <td><a [routerLink]="['/tour', tour.id, 'view' ]">{{tour.id}}</a></td>
+                <td>{{tour.categoryid}}</td>
+                <td>{{tour.userid}}</td>
+                <td>{{tour.productid}}</td>
+                <td>{{tour.evenementid}}</td>
+                <td>{{tour.slug}}</td>
+                <td>{{tour.name}}</td>
+                <td>{{tour.islock}}</td>
+                <td>{{tour.lockdelay | date:'medium'}}</td>
+                <td>{{tour.about}}</td>
+                <td>{{tour.title}}</td>
+                <td>{{tour.tag}}</td>
+                <td jhiTranslate="{{'ebusinesApp.Tagcolor.' + tour.tagcolor}}">{{tour.tagcolor}}</td>
+                <td>{{tour.postalcode}}</td>
+                <td>{{tour.phones}}</td>
+                <td>{{tour.website}}</td>
+                <td>{{tour.facebook}}</td>
+                <td>{{tour.twitter}}</td>
+                <td>{{tour.gplus}}</td>
+                <td>{{tour.linkedin}}</td>
+                <td>{{tour.instagram}}</td>
+                <td>{{tour.email}}</td>
+                <td>{{tour.url}}</td>
+                <td>{{tour.position}}</td>
+                <td>{{tour.othercontacts}}</td>
+                <td>{{tour.otherfields}}</td>
+                <td>{{tour.createdat | date:'medium'}}</td>
+                <td>{{tour.updatedat | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="tour.filesId">
+                        <a [routerLink]="['/files', tour.filesId , 'view' ]" >{{tour.filesTourid}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="tour.currencyId">
+                        <a [routerLink]="['/currency', tour.currencyId , 'view' ]" >{{tour.currencyId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="tour.locationId">
+                        <a [routerLink]="['/location', tour.locationId , 'view' ]" >{{tour.locationId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="tour.categoryId">
+                        <a [routerLink]="['/category', tour.categoryId , 'view' ]" >{{tour.categoryId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="tour.productId">
+                        <a [routerLink]="['/product', tour.productId , 'view' ]" >{{tour.productId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="tour.evenementId">
+                        <a [routerLink]="['/evenement', tour.evenementId , 'view' ]" >{{tour.evenementId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/tour', tour.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/tour', tour.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(tour)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

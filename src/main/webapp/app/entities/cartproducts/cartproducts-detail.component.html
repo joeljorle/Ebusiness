@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cartproducts">
+            <h2><span jhiTranslate="ebusinesApp.cartproducts.detail.title">Cartproducts</span> {{cartproducts.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ebusinesApp.cartproducts.cartid">Cartid</span></dt>
+                <dd>
+                    <span>{{cartproducts.cartid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.cartproducts.productid">Productid</span></dt>
+                <dd>
+                    <span>{{cartproducts.productid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.cartproducts.cartqty">Cartqty</span></dt>
+                <dd>
+                    <span>{{cartproducts.cartqty}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.cartproducts.cart">Cart</span></dt>
+                <dd>
+                    <div *ngIf="cartproducts.cartId">
+                        <a [routerLink]="['/cart', cartproducts.cartId, 'view']">{{cartproducts.cartId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cartproducts', cartproducts.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

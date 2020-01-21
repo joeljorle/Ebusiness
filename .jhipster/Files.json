@@ -1,0 +1,79 @@
+{
+    "name": "Files",
+    "fields": [
+        {
+            "fieldName": "slug",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "userid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "categoryid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "productid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tourid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tourgroupid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tourcategoryid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "evenementid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "islogoimg",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isprofileimg",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "iscoverimg",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "issliderimg",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isotherimg",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "createdat",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "updatedat",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200121163910",
+    "entityTableName": "files",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

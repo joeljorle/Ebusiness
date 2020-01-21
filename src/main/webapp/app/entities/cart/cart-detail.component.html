@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cart">
+            <h2><span jhiTranslate="ebusinesApp.cart.detail.title">Cart</span> {{cart.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ebusinesApp.cart.slug">Slug</span></dt>
+                <dd>
+                    <span>{{cart.slug}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.cart.categoryid">Categoryid</span></dt>
+                <dd>
+                    <span>{{cart.categoryid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.cart.userid">Userid</span></dt>
+                <dd>
+                    <span>{{cart.userid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.cart.totalprice">Totalprice</span></dt>
+                <dd>
+                    <span>{{cart.totalprice}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.cart.createdat">Createdat</span></dt>
+                <dd>
+                    <span>{{cart.createdat}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.cart.updatedat">Updatedat</span></dt>
+                <dd>
+                    <span>{{cart.updatedat}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.cart.currency">Currency</span></dt>
+                <dd>
+                    <div *ngIf="cart.currencyId">
+                        <a [routerLink]="['/currency', cart.currencyId, 'view']">{{cart.currencyId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.cart.category">Category</span></dt>
+                <dd>
+                    <div *ngIf="cart.categoryId">
+                        <a [routerLink]="['/category', cart.categoryId, 'view']">{{cart.categoryId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cart', cart.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+{
+    "name": "Bookingdetails",
+    "fields": [
+        {
+            "fieldName": "subtotal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "total",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "tax",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "shipping",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "shippingstate",
+            "fieldType": "Shippingstate",
+            "fieldValues": "COMPLETED,SUSPEND,PENDING"
+        },
+        {
+            "fieldName": "about",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "couponconde",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "qrcode",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "url",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "token",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "paymentmode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "startdate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "enddate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "enventstate",
+            "fieldType": "Evenementstate",
+            "fieldValues": "COMPLETED,SUSPEND,PENDING"
+        },
+        {
+            "fieldName": "places",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200121163921",
+    "entityTableName": "bookingdetails",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,36 @@
+{
+  "ebusinesApp": {
+    "follows": {
+      "home": {
+        "title": "Follows",
+        "createLabel": "Créer un nouveau Follows",
+        "createOrEditLabel": "Créer ou éditer un Follows",
+        "notFound": "Aucun Follows trouvé"
+      },
+      "created": "Un nouveau Follows a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Follows avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Follows avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Follows {{ id }} ?"
+      },
+      "detail": {
+        "title": "Follows"
+      },
+      "slug": "Slug",
+      "userid": "Userid",
+      "categoryid": "Categoryid",
+      "productid": "Productid",
+      "tourid": "Tourid",
+      "evenementid": "Evenementid",
+      "tourgroupid": "Tourgroupid",
+      "alert": "Alert",
+      "alertEvenement": "Alert Evenement",
+      "followchild": "Followchild",
+      "createdat": "Createdat",
+      "updatedat": "Updatedat",
+      "category": "Category",
+      "product": "Product",
+      "evenement": "Evenement"
+    }
+  }
+}

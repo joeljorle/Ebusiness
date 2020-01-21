@@ -1,0 +1,143 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productdetails">
+            <h2><span jhiTranslate="ebusinesApp.productdetails.detail.title">Productdetails</span> {{productdetails.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ebusinesApp.productdetails.about">About</span></dt>
+                <dd>
+                    <span>{{productdetails.about}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.title">Title</span></dt>
+                <dd>
+                    <span>{{productdetails.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.tag">Tag</span></dt>
+                <dd>
+                    <span>{{productdetails.tag}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.tagcolor">Tagcolor</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ebusinesApp.Tagcolor.' + productdetails.tagcolor}}">{{productdetails.tagcolor}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.defaultlanguage">Defaultlanguage</span></dt>
+                <dd>
+                    <span>{{productdetails.defaultlanguage}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.postalcode">Postalcode</span></dt>
+                <dd>
+                    <span>{{productdetails.postalcode}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.phones">Phones</span></dt>
+                <dd>
+                    <span>{{productdetails.phones}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.website">Website</span></dt>
+                <dd>
+                    <span>{{productdetails.website}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.email">Email</span></dt>
+                <dd>
+                    <span>{{productdetails.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.facebook">Facebook</span></dt>
+                <dd>
+                    <span>{{productdetails.facebook}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.twitter">Twitter</span></dt>
+                <dd>
+                    <span>{{productdetails.twitter}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.gplus">Gplus</span></dt>
+                <dd>
+                    <span>{{productdetails.gplus}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.linkedin">Linkedin</span></dt>
+                <dd>
+                    <span>{{productdetails.linkedin}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.instagram">Instagram</span></dt>
+                <dd>
+                    <span>{{productdetails.instagram}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.opentimes">Opentimes</span></dt>
+                <dd>
+                    <span>{{productdetails.opentimes}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.othercontacts">Othercontacts</span></dt>
+                <dd>
+                    <span>{{productdetails.othercontacts}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.otherfields">Otherfields</span></dt>
+                <dd>
+                    <span>{{productdetails.otherfields}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.sizes">Sizes</span></dt>
+                <dd>
+                    <span>{{productdetails.sizes}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.colors">Colors</span></dt>
+                <dd>
+                    <span>{{productdetails.colors}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.models">Models</span></dt>
+                <dd>
+                    <span>{{productdetails.models}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.shippingprice">Shippingprice</span></dt>
+                <dd>
+                    <span>{{productdetails.shippingprice}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.serialnumber">Serialnumber</span></dt>
+                <dd>
+                    <span>{{productdetails.serialnumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.tax">Tax</span></dt>
+                <dd>
+                    <span>{{productdetails.tax}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.stock">Stock</span></dt>
+                <dd>
+                    <span>{{productdetails.stock}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.price">Price</span></dt>
+                <dd>
+                    <span>{{productdetails.price}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.maxqty">Maxqty</span></dt>
+                <dd>
+                    <span>{{productdetails.maxqty}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.availableat">Availableat</span></dt>
+                <dd>
+                    <span>{{productdetails.availableat}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.lockactiondelay">Lockactiondelay</span></dt>
+                <dd>
+                    <span>{{productdetails.lockactiondelay}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.lockaction">Lockaction</span></dt>
+                <dd>
+                    <span>{{productdetails.lockaction}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.productdetails.expireat">Expireat</span></dt>
+                <dd>
+                    <span>{{productdetails.expireat}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/productdetails', productdetails.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

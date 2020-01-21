@@ -1,0 +1,47 @@
+{
+    "name": "Cherche",
+    "fields": [
+        {
+            "fieldName": "slug",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "abrev",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "userid",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "details",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdat",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "updatedat",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200121163928",
+    "entityTableName": "cherche",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

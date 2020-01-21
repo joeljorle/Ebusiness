@@ -1,0 +1,133 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ebusinesApp.tourgroup.home.title">Tourgroups</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tourgroup" [routerLink]="['/tourgroup/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="ebusinesApp.tourgroup.home.createLabel">
+            Create a new Tourgroup
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="tourgroups?.length === 0">
+        <span jhiTranslate="ebusinesApp.tourgroup.home.notFound">No tourgroups found</span>
+    </div>
+    <div class="table-responsive" *ngIf="tourgroups?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="categoryid"><span jhiTranslate="ebusinesApp.tourgroup.categoryid">Categoryid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="productid"><span jhiTranslate="ebusinesApp.tourgroup.productid">Productid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="evenementid"><span jhiTranslate="ebusinesApp.tourgroup.evenementid">Evenementid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="slug"><span jhiTranslate="ebusinesApp.tourgroup.slug">Slug</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="name"><span jhiTranslate="ebusinesApp.tourgroup.name">Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="islock"><span jhiTranslate="ebusinesApp.tourgroup.islock">Islock</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="lockdelay"><span jhiTranslate="ebusinesApp.tourgroup.lockdelay">Lockdelay</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="about"><span jhiTranslate="ebusinesApp.tourgroup.about">About</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="title"><span jhiTranslate="ebusinesApp.tourgroup.title">Title</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="tag"><span jhiTranslate="ebusinesApp.tourgroup.tag">Tag</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="tagcolor"><span jhiTranslate="ebusinesApp.tourgroup.tagcolor">Tagcolor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="postalcode"><span jhiTranslate="ebusinesApp.tourgroup.postalcode">Postalcode</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="phones"><span jhiTranslate="ebusinesApp.tourgroup.phones">Phones</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="website"><span jhiTranslate="ebusinesApp.tourgroup.website">Website</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="facebook"><span jhiTranslate="ebusinesApp.tourgroup.facebook">Facebook</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="twitter"><span jhiTranslate="ebusinesApp.tourgroup.twitter">Twitter</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="gplus"><span jhiTranslate="ebusinesApp.tourgroup.gplus">Gplus</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="linkedin"><span jhiTranslate="ebusinesApp.tourgroup.linkedin">Linkedin</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="instagram"><span jhiTranslate="ebusinesApp.tourgroup.instagram">Instagram</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="email"><span jhiTranslate="ebusinesApp.tourgroup.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="position"><span jhiTranslate="ebusinesApp.tourgroup.position">Position</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="othercontacts"><span jhiTranslate="ebusinesApp.tourgroup.othercontacts">Othercontacts</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="otherfields"><span jhiTranslate="ebusinesApp.tourgroup.otherfields">Otherfields</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="createdat"><span jhiTranslate="ebusinesApp.tourgroup.createdat">Createdat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="updatedat"><span jhiTranslate="ebusinesApp.tourgroup.updatedat">Updatedat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="filesTourgroupid"><span jhiTranslate="ebusinesApp.tourgroup.files">Files</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="locationId"><span jhiTranslate="ebusinesApp.tourgroup.location">Location</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="categoryId"><span jhiTranslate="ebusinesApp.tourgroup.category">Category</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="productId"><span jhiTranslate="ebusinesApp.tourgroup.product">Product</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="evenementId"><span jhiTranslate="ebusinesApp.tourgroup.evenement">Evenement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let tourgroup of tourgroups ;trackBy: trackId">
+                <td><a [routerLink]="['/tourgroup', tourgroup.id, 'view' ]">{{tourgroup.id}}</a></td>
+                <td>{{tourgroup.categoryid}}</td>
+                <td>{{tourgroup.productid}}</td>
+                <td>{{tourgroup.evenementid}}</td>
+                <td>{{tourgroup.slug}}</td>
+                <td>{{tourgroup.name}}</td>
+                <td>{{tourgroup.islock}}</td>
+                <td>{{tourgroup.lockdelay | date:'medium'}}</td>
+                <td>{{tourgroup.about}}</td>
+                <td>{{tourgroup.title}}</td>
+                <td>{{tourgroup.tag}}</td>
+                <td jhiTranslate="{{'ebusinesApp.Tagcolor.' + tourgroup.tagcolor}}">{{tourgroup.tagcolor}}</td>
+                <td>{{tourgroup.postalcode}}</td>
+                <td>{{tourgroup.phones}}</td>
+                <td>{{tourgroup.website}}</td>
+                <td>{{tourgroup.facebook}}</td>
+                <td>{{tourgroup.twitter}}</td>
+                <td>{{tourgroup.gplus}}</td>
+                <td>{{tourgroup.linkedin}}</td>
+                <td>{{tourgroup.instagram}}</td>
+                <td>{{tourgroup.email}}</td>
+                <td>{{tourgroup.position}}</td>
+                <td>{{tourgroup.othercontacts}}</td>
+                <td>{{tourgroup.otherfields}}</td>
+                <td>{{tourgroup.createdat | date:'medium'}}</td>
+                <td>{{tourgroup.updatedat | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="tourgroup.filesId">
+                        <a [routerLink]="['/files', tourgroup.filesId , 'view' ]" >{{tourgroup.filesTourgroupid}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="tourgroup.locationId">
+                        <a [routerLink]="['/location', tourgroup.locationId , 'view' ]" >{{tourgroup.locationId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="tourgroup.categoryId">
+                        <a [routerLink]="['/category', tourgroup.categoryId , 'view' ]" >{{tourgroup.categoryId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="tourgroup.productId">
+                        <a [routerLink]="['/product', tourgroup.productId , 'view' ]" >{{tourgroup.productId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="tourgroup.evenementId">
+                        <a [routerLink]="['/evenement', tourgroup.evenementId , 'view' ]" >{{tourgroup.evenementId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/tourgroup', tourgroup.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/tourgroup', tourgroup.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(tourgroup)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

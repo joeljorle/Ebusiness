@@ -1,0 +1,12 @@
+{
+  "ebusinesApp": {
+    "Type": {
+      "null": "",
+      "SHOP": "SHOP",
+      "FOOD": "FOOD",
+      "HOUSE": "HOUSE",
+      "SIMPLE": "SIMPLE",
+      "EVENEMENT": "EVENEMENT"
+    }
+  }
+}

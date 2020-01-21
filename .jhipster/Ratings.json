@@ -1,0 +1,88 @@
+{
+    "name": "Ratings",
+    "fields": [
+        {
+            "fieldName": "slug",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "userid",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "categoryid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "productid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tourid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tourgroupid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "evenementid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "value",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldName": "createdat",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "updatedat",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "category",
+            "otherEntityRelationshipName": "ratings",
+            "relationshipName": "category",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "product",
+            "otherEntityRelationshipName": "ratings",
+            "relationshipName": "product",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "evenement",
+            "otherEntityRelationshipName": "ratings",
+            "relationshipName": "evenement",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200121163913",
+    "entityTableName": "ratings",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

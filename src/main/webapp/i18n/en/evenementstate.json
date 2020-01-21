@@ -1,0 +1,10 @@
+{
+  "ebusinesApp": {
+    "Evenementstate": {
+      "null": "",
+      "COMPLETED": "COMPLETED",
+      "SUSPEND": "SUSPEND",
+      "PENDING": "PENDING"
+    }
+  }
+}

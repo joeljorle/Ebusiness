@@ -1,0 +1,12 @@
+{
+  "ebusinesApp": {
+    "Tagcolor": {
+      "null": "",
+      "RED": "RED",
+      "BLUE": "BLUE",
+      "GREEN": "GREEN",
+      "YELLOW": "YELLOW",
+      "BLACK": "BLACK"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "ebusinesApp": {
+    "bookingview": {
+      "home": {
+        "title": "Bookingviews",
+        "createLabel": "Create a new Bookingview",
+        "createOrEditLabel": "Create or edit a Bookingview",
+        "notFound": "No Bookingviews found"
+      },
+      "created": "A new Bookingview is created with identifier {{ param }}",
+      "updated": "A Bookingview is updated with identifier {{ param }}",
+      "deleted": "A Bookingview is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bookingview {{ id }}?"
+      },
+      "detail": {
+        "title": "Bookingview"
+      },
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "logo": "Logo",
+      "logodata": "Logodata",
+      "bg": "Bg",
+      "bgdata": "Bgdata"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "ebusinesApp": {
+    "Shippingstate": {
+      "null": "",
+      "COMPLETED": "COMPLETED",
+      "SUSPEND": "SUSPEND",
+      "PENDING": "PENDING"
+    }
+  }
+}

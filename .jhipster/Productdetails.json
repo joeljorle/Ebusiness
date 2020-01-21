@@ -1,0 +1,144 @@
+{
+    "name": "Productdetails",
+    "fields": [
+        {
+            "fieldName": "about",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tag",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tagcolor",
+            "fieldType": "Tagcolor",
+            "fieldValues": "RED,BLUE,GREEN,YELLOW,BLACK"
+        },
+        {
+            "fieldName": "defaultlanguage",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "postalcode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phones",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "website",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "facebook",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "twitter",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gplus",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "linkedin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "instagram",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "opentimes",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "othercontacts",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "otherfields",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "sizes",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "colors",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "models",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "shippingprice",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "serialnumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tax",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "stock",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "maxqty",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "availableat",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "lockactiondelay",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "lockaction",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "expireat",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200121163907",
+    "entityTableName": "productdetails",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

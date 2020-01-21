@@ -1,0 +1,173 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="evenement">
+            <h2><span jhiTranslate="ebusinesApp.evenement.detail.title">Evenement</span> {{evenement.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ebusinesApp.evenement.categoryid">Categoryid</span></dt>
+                <dd>
+                    <span>{{evenement.categoryid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.userid">Userid</span></dt>
+                <dd>
+                    <span>{{evenement.userid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.productid">Productid</span></dt>
+                <dd>
+                    <span>{{evenement.productid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.slug">Slug</span></dt>
+                <dd>
+                    <span>{{evenement.slug}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.name">Name</span></dt>
+                <dd>
+                    <span>{{evenement.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.islock">Islock</span></dt>
+                <dd>
+                    <span>{{evenement.islock}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.lockdelay">Lockdelay</span></dt>
+                <dd>
+                    <span>{{evenement.lockdelay}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.islimited">Islimited</span></dt>
+                <dd>
+                    <span>{{evenement.islimited}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.limiteddelay">Limiteddelay</span></dt>
+                <dd>
+                    <span>{{evenement.limiteddelay}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.limitedbooking">Limitedbooking</span></dt>
+                <dd>
+                    <span>{{evenement.limitedbooking}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.startdate">Startdate</span></dt>
+                <dd>
+                    <span>{{evenement.startdate}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.enddate">Enddate</span></dt>
+                <dd>
+                    <span>{{evenement.enddate}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.about">About</span></dt>
+                <dd>
+                    <span>{{evenement.about}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.title">Title</span></dt>
+                <dd>
+                    <span>{{evenement.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.tag">Tag</span></dt>
+                <dd>
+                    <span>{{evenement.tag}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.tagcolor">Tagcolor</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ebusinesApp.Tagcolor.' + evenement.tagcolor}}">{{evenement.tagcolor}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.postalcode">Postalcode</span></dt>
+                <dd>
+                    <span>{{evenement.postalcode}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.phones">Phones</span></dt>
+                <dd>
+                    <span>{{evenement.phones}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.website">Website</span></dt>
+                <dd>
+                    <span>{{evenement.website}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.facebook">Facebook</span></dt>
+                <dd>
+                    <span>{{evenement.facebook}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.twitter">Twitter</span></dt>
+                <dd>
+                    <span>{{evenement.twitter}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.gplus">Gplus</span></dt>
+                <dd>
+                    <span>{{evenement.gplus}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.linkedin">Linkedin</span></dt>
+                <dd>
+                    <span>{{evenement.linkedin}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.instagram">Instagram</span></dt>
+                <dd>
+                    <span>{{evenement.instagram}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.email">Email</span></dt>
+                <dd>
+                    <span>{{evenement.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.url">Url</span></dt>
+                <dd>
+                    <span>{{evenement.url}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.othercontacts">Othercontacts</span></dt>
+                <dd>
+                    <span>{{evenement.othercontacts}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.otherfields">Otherfields</span></dt>
+                <dd>
+                    <span>{{evenement.otherfields}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.createdat">Createdat</span></dt>
+                <dd>
+                    <span>{{evenement.createdat}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.updatedat">Updatedat</span></dt>
+                <dd>
+                    <span>{{evenement.updatedat}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.files">Files</span></dt>
+                <dd>
+                    <div *ngIf="evenement.filesId">
+                        <a [routerLink]="['/files', evenement.filesId, 'view']">{{evenement.filesId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.currency">Currency</span></dt>
+                <dd>
+                    <div *ngIf="evenement.currencyId">
+                        <a [routerLink]="['/currency', evenement.currencyId, 'view']">{{evenement.currencyId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.location">Location</span></dt>
+                <dd>
+                    <div *ngIf="evenement.locationId">
+                        <a [routerLink]="['/location', evenement.locationId, 'view']">{{evenement.locationId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.category">Category</span></dt>
+                <dd>
+                    <div *ngIf="evenement.categoryId">
+                        <a [routerLink]="['/category', evenement.categoryId, 'view']">{{evenement.categoryId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.evenement.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="evenement.productId">
+                        <a [routerLink]="['/product', evenement.productId, 'view']">{{evenement.productId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/evenement', evenement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

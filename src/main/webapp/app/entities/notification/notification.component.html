@@ -1,0 +1,78 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ebusinesApp.notification.home.title">Notifications</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-notification" [routerLink]="['/notification/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="ebusinesApp.notification.home.createLabel">
+            Create a new Notification
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="notifications?.length === 0">
+        <span jhiTranslate="ebusinesApp.notification.home.notFound">No notifications found</span>
+    </div>
+    <div class="table-responsive" *ngIf="notifications?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="slug"><span jhiTranslate="ebusinesApp.notification.slug">Slug</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="userid"><span jhiTranslate="ebusinesApp.notification.userid">Userid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="urltarget"><span jhiTranslate="ebusinesApp.notification.urltarget">Urltarget</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="message"><span jhiTranslate="ebusinesApp.notification.message">Message</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="title"><span jhiTranslate="ebusinesApp.notification.title">Title</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="logo"><span jhiTranslate="ebusinesApp.notification.logo">Logo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="logodata"><span jhiTranslate="ebusinesApp.notification.logodata">Logodata</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="isview"><span jhiTranslate="ebusinesApp.notification.isview">Isview</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="notificationmodel"><span jhiTranslate="ebusinesApp.notification.notificationmodel">Notificationmodel</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="createdat"><span jhiTranslate="ebusinesApp.notification.createdat">Createdat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="updatedat"><span jhiTranslate="ebusinesApp.notification.updatedat">Updatedat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let notification of notifications ;trackBy: trackId">
+                <td><a [routerLink]="['/notification', notification.id, 'view' ]">{{notification.id}}</a></td>
+                <td>{{notification.slug}}</td>
+                <td>{{notification.userid}}</td>
+                <td>{{notification.urltarget}}</td>
+                <td>{{notification.message}}</td>
+                <td>{{notification.title}}</td>
+                <td>{{notification.logo}}</td>
+                <td>
+                    <a *ngIf="notification.logodata" (click)="openFile(notification.logodataContentType, notification.logodata)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="notification.logodata">{{notification.logodataContentType}}, {{byteSize(notification.logodata)}}</span>
+                </td>
+                <td>{{notification.isview}}</td>
+                <td jhiTranslate="{{'ebusinesApp.Notificationmodel.' + notification.notificationmodel}}">{{notification.notificationmodel}}</td>
+                <td>{{notification.createdat | date:'medium'}}</td>
+                <td>{{notification.updatedat | date:'medium'}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/notification', notification.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/notification', notification.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(notification)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+{
+  "ebusinesApp": {
+    "paymentaction": {
+      "home": {
+        "title": "Paymentactions",
+        "createLabel": "Créer un nouveau Paymentaction",
+        "createOrEditLabel": "Créer ou éditer un Paymentaction",
+        "notFound": "Aucun Paymentaction trouvé"
+      },
+      "created": "Un nouveau Paymentaction a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Paymentaction avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Paymentaction avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Paymentaction {{ id }} ?"
+      },
+      "detail": {
+        "title": "Paymentaction"
+      },
+      "slug": "Slug",
+      "userid": "Userid",
+      "paymentmethodid": "Paymentmethodid",
+      "evenementid": "Evenementid",
+      "productid": "Productid",
+      "categoryid": "Categoryid",
+      "expireat": "Expireat",
+      "code": "Code",
+      "code1": "Code 1",
+      "code2": "Code 2",
+      "amount": "Amount",
+      "createdat": "Createdat",
+      "updatedat": "Updatedat",
+      "product": "Product",
+      "evenement": "Evenement",
+      "paymentmethod": "Paymentmethod"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "ebusinesApp": {
+    "cartproducts": {
+      "home": {
+        "title": "Cartproducts",
+        "createLabel": "Créer un nouveau Cartproducts",
+        "createOrEditLabel": "Créer ou éditer un Cartproducts",
+        "notFound": "Aucun Cartproducts trouvé"
+      },
+      "created": "Un nouveau Cartproducts a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Cartproducts avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Cartproducts avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Cartproducts {{ id }} ?"
+      },
+      "detail": {
+        "title": "Cartproducts"
+      },
+      "cartid": "Cartid",
+      "productid": "Productid",
+      "cartqty": "Cartqty",
+      "cart": "Cart"
+    }
+  }
+}

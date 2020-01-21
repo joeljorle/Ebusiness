@@ -1,0 +1,150 @@
+{
+    "name": "Product",
+    "fields": [
+        {
+            "fieldName": "categoryid",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "slug",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "islock",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "lockdelay",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "Type",
+            "fieldValues": "SHOP,FOOD,HOUSE,SIMPLE,EVENEMENT"
+        },
+        {
+            "fieldName": "createdat",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "updatedat",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "files",
+            "otherEntityRelationshipName": "product",
+            "relationshipName": "files",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "productdetails",
+            "otherEntityRelationshipName": "product",
+            "relationshipName": "productdetails",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "currency",
+            "otherEntityRelationshipName": "product",
+            "relationshipName": "currency",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "location",
+            "otherEntityRelationshipName": "product",
+            "relationshipName": "location",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tour",
+            "otherEntityRelationshipName": "product",
+            "javadoc": "product to many relationship.",
+            "relationshipName": "tour"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "evenement",
+            "otherEntityRelationshipName": "product",
+            "relationshipName": "evenement"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tourgroup",
+            "otherEntityRelationshipName": "product",
+            "relationshipName": "tourgroup"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tourcategory",
+            "otherEntityRelationshipName": "product",
+            "relationshipName": "tourcategory"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "likes",
+            "otherEntityRelationshipName": "product",
+            "relationshipName": "likes"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "follows",
+            "otherEntityRelationshipName": "product",
+            "relationshipName": "follows"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "ratings",
+            "otherEntityRelationshipName": "product",
+            "relationshipName": "ratings"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "reviews",
+            "otherEntityRelationshipName": "product",
+            "relationshipName": "reviews"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "paymentaction",
+            "otherEntityRelationshipName": "product",
+            "relationshipName": "paymentaction"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "category",
+            "otherEntityRelationshipName": "product",
+            "relationshipName": "category",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200121163906",
+    "entityTableName": "product",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

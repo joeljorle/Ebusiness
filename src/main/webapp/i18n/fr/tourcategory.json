@@ -1,0 +1,49 @@
+{
+  "ebusinesApp": {
+    "tourcategory": {
+      "home": {
+        "title": "Tourcategories",
+        "createLabel": "Créer un nouveau Tourcategory",
+        "createOrEditLabel": "Créer ou éditer un Tourcategory",
+        "notFound": "Aucun Tourcategory trouvé"
+      },
+      "created": "Un nouveau Tourcategory a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Tourcategory avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Tourcategory avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Tourcategory {{ id }} ?"
+      },
+      "detail": {
+        "title": "Tourcategory"
+      },
+      "categoryid": "Categoryid",
+      "productid": "Productid",
+      "evenementid": "Evenementid",
+      "slug": "Slug",
+      "name": "Name",
+      "islock": "Islock",
+      "lockdelay": "Lockdelay",
+      "about": "About",
+      "title": "Title",
+      "tag": "Tag",
+      "tagcolor": "Tagcolor",
+      "postalcode": "Postalcode",
+      "phones": "Phones",
+      "website": "Website",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "gplus": "Gplus",
+      "linkedin": "Linkedin",
+      "instagram": "Instagram",
+      "email": "Email",
+      "othercontacts": "Othercontacts",
+      "otherfields": "Otherfields",
+      "createdat": "Createdat",
+      "updatedat": "Updatedat",
+      "files": "Files",
+      "category": "Category",
+      "product": "Product",
+      "evenement": "Evenement"
+    }
+  }
+}

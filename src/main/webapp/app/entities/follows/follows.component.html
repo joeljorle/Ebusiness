@@ -1,0 +1,95 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ebusinesApp.follows.home.title">Follows</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-follows" [routerLink]="['/follows/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="ebusinesApp.follows.home.createLabel">
+            Create a new Follows
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="follows?.length === 0">
+        <span jhiTranslate="ebusinesApp.follows.home.notFound">No follows found</span>
+    </div>
+    <div class="table-responsive" *ngIf="follows?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="slug"><span jhiTranslate="ebusinesApp.follows.slug">Slug</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="userid"><span jhiTranslate="ebusinesApp.follows.userid">Userid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="categoryid"><span jhiTranslate="ebusinesApp.follows.categoryid">Categoryid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="productid"><span jhiTranslate="ebusinesApp.follows.productid">Productid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="tourid"><span jhiTranslate="ebusinesApp.follows.tourid">Tourid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="evenementid"><span jhiTranslate="ebusinesApp.follows.evenementid">Evenementid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="tourgroupid"><span jhiTranslate="ebusinesApp.follows.tourgroupid">Tourgroupid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="alert"><span jhiTranslate="ebusinesApp.follows.alert">Alert</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="alertEvenement"><span jhiTranslate="ebusinesApp.follows.alertEvenement">Alert Evenement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="followchild"><span jhiTranslate="ebusinesApp.follows.followchild">Followchild</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="createdat"><span jhiTranslate="ebusinesApp.follows.createdat">Createdat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="updatedat"><span jhiTranslate="ebusinesApp.follows.updatedat">Updatedat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="categoryId"><span jhiTranslate="ebusinesApp.follows.category">Category</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="productId"><span jhiTranslate="ebusinesApp.follows.product">Product</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="evenementId"><span jhiTranslate="ebusinesApp.follows.evenement">Evenement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let follows of follows ;trackBy: trackId">
+                <td><a [routerLink]="['/follows', follows.id, 'view' ]">{{follows.id}}</a></td>
+                <td>{{follows.slug}}</td>
+                <td>{{follows.userid}}</td>
+                <td>{{follows.categoryid}}</td>
+                <td>{{follows.productid}}</td>
+                <td>{{follows.tourid}}</td>
+                <td>{{follows.evenementid}}</td>
+                <td>{{follows.tourgroupid}}</td>
+                <td>{{follows.alert}}</td>
+                <td>{{follows.alertEvenement}}</td>
+                <td>{{follows.followchild}}</td>
+                <td>{{follows.createdat | date:'medium'}}</td>
+                <td>{{follows.updatedat | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="follows.categoryId">
+                        <a [routerLink]="['/category', follows.categoryId , 'view' ]" >{{follows.categoryId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="follows.productId">
+                        <a [routerLink]="['/product', follows.productId , 'view' ]" >{{follows.productId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="follows.evenementId">
+                        <a [routerLink]="['/evenement', follows.evenementId , 'view' ]" >{{follows.evenementId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/follows', follows.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/follows', follows.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(follows)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

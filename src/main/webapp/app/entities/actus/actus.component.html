@@ -1,0 +1,72 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ebusinesApp.actus.home.title">Actuses</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-actus" [routerLink]="['/actus/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="ebusinesApp.actus.home.createLabel">
+            Create a new Actus
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="actuses?.length === 0">
+        <span jhiTranslate="ebusinesApp.actus.home.notFound">No actuses found</span>
+    </div>
+    <div class="table-responsive" *ngIf="actuses?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="slug"><span jhiTranslate="ebusinesApp.actus.slug">Slug</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="name"><span jhiTranslate="ebusinesApp.actus.name">Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="abrev"><span jhiTranslate="ebusinesApp.actus.abrev">Abrev</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="userid"><span jhiTranslate="ebusinesApp.actus.userid">Userid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="image"><span jhiTranslate="ebusinesApp.actus.image">Image</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="details"><span jhiTranslate="ebusinesApp.actus.details">Details</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="createdat"><span jhiTranslate="ebusinesApp.actus.createdat">Createdat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="updatedat"><span jhiTranslate="ebusinesApp.actus.updatedat">Updatedat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let actus of actuses ;trackBy: trackId">
+                <td><a [routerLink]="['/actus', actus.id, 'view' ]">{{actus.id}}</a></td>
+                <td>{{actus.slug}}</td>
+                <td>{{actus.name}}</td>
+                <td>{{actus.abrev}}</td>
+                <td>{{actus.userid}}</td>
+                <td>
+                    <a *ngIf="actus.image" (click)="openFile(actus.imageContentType, actus.image)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="actus.image">{{actus.imageContentType}}, {{byteSize(actus.image)}}</span>
+                </td>
+                <td>{{actus.details}}</td>
+                <td>{{actus.createdat | date:'medium'}}</td>
+                <td>{{actus.updatedat | date:'medium'}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/actus', actus.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/actus', actus.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(actus)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

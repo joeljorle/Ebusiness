@@ -1,0 +1,68 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ebusinesApp.paymentmethod.home.title">Paymentmethods</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-paymentmethod" [routerLink]="['/paymentmethod/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="ebusinesApp.paymentmethod.home.createLabel">
+            Create a new Paymentmethod
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="paymentmethods?.length === 0">
+        <span jhiTranslate="ebusinesApp.paymentmethod.home.notFound">No paymentmethods found</span>
+    </div>
+    <div class="table-responsive" *ngIf="paymentmethods?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="slug"><span jhiTranslate="ebusinesApp.paymentmethod.slug">Slug</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="name"><span jhiTranslate="ebusinesApp.paymentmethod.name">Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="logo"><span jhiTranslate="ebusinesApp.paymentmethod.logo">Logo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="logodata"><span jhiTranslate="ebusinesApp.paymentmethod.logodata">Logodata</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="createdat"><span jhiTranslate="ebusinesApp.paymentmethod.createdat">Createdat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="updatedat"><span jhiTranslate="ebusinesApp.paymentmethod.updatedat">Updatedat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let paymentmethod of paymentmethods ;trackBy: trackId">
+                <td><a [routerLink]="['/paymentmethod', paymentmethod.id, 'view' ]">{{paymentmethod.id}}</a></td>
+                <td>{{paymentmethod.slug}}</td>
+                <td>{{paymentmethod.name}}</td>
+                <td>{{paymentmethod.logo}}</td>
+                <td>
+                    <a *ngIf="paymentmethod.logodata" (click)="openFile(paymentmethod.logodataContentType, paymentmethod.logodata)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="paymentmethod.logodata">{{paymentmethod.logodataContentType}}, {{byteSize(paymentmethod.logodata)}}</span>
+                </td>
+                <td>{{paymentmethod.createdat | date:'medium'}}</td>
+                <td>{{paymentmethod.updatedat | date:'medium'}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/paymentmethod', paymentmethod.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/paymentmethod', paymentmethod.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(paymentmethod)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

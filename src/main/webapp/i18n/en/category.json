@@ -1,0 +1,52 @@
+{
+  "ebusinesApp": {
+    "category": {
+      "home": {
+        "title": "Categories",
+        "createLabel": "Create a new Category",
+        "createOrEditLabel": "Create or edit a Category",
+        "notFound": "No Categories found"
+      },
+      "created": "A new Category is created with identifier {{ param }}",
+      "updated": "A Category is updated with identifier {{ param }}",
+      "deleted": "A Category is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Category {{ id }}?"
+      },
+      "detail": {
+        "title": "Category"
+      },
+      "slug": "Slug",
+      "userid": "Userid",
+      "categoryid": "Categoryid",
+      "name": "Name",
+      "route": "Route",
+      "isheader": "Isheader",
+      "isgroup": "Isgroup",
+      "islock": "Islock",
+      "lockdelay": "Lockdelay",
+      "type": "Type",
+      "createdat": "Createdat",
+      "updatedat": "Updatedat",
+      "files": "Files",
+      "categorydetails": "Categorydetails",
+      "location": "Location",
+      "product": "Product",
+      "evenement": "Evenement",
+      "tour": "Tour",
+      "likes": "Likes",
+      "follows": "Follows",
+      "ratings": "Ratings",
+      "reviews": "Reviews",
+      "category": "Category",
+      "tourgroup": "Tourgroup",
+      "tourcategory": "Tourcategory",
+      "booking": "Booking",
+      "cart": "Cart",
+      "paymentcategory": "Paymentcategory",
+      "currency": "Currency",
+      "shipping": "Shipping",
+      "category": "Category"
+    }
+  }
+}

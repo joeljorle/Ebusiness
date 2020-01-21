@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="currency">
+            <h2><span jhiTranslate="ebusinesApp.currency.detail.title">Currency</span> {{currency.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ebusinesApp.currency.slug">Slug</span></dt>
+                <dd>
+                    <span>{{currency.slug}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.currency.name">Name</span></dt>
+                <dd>
+                    <span>{{currency.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.currency.abrev">Abrev</span></dt>
+                <dd>
+                    <span>{{currency.abrev}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.currency.logo">Logo</span></dt>
+                <dd>
+                    <span>{{currency.logo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.currency.logodata">Logodata</span></dt>
+                <dd>
+                    <div *ngIf="currency.logodata">
+                        <a (click)="openFile(currency.logodataContentType!, currency.logodata)" jhiTranslate="entity.action.open">open</a>
+                        {{currency.logodataContentType}}, {{byteSize(currency.logodata)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.currency.createdat">Createdat</span></dt>
+                <dd>
+                    <span>{{currency.createdat}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.currency.updatedat">Updatedat</span></dt>
+                <dd>
+                    <span>{{currency.updatedat}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.currency.category">Category</span></dt>
+                <dd>
+                    <div *ngIf="currency.categoryId">
+                        <a [routerLink]="['/category', currency.categoryId, 'view']">{{currency.categoryId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/currency', currency.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

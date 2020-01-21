@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ebusinesApp.reviews.home.title">Reviews</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-reviews" [routerLink]="['/reviews/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="ebusinesApp.reviews.home.createLabel">
+            Create a new Reviews
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="reviews?.length === 0">
+        <span jhiTranslate="ebusinesApp.reviews.home.notFound">No reviews found</span>
+    </div>
+    <div class="table-responsive" *ngIf="reviews?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="slug"><span jhiTranslate="ebusinesApp.reviews.slug">Slug</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="userid"><span jhiTranslate="ebusinesApp.reviews.userid">Userid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="categoryid"><span jhiTranslate="ebusinesApp.reviews.categoryid">Categoryid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="productid"><span jhiTranslate="ebusinesApp.reviews.productid">Productid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="tourid"><span jhiTranslate="ebusinesApp.reviews.tourid">Tourid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="tourgroupid"><span jhiTranslate="ebusinesApp.reviews.tourgroupid">Tourgroupid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="evenementid"><span jhiTranslate="ebusinesApp.reviews.evenementid">Evenementid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="text"><span jhiTranslate="ebusinesApp.reviews.text">Text</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="createdat"><span jhiTranslate="ebusinesApp.reviews.createdat">Createdat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="updatedat"><span jhiTranslate="ebusinesApp.reviews.updatedat">Updatedat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="categoryId"><span jhiTranslate="ebusinesApp.reviews.category">Category</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="productId"><span jhiTranslate="ebusinesApp.reviews.product">Product</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="evenementId"><span jhiTranslate="ebusinesApp.reviews.evenement">Evenement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let reviews of reviews ;trackBy: trackId">
+                <td><a [routerLink]="['/reviews', reviews.id, 'view' ]">{{reviews.id}}</a></td>
+                <td>{{reviews.slug}}</td>
+                <td>{{reviews.userid}}</td>
+                <td>{{reviews.categoryid}}</td>
+                <td>{{reviews.productid}}</td>
+                <td>{{reviews.tourid}}</td>
+                <td>{{reviews.tourgroupid}}</td>
+                <td>{{reviews.evenementid}}</td>
+                <td>{{reviews.text}}</td>
+                <td>{{reviews.createdat | date:'medium'}}</td>
+                <td>{{reviews.updatedat | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="reviews.categoryId">
+                        <a [routerLink]="['/category', reviews.categoryId , 'view' ]" >{{reviews.categoryId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="reviews.productId">
+                        <a [routerLink]="['/product', reviews.productId , 'view' ]" >{{reviews.productId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="reviews.evenementId">
+                        <a [routerLink]="['/evenement', reviews.evenementId , 'view' ]" >{{reviews.evenementId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/reviews', reviews.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/reviews', reviews.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(reviews)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

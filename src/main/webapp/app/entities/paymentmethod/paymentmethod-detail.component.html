@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="paymentmethod">
+            <h2><span jhiTranslate="ebusinesApp.paymentmethod.detail.title">Paymentmethod</span> {{paymentmethod.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ebusinesApp.paymentmethod.slug">Slug</span></dt>
+                <dd>
+                    <span>{{paymentmethod.slug}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.paymentmethod.name">Name</span></dt>
+                <dd>
+                    <span>{{paymentmethod.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.paymentmethod.logo">Logo</span></dt>
+                <dd>
+                    <span>{{paymentmethod.logo}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.paymentmethod.logodata">Logodata</span></dt>
+                <dd>
+                    <div *ngIf="paymentmethod.logodata">
+                        <a (click)="openFile(paymentmethod.logodataContentType!, paymentmethod.logodata)" jhiTranslate="entity.action.open">open</a>
+                        {{paymentmethod.logodataContentType}}, {{byteSize(paymentmethod.logodata)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.paymentmethod.createdat">Createdat</span></dt>
+                <dd>
+                    <span>{{paymentmethod.createdat}}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinesApp.paymentmethod.updatedat">Updatedat</span></dt>
+                <dd>
+                    <span>{{paymentmethod.updatedat}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/paymentmethod', paymentmethod.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
