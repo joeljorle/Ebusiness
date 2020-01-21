@@ -1,0 +1,634 @@
+
+entity Profile {
+  slug String  required 
+  userid Integer
+  name String
+  islock Boolean
+  lockdelay Instant
+  about TextBlob
+  fullname String
+  defaultlanguage String
+  postalcode String
+  phones String
+  website String
+  facebook String
+  twitter String
+  gplus String
+  linkedin String
+  instagram String
+  othercontacts TextBlob
+  otherfields TextBlob
+  createdat Instant
+  updatedat Instant
+
+}
+
+entity Tour {
+  categoryid Integer
+  userid Integer
+  productid Integer
+  evenementid Integer
+  slug String  required
+  name String
+  islock Boolean
+  lockdelay Instant
+  about TextBlob
+  title String
+  tag String
+  tagcolor Tagcolor
+  postalcode String
+  phones String
+  website String
+  facebook String
+  twitter String
+  gplus String
+  linkedin String
+  instagram String
+  email String
+  url String //link to view the virtual tour
+  position Integer //position in tour group
+  othercontacts TextBlob
+  otherfields TextBlob
+  createdat Instant
+  updatedat Instant
+}
+
+entity Tourcategory {
+  categoryid Integer
+  productid Integer
+  evenementid Integer
+  slug String  required
+  name String
+  islock Boolean
+  lockdelay Instant
+  about TextBlob
+  title String
+  tag String
+  tagcolor Tagcolor
+  postalcode String
+  phones String
+  website String
+  facebook String
+  twitter String
+  gplus String
+  linkedin String
+  instagram String
+  email String
+  othercontacts TextBlob
+  otherfields TextBlob
+  createdat Instant
+  updatedat Instant
+}
+
+entity Tourgroup {
+
+  categoryid Integer
+  productid Integer
+  evenementid Integer
+  slug String  required
+  name String
+  islock Boolean
+  lockdelay Instant
+  about TextBlob
+  title String
+  tag String
+  tagcolor Tagcolor
+  postalcode String
+  phones String
+  website String
+  facebook String
+  twitter String
+  gplus String
+  linkedin String
+  instagram String
+  email String
+   position Integer //position in tour group
+  othercontacts TextBlob
+  otherfields TextBlob
+  createdat Instant
+  updatedat Instant
+}
+
+
+entity Evenement {
+
+  categoryid Integer
+  userid Integer
+  productid Integer
+  slug String  required
+  name String
+  islock Boolean
+  lockdelay Instant
+  islimited Boolean
+  limiteddelay Instant
+  limitedbooking Integer
+  startdate Instant
+  enddate Instant
+  about TextBlob
+  title String
+  tag String
+  tagcolor Tagcolor
+  postalcode String
+  phones String
+  website String
+  facebook String
+  twitter String
+  gplus String
+  linkedin String
+  instagram String
+  email String
+  url String
+  othercontacts TextBlob
+  otherfields TextBlob
+  createdat Instant
+  updatedat Instant
+}
+
+entity Product {
+  categoryid Integer required
+  slug String  required
+  name String
+  islock Boolean
+  lockdelay Instant
+  type Type
+  createdat Instant
+  updatedat Instant
+}
+
+entity Productdetails
+{
+  about TextBlob
+  title String
+  tag String
+  tagcolor Tagcolor
+  defaultlanguage String
+  postalcode String
+  phones String
+  website String
+  email String
+  facebook String
+  twitter String
+  gplus String
+  linkedin String
+  instagram String
+  opentimes TextBlob
+  othercontacts TextBlob
+  otherfields TextBlob
+  sizes TextBlob
+  colors TextBlob
+  models  TextBlob
+  shippingprice Double
+  serialnumber String
+
+  //Settings
+
+  tax Integer
+  stock Integer
+  price Double
+  maxqty Integer
+  availableat Instant
+  lockactiondelay Instant
+  lockaction Boolean
+  expireat Instant
+
+}
+
+entity Category {
+  slug String  required
+  userid Integer
+  categoryid Integer //parent
+  name String
+  route String // host link to view the welcome page of this space
+  isheader Boolean
+  isgroup Boolean
+  islock Boolean
+  lockdelay Instant
+  type Type
+  createdat Instant
+  updatedat Instant
+}
+
+entity Categorydetails
+{ 
+  about TextBlob
+  title String
+  tag String
+  tagcolor Tagcolor
+  defaultlanguage String
+  postalcode String
+  phones String
+  website String
+  email String
+  facebook String
+  twitter String
+  gplus String
+  linkedin String
+  instagram String
+  opentimes TextBlob
+  othercontacts TextBlob
+  otherfields TextBlob
+
+  //Settings
+  // general means : for all childs
+  generalabout Boolean
+  generaltax Integer  //for all subspace and products
+  //for all products in this space
+  generalstock Integer
+  generalprice Double
+  generalmaxstock Integer //stock limit
+
+  generaltag String
+  generaltagcolor Tagcolor
+
+  generalhidden Boolean
+  generalhiddendelay Instant
+
+  generallock Boolean
+  generallockdelay Instant
+  generalexpire Boolean
+  generalexpiredelay Instant
+
+  childsname   String
+  productsname String
+
+}
+
+entity Files{
+slug String  required
+userid Integer
+categoryid Integer
+productid Integer
+tourid Integer
+tourgroupid Integer
+tourcategoryid Integer
+evenementid Integer
+islogoimg Boolean
+isprofileimg Boolean
+iscoverimg Boolean
+issliderimg Boolean
+isotherimg Boolean
+createdat Instant
+updatedat Instant
+}
+
+entity Follows{
+slug String  required
+userid Integer required
+categoryid Integer
+productid Integer
+tourid Integer
+evenementid Integer
+tourgroupid Integer
+alert Boolean
+alertEvenement Boolean
+followchild Boolean
+createdat Instant
+updatedat Instant
+}
+
+entity Likes{
+slug String  required
+userid Integer required
+categoryid Integer
+productid Integer
+tourid Integer
+tourgroupid Integer
+evenementid Integer
+createdat Instant
+updatedat Instant
+}
+
+entity Ratings{
+slug String  required
+userid Integer required
+categoryid Integer
+productid Integer
+tourid Integer
+tourgroupid Integer
+evenementid Integer
+value Integer min(0)
+createdat Instant
+updatedat Instant
+}
+
+entity Reviews{
+slug String  required
+userid Integer required
+categoryid Integer
+productid Integer
+tourid Integer
+tourgroupid Integer
+evenementid Integer
+text String
+createdat Instant
+updatedat Instant
+}
+
+
+
+entity Paymentmethod{
+slug  String  required
+name String
+logo String
+logodata Blob
+createdat Instant
+updatedat Instant
+}
+
+entity Paymentcategory{
+  paymentmethodid Integer
+  categoryid Integer required
+  url String
+  apiurl String
+  apikey String
+  key2 String
+  key3 String
+  key4 String
+  phonenumber String
+  chanel String
+  code String
+  username String
+  password String
+  createdat Instant
+  updatedat Instant
+}
+
+entity Paymentaction{
+slug String required
+userid Integer required
+paymentmethodid Integer
+evenementid Integer
+productid Integer
+categoryid Integer
+expireat Instant
+code   String
+code1   String
+code2   String
+amount Double
+createdat Instant
+updatedat Instant
+}
+
+entity Cart{
+slug  String
+categoryid Integer
+userid Integer
+totalprice Double
+createdat Instant
+updatedat Instant
+}
+
+entity Cartproducts{
+cartid Integer required
+productid Integer required
+cartqty Integer min(0)
+}
+
+entity Booking{
+slug String  required
+userid Integer
+tourid Integer
+tourgroupid Integer
+categoryid Integer
+productid Integer
+evenementid Integer
+createdat Instant
+updatedat Instant
+}
+
+
+entity Bookingdetails
+{
+  /* currency */
+subtotal Double
+total Double
+tax Integer
+shipping Double
+shippingstate Shippingstate
+about String
+couponconde String
+qrcode TextBlob
+code String
+url String
+token String
+paymentmode String
+startdate Instant
+enddate Instant
+enventstate Evenementstate
+places Integer
+}
+
+entity Bookingproducts{
+bookingid Integer required
+productid Integer required
+bookingqty Integer min(0)
+}
+
+entity Bookingview{
+title String
+subtitle String
+logo String
+logodata Blob
+bg String
+bgdata Blob
+} 
+
+entity Location{
+country String
+town  String
+region String
+locality String
+zone String
+lattitude String
+longitude String
+createdat Instant
+updatedat Instant
+} 
+
+entity Shipping 
+{
+ name String
+ price Double
+ createdat Instant
+updatedat Instant
+}
+
+entity Notification{
+slug String  required
+userid Integer required //target
+urltarget String //target url
+message String
+title String
+logo String
+logodata Blob
+isview Boolean
+notificationmodel Notificationmodel
+createdat Instant
+updatedat Instant
+}
+
+entity Currency{
+  slug String  required
+  name String
+  abrev String
+  logo TextBlob
+  logodata Blob
+  createdat Instant
+updatedat Instant
+}
+
+entity Cherche{
+slug String required
+name String
+abrev String
+userid String
+details String
+createdat Instant
+updatedat Instant
+}
+
+entity Actus{
+slug String required
+name String
+abrev String
+userid String
+image Blob
+details String
+createdat Instant
+updatedat Instant
+}
+
+enum Type {
+  SHOP,
+  FOOD,
+  HOUSE,
+  SIMPLE,
+  EVENEMENT
+}
+
+enum Tagcolor {
+  RED,
+  BLUE,
+  GREEN,
+  YELLOW,
+  BLACK
+}
+
+enum Notificationmodel {
+  SMS,
+  PUSH,
+  INTERNAL
+}
+
+enum Shippingstate {
+  COMPLETED,
+  SUSPEND,
+  PENDING
+}
+
+enum Evenementstate {
+  COMPLETED,
+  SUSPEND,
+  PENDING
+}
+
+
+relationship OneToOne {
+  Profile to User
+  Category{files} to Files
+  Product{files}to Files
+  Evenement{files} to Files
+  Tour{files(tourid)} to Files
+  Tourgroup{files(tourgroupid)} to Files
+  Tourcategory{files(tourcategoryid)} to Files
+ 
+  Category{categorydetails} to Categorydetails
+  Product{productdetails} to Productdetails
+  Product{currency} to Currency
+  Evenement{currency} to Currency
+  Tour{currency} to Currency
+  Booking{currency} to Currency
+  Cart{currency} to Currency
+  Booking{bookingview} to Bookingview
+  Booking{bookingdetails} to Bookingdetails
+  
+  Category to Location
+  Product to Location
+  Evenement to Location
+  Profile to Location
+  Tour to Location
+  Tourgroup to Location
+  
+}
+
+/**
+ * One to many relationship.
+ */
+relationship OneToMany {
+ /**
+ * category to many relationship.
+ */
+ Category to Product
+ Category to Evenement 
+ Category to Tour
+ Category to Likes
+ Category to Follows
+ Category to Ratings
+ Category to Reviews
+ Category to Category
+ Category to Tourgroup 
+ Category to Tourcategory 
+ Category to Booking
+ Category to Cart 
+ Category to Paymentcategory
+ Category to Currency 
+ Category to Shipping 
+
+ /**
+ * product to many relationship.
+ */
+ Product to Tour
+ Product to Evenement
+ Product to Tourgroup
+ Product to Tourcategory
+ Product to Likes
+ Product to Follows
+ Product to Ratings
+ Product to Reviews
+ Product to Paymentaction
+
+  /**
+ * Evenement to many relationship.
+ */
+ Evenement to Tour
+ Evenement to Tourgroup
+ Evenement to Tourcategory
+ Evenement to Likes
+ Evenement to Ratings
+ Evenement to Reviews
+ Evenement to Follows
+ Evenement to Booking
+ Evenement to Paymentaction
+
+     /**
+ * Payments to many relationship.
+ */
+  Paymentmethod to Paymentaction  
+  Paymentmethod to Paymentcategory 
+
+  Cart to Cartproducts
+  Booking to Bookingproducts
+
+}
+
+
+
+
+dto all with mapstruct
+service all with serviceClass 
+paginate all with infinite-scroll 
+        
+ 
+
+
+
