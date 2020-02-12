@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="currency">
+            <h2><span>Currency</span> {{ currency.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Slug</span></dt>
+                <dd>
+                    <span>{{ currency.slug }}</span>
+                </dd>
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{ currency.name }}</span>
+                </dd>
+                <dt><span>Abrev</span></dt>
+                <dd>
+                    <span>{{ currency.abrev }}</span>
+                </dd>
+                <dt><span>Logo</span></dt>
+                <dd>
+                    <span>{{ currency.logo }}</span>
+                </dd>
+                <dt><span>Logodata</span></dt>
+                <dd>
+                    <div *ngIf="currency.logodata">
+                        <a (click)="openFile(currency.logodataContentType!, currency.logodata)">open</a>
+                        {{ currency.logodataContentType }}, {{ byteSize(currency.logodata) }}
+                    </div>
+                </dd>
+                <dt><span>Createdat</span></dt>
+                <dd>
+                    <span>{{ currency.createdat }}</span>
+                </dd>
+                <dt><span>Updatedat</span></dt>
+                <dd>
+                    <span>{{ currency.updatedat }}</span>
+                </dd>
+                <dt><span>Category</span></dt>
+                <dd>
+                    <div *ngIf="currency.categoryId">
+                        <a [routerLink]="['/category', currency.categoryId, 'view']">{{ currency.categoryId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/currency', currency.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

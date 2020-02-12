@@ -1,0 +1,130 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-bookingdetails-heading">Create or edit a Bookingdetails</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_subtotal">Subtotal</label>
+                    <input type="number" class="form-control" name="subtotal" id="field_subtotal"
+                           formControlName="subtotal"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_total">Total</label>
+                    <input type="number" class="form-control" name="total" id="field_total"
+                           formControlName="total"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tax">Tax</label>
+                    <input type="number" class="form-control" name="tax" id="field_tax"
+                           formControlName="tax"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_shipping">Shipping</label>
+                    <input type="number" class="form-control" name="shipping" id="field_shipping"
+                           formControlName="shipping"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_shippingstate">Shippingstate</label>
+                    <select class="form-control" name="shippingstate" formControlName="shippingstate" id="field_shippingstate">
+                        <option value="COMPLETED">COMPLETED</option>
+                        <option value="SUSPEND">SUSPEND</option>
+                        <option value="PENDING">PENDING</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_about">About</label>
+                    <input type="text" class="form-control" name="about" id="field_about"
+                           formControlName="about"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_couponconde">Couponconde</label>
+                    <input type="text" class="form-control" name="couponconde" id="field_couponconde"
+                           formControlName="couponconde"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_qrcode">Qrcode</label>
+                    <textarea class="form-control" name="qrcode" id="field_qrcode"
+                              formControlName="qrcode"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_code">Code</label>
+                    <input type="text" class="form-control" name="code" id="field_code"
+                           formControlName="code"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_url">Url</label>
+                    <input type="text" class="form-control" name="url" id="field_url"
+                           formControlName="url"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_token">Token</label>
+                    <input type="text" class="form-control" name="token" id="field_token"
+                           formControlName="token"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_paymentmode">Paymentmode</label>
+                    <input type="text" class="form-control" name="paymentmode" id="field_paymentmode"
+                           formControlName="paymentmode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_startdate">Startdate</label>
+                    <div class="d-flex">
+                        <input id="field_startdate" type="datetime-local" class="form-control" name="startdate" formControlName="startdate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_enddate">Enddate</label>
+                    <div class="d-flex">
+                        <input id="field_enddate" type="datetime-local" class="form-control" name="enddate" formControlName="enddate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_enventstate">Enventstate</label>
+                    <select class="form-control" name="enventstate" formControlName="enventstate" id="field_enventstate">
+                        <option value="COMPLETED">COMPLETED</option>
+                        <option value="SUSPEND">SUSPEND</option>
+                        <option value="PENDING">PENDING</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_places">Places</label>
+                    <input type="number" class="form-control" name="places" id="field_places"
+                           formControlName="places"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

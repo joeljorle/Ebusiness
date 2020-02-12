@@ -1,0 +1,119 @@
+<div>
+    <h2 id="page-heading">
+        <span>Productdetails</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-productdetails" [routerLink]="['/productdetails/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Productdetails
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="productdetails?.length === 0">
+        <span>No productdetails found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="productdetails?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="about"><span>About</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="title"><span>Title</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tag"><span>Tag</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tagcolor"><span>Tagcolor</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="defaultlanguage"><span>Defaultlanguage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="postalcode"><span>Postalcode</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="phones"><span>Phones</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="website"><span>Website</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="email"><span>Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="facebook"><span>Facebook</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="twitter"><span>Twitter</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="gplus"><span>Gplus</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="linkedin"><span>Linkedin</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="instagram"><span>Instagram</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="opentimes"><span>Opentimes</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="othercontacts"><span>Othercontacts</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="otherfields"><span>Otherfields</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sizes"><span>Sizes</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="colors"><span>Colors</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="models"><span>Models</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shippingprice"><span>Shippingprice</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="serialnumber"><span>Serialnumber</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tax"><span>Tax</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="stock"><span>Stock</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="price"><span>Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="maxqty"><span>Maxqty</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="availableat"><span>Availableat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lockactiondelay"><span>Lockactiondelay</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lockaction"><span>Lockaction</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="expireat"><span>Expireat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let productdetails of productdetails ;trackBy: trackId">
+                    <td><a [routerLink]="['/productdetails', productdetails.id, 'view']">{{ productdetails.id }}</a></td>
+                    <td>{{ productdetails.about }}</td>
+                    <td>{{ productdetails.title }}</td>
+                    <td>{{ productdetails.tag }}</td>
+                    <td>{{ productdetails.tagcolor }}</td>
+                    <td>{{ productdetails.defaultlanguage }}</td>
+                    <td>{{ productdetails.postalcode }}</td>
+                    <td>{{ productdetails.phones }}</td>
+                    <td>{{ productdetails.website }}</td>
+                    <td>{{ productdetails.email }}</td>
+                    <td>{{ productdetails.facebook }}</td>
+                    <td>{{ productdetails.twitter }}</td>
+                    <td>{{ productdetails.gplus }}</td>
+                    <td>{{ productdetails.linkedin }}</td>
+                    <td>{{ productdetails.instagram }}</td>
+                    <td>{{ productdetails.opentimes }}</td>
+                    <td>{{ productdetails.othercontacts }}</td>
+                    <td>{{ productdetails.otherfields }}</td>
+                    <td>{{ productdetails.sizes }}</td>
+                    <td>{{ productdetails.colors }}</td>
+                    <td>{{ productdetails.models }}</td>
+                    <td>{{ productdetails.shippingprice }}</td>
+                    <td>{{ productdetails.serialnumber }}</td>
+                    <td>{{ productdetails.tax }}</td>
+                    <td>{{ productdetails.stock }}</td>
+                    <td>{{ productdetails.price }}</td>
+                    <td>{{ productdetails.maxqty }}</td>
+                    <td>{{ productdetails.availableat | date:'medium' }}</td>
+                    <td>{{ productdetails.lockactiondelay | date:'medium' }}</td>
+                    <td>{{ productdetails.lockaction }}</td>
+                    <td>{{ productdetails.expireat | date:'medium' }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/productdetails', productdetails.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/productdetails', productdetails.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(productdetails)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="paymentaction">
+            <h2><span>Paymentaction</span> {{ paymentaction.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Slug</span></dt>
+                <dd>
+                    <span>{{ paymentaction.slug }}</span>
+                </dd>
+                <dt><span>Userid</span></dt>
+                <dd>
+                    <span>{{ paymentaction.userid }}</span>
+                </dd>
+                <dt><span>Paymentmethodid</span></dt>
+                <dd>
+                    <span>{{ paymentaction.paymentmethodid }}</span>
+                </dd>
+                <dt><span>Evenementid</span></dt>
+                <dd>
+                    <span>{{ paymentaction.evenementid }}</span>
+                </dd>
+                <dt><span>Productid</span></dt>
+                <dd>
+                    <span>{{ paymentaction.productid }}</span>
+                </dd>
+                <dt><span>Categoryid</span></dt>
+                <dd>
+                    <span>{{ paymentaction.categoryid }}</span>
+                </dd>
+                <dt><span>Expireat</span></dt>
+                <dd>
+                    <span>{{ paymentaction.expireat }}</span>
+                </dd>
+                <dt><span>Code</span></dt>
+                <dd>
+                    <span>{{ paymentaction.code }}</span>
+                </dd>
+                <dt><span>Code 1</span></dt>
+                <dd>
+                    <span>{{ paymentaction.code1 }}</span>
+                </dd>
+                <dt><span>Code 2</span></dt>
+                <dd>
+                    <span>{{ paymentaction.code2 }}</span>
+                </dd>
+                <dt><span>Amount</span></dt>
+                <dd>
+                    <span>{{ paymentaction.amount }}</span>
+                </dd>
+                <dt><span>Createdat</span></dt>
+                <dd>
+                    <span>{{ paymentaction.createdat }}</span>
+                </dd>
+                <dt><span>Updatedat</span></dt>
+                <dd>
+                    <span>{{ paymentaction.updatedat }}</span>
+                </dd>
+                <dt><span>Product</span></dt>
+                <dd>
+                    <div *ngIf="paymentaction.productId">
+                        <a [routerLink]="['/product', paymentaction.productId, 'view']">{{ paymentaction.productId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Evenement</span></dt>
+                <dd>
+                    <div *ngIf="paymentaction.evenementId">
+                        <a [routerLink]="['/evenement', paymentaction.evenementId, 'view']">{{ paymentaction.evenementId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Paymentmethod</span></dt>
+                <dd>
+                    <div *ngIf="paymentaction.paymentmethodId">
+                        <a [routerLink]="['/paymentmethod', paymentaction.paymentmethodId, 'view']">{{ paymentaction.paymentmethodId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/paymentaction', paymentaction.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

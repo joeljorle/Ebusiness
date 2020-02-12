@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span>Bookingdetails</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-bookingdetails" [routerLink]="['/bookingdetails/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Bookingdetails
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="bookingdetails?.length === 0">
+        <span>No bookingdetails found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="bookingdetails?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subtotal"><span>Subtotal</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="total"><span>Total</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tax"><span>Tax</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shipping"><span>Shipping</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shippingstate"><span>Shippingstate</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="about"><span>About</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="couponconde"><span>Couponconde</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="qrcode"><span>Qrcode</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code"><span>Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="url"><span>Url</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="token"><span>Token</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentmode"><span>Paymentmode</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="startdate"><span>Startdate</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="enddate"><span>Enddate</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="enventstate"><span>Enventstate</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="places"><span>Places</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let bookingdetails of bookingdetails ;trackBy: trackId">
+                    <td><a [routerLink]="['/bookingdetails', bookingdetails.id, 'view']">{{ bookingdetails.id }}</a></td>
+                    <td>{{ bookingdetails.subtotal }}</td>
+                    <td>{{ bookingdetails.total }}</td>
+                    <td>{{ bookingdetails.tax }}</td>
+                    <td>{{ bookingdetails.shipping }}</td>
+                    <td>{{ bookingdetails.shippingstate }}</td>
+                    <td>{{ bookingdetails.about }}</td>
+                    <td>{{ bookingdetails.couponconde }}</td>
+                    <td>{{ bookingdetails.qrcode }}</td>
+                    <td>{{ bookingdetails.code }}</td>
+                    <td>{{ bookingdetails.url }}</td>
+                    <td>{{ bookingdetails.token }}</td>
+                    <td>{{ bookingdetails.paymentmode }}</td>
+                    <td>{{ bookingdetails.startdate | date:'medium' }}</td>
+                    <td>{{ bookingdetails.enddate | date:'medium' }}</td>
+                    <td>{{ bookingdetails.enventstate }}</td>
+                    <td>{{ bookingdetails.places }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/bookingdetails', bookingdetails.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/bookingdetails', bookingdetails.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(bookingdetails)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

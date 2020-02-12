@@ -1,0 +1,149 @@
+<div>
+    <h2 id="page-heading">
+        <span>Evenements</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-evenement" [routerLink]="['/evenement/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Evenement
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="evenements?.length === 0">
+        <span>No evenements found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="evenements?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoryid"><span>Categoryid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userid"><span>Userid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productid"><span>Productid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="slug"><span>Slug</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="name"><span>Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="islock"><span>Islock</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lockdelay"><span>Lockdelay</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="islimited"><span>Islimited</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="limiteddelay"><span>Limiteddelay</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="limitedbooking"><span>Limitedbooking</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="startdate"><span>Startdate</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="enddate"><span>Enddate</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="about"><span>About</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="title"><span>Title</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tag"><span>Tag</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tagcolor"><span>Tagcolor</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="postalcode"><span>Postalcode</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="phones"><span>Phones</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="website"><span>Website</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="facebook"><span>Facebook</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="twitter"><span>Twitter</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="gplus"><span>Gplus</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="linkedin"><span>Linkedin</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="instagram"><span>Instagram</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="email"><span>Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="url"><span>Url</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="othercontacts"><span>Othercontacts</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="otherfields"><span>Otherfields</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdat"><span>Createdat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="updatedat"><span>Updatedat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="filesId"><span>Files</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="currencyId"><span>Currency</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="locationId"><span>Location</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoryId"><span>Category</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productId"><span>Product</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let evenement of evenements ;trackBy: trackId">
+                    <td><a [routerLink]="['/evenement', evenement.id, 'view']">{{ evenement.id }}</a></td>
+                    <td>{{ evenement.categoryid }}</td>
+                    <td>{{ evenement.userid }}</td>
+                    <td>{{ evenement.productid }}</td>
+                    <td>{{ evenement.slug }}</td>
+                    <td>{{ evenement.name }}</td>
+                    <td>{{ evenement.islock }}</td>
+                    <td>{{ evenement.lockdelay | date:'medium' }}</td>
+                    <td>{{ evenement.islimited }}</td>
+                    <td>{{ evenement.limiteddelay | date:'medium' }}</td>
+                    <td>{{ evenement.limitedbooking }}</td>
+                    <td>{{ evenement.startdate | date:'medium' }}</td>
+                    <td>{{ evenement.enddate | date:'medium' }}</td>
+                    <td>{{ evenement.about }}</td>
+                    <td>{{ evenement.title }}</td>
+                    <td>{{ evenement.tag }}</td>
+                    <td>{{ evenement.tagcolor }}</td>
+                    <td>{{ evenement.postalcode }}</td>
+                    <td>{{ evenement.phones }}</td>
+                    <td>{{ evenement.website }}</td>
+                    <td>{{ evenement.facebook }}</td>
+                    <td>{{ evenement.twitter }}</td>
+                    <td>{{ evenement.gplus }}</td>
+                    <td>{{ evenement.linkedin }}</td>
+                    <td>{{ evenement.instagram }}</td>
+                    <td>{{ evenement.email }}</td>
+                    <td>{{ evenement.url }}</td>
+                    <td>{{ evenement.othercontacts }}</td>
+                    <td>{{ evenement.otherfields }}</td>
+                    <td>{{ evenement.createdat | date:'medium' }}</td>
+                    <td>{{ evenement.updatedat | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="evenement.filesId">
+                            <a [routerLink]="['/files', evenement.filesId , 'view']" >{{ evenement.filesId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="evenement.currencyId">
+                            <a [routerLink]="['/currency', evenement.currencyId , 'view']" >{{ evenement.currencyId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="evenement.locationId">
+                            <a [routerLink]="['/location', evenement.locationId , 'view']" >{{ evenement.locationId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="evenement.categoryId">
+                            <a [routerLink]="['/category', evenement.categoryId , 'view']" >{{ evenement.categoryId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="evenement.productId">
+                            <a [routerLink]="['/product', evenement.productId , 'view']" >{{ evenement.productId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/evenement', evenement.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/evenement', evenement.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(evenement)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

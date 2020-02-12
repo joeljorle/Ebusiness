@@ -1,0 +1,97 @@
+<div>
+    <h2 id="page-heading">
+        <span>Reviews</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-reviews" [routerLink]="['/reviews/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Reviews
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="reviews?.length === 0">
+        <span>No reviews found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="reviews?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="slug"><span>Slug</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userid"><span>Userid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoryid"><span>Categoryid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productid"><span>Productid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tourid"><span>Tourid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tourgroupid"><span>Tourgroupid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="evenementid"><span>Evenementid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="text"><span>Text</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdat"><span>Createdat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="updatedat"><span>Updatedat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoryId"><span>Category</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productId"><span>Product</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="evenementId"><span>Evenement</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let reviews of reviews ;trackBy: trackId">
+                    <td><a [routerLink]="['/reviews', reviews.id, 'view']">{{ reviews.id }}</a></td>
+                    <td>{{ reviews.slug }}</td>
+                    <td>{{ reviews.userid }}</td>
+                    <td>{{ reviews.categoryid }}</td>
+                    <td>{{ reviews.productid }}</td>
+                    <td>{{ reviews.tourid }}</td>
+                    <td>{{ reviews.tourgroupid }}</td>
+                    <td>{{ reviews.evenementid }}</td>
+                    <td>{{ reviews.text }}</td>
+                    <td>{{ reviews.createdat | date:'medium' }}</td>
+                    <td>{{ reviews.updatedat | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="reviews.categoryId">
+                            <a [routerLink]="['/category', reviews.categoryId , 'view']" >{{ reviews.categoryId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="reviews.productId">
+                            <a [routerLink]="['/product', reviews.productId , 'view']" >{{ reviews.productId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="reviews.evenementId">
+                            <a [routerLink]="['/evenement', reviews.evenementId , 'view']" >{{ reviews.evenementId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/reviews', reviews.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/reviews', reviews.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(reviews)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

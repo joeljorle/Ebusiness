@@ -1,0 +1,103 @@
+<div>
+    <h2 id="page-heading">
+        <span>Paymentactions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-paymentaction" [routerLink]="['/paymentaction/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Paymentaction
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="paymentactions?.length === 0">
+        <span>No paymentactions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="paymentactions?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="slug"><span>Slug</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userid"><span>Userid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentmethodid"><span>Paymentmethodid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="evenementid"><span>Evenementid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productid"><span>Productid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoryid"><span>Categoryid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="expireat"><span>Expireat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code"><span>Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code1"><span>Code 1</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code2"><span>Code 2</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="amount"><span>Amount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdat"><span>Createdat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="updatedat"><span>Updatedat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productId"><span>Product</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="evenementId"><span>Evenement</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentmethodId"><span>Paymentmethod</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let paymentaction of paymentactions ;trackBy: trackId">
+                    <td><a [routerLink]="['/paymentaction', paymentaction.id, 'view']">{{ paymentaction.id }}</a></td>
+                    <td>{{ paymentaction.slug }}</td>
+                    <td>{{ paymentaction.userid }}</td>
+                    <td>{{ paymentaction.paymentmethodid }}</td>
+                    <td>{{ paymentaction.evenementid }}</td>
+                    <td>{{ paymentaction.productid }}</td>
+                    <td>{{ paymentaction.categoryid }}</td>
+                    <td>{{ paymentaction.expireat | date:'medium' }}</td>
+                    <td>{{ paymentaction.code }}</td>
+                    <td>{{ paymentaction.code1 }}</td>
+                    <td>{{ paymentaction.code2 }}</td>
+                    <td>{{ paymentaction.amount }}</td>
+                    <td>{{ paymentaction.createdat | date:'medium' }}</td>
+                    <td>{{ paymentaction.updatedat | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="paymentaction.productId">
+                            <a [routerLink]="['/product', paymentaction.productId , 'view']" >{{ paymentaction.productId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="paymentaction.evenementId">
+                            <a [routerLink]="['/evenement', paymentaction.evenementId , 'view']" >{{ paymentaction.evenementId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="paymentaction.paymentmethodId">
+                            <a [routerLink]="['/paymentmethod', paymentaction.paymentmethodId , 'view']" >{{ paymentaction.paymentmethodId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/paymentaction', paymentaction.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/paymentaction', paymentaction.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(paymentaction)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

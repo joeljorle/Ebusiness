@@ -1,0 +1,146 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productdetails">
+            <h2><span>Productdetails</span> {{ productdetails.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>About</span></dt>
+                <dd>
+                    <span>{{ productdetails.about }}</span>
+                </dd>
+                <dt><span>Title</span></dt>
+                <dd>
+                    <span>{{ productdetails.title }}</span>
+                </dd>
+                <dt><span>Tag</span></dt>
+                <dd>
+                    <span>{{ productdetails.tag }}</span>
+                </dd>
+                <dt><span>Tagcolor</span></dt>
+                <dd>
+                    <span>{{ productdetails.tagcolor }}</span>
+                </dd>
+                <dt><span>Defaultlanguage</span></dt>
+                <dd>
+                    <span>{{ productdetails.defaultlanguage }}</span>
+                </dd>
+                <dt><span>Postalcode</span></dt>
+                <dd>
+                    <span>{{ productdetails.postalcode }}</span>
+                </dd>
+                <dt><span>Phones</span></dt>
+                <dd>
+                    <span>{{ productdetails.phones }}</span>
+                </dd>
+                <dt><span>Website</span></dt>
+                <dd>
+                    <span>{{ productdetails.website }}</span>
+                </dd>
+                <dt><span>Email</span></dt>
+                <dd>
+                    <span>{{ productdetails.email }}</span>
+                </dd>
+                <dt><span>Facebook</span></dt>
+                <dd>
+                    <span>{{ productdetails.facebook }}</span>
+                </dd>
+                <dt><span>Twitter</span></dt>
+                <dd>
+                    <span>{{ productdetails.twitter }}</span>
+                </dd>
+                <dt><span>Gplus</span></dt>
+                <dd>
+                    <span>{{ productdetails.gplus }}</span>
+                </dd>
+                <dt><span>Linkedin</span></dt>
+                <dd>
+                    <span>{{ productdetails.linkedin }}</span>
+                </dd>
+                <dt><span>Instagram</span></dt>
+                <dd>
+                    <span>{{ productdetails.instagram }}</span>
+                </dd>
+                <dt><span>Opentimes</span></dt>
+                <dd>
+                    <span>{{ productdetails.opentimes }}</span>
+                </dd>
+                <dt><span>Othercontacts</span></dt>
+                <dd>
+                    <span>{{ productdetails.othercontacts }}</span>
+                </dd>
+                <dt><span>Otherfields</span></dt>
+                <dd>
+                    <span>{{ productdetails.otherfields }}</span>
+                </dd>
+                <dt><span>Sizes</span></dt>
+                <dd>
+                    <span>{{ productdetails.sizes }}</span>
+                </dd>
+                <dt><span>Colors</span></dt>
+                <dd>
+                    <span>{{ productdetails.colors }}</span>
+                </dd>
+                <dt><span>Models</span></dt>
+                <dd>
+                    <span>{{ productdetails.models }}</span>
+                </dd>
+                <dt><span>Shippingprice</span></dt>
+                <dd>
+                    <span>{{ productdetails.shippingprice }}</span>
+                </dd>
+                <dt><span>Serialnumber</span></dt>
+                <dd>
+                    <span>{{ productdetails.serialnumber }}</span>
+                </dd>
+                <dt><span>Tax</span></dt>
+                <dd>
+                    <span>{{ productdetails.tax }}</span>
+                </dd>
+                <dt><span>Stock</span></dt>
+                <dd>
+                    <span>{{ productdetails.stock }}</span>
+                </dd>
+                <dt><span>Price</span></dt>
+                <dd>
+                    <span>{{ productdetails.price }}</span>
+                </dd>
+                <dt><span>Maxqty</span></dt>
+                <dd>
+                    <span>{{ productdetails.maxqty }}</span>
+                </dd>
+                <dt><span>Availableat</span></dt>
+                <dd>
+                    <span>{{ productdetails.availableat }}</span>
+                </dd>
+                <dt><span>Lockactiondelay</span></dt>
+                <dd>
+                    <span>{{ productdetails.lockactiondelay }}</span>
+                </dd>
+                <dt><span>Lockaction</span></dt>
+                <dd>
+                    <span>{{ productdetails.lockaction }}</span>
+                </dd>
+                <dt><span>Expireat</span></dt>
+                <dd>
+                    <span>{{ productdetails.expireat }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/productdetails', productdetails.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

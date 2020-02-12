@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span>Locations</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-location" [routerLink]="['/location/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Location
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="locations?.length === 0">
+        <span>No locations found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="locations?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="country"><span>Country</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="town"><span>Town</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="region"><span>Region</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="locality"><span>Locality</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="zone"><span>Zone</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lattitude"><span>Lattitude</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="longitude"><span>Longitude</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdat"><span>Createdat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="updatedat"><span>Updatedat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let location of locations ;trackBy: trackId">
+                    <td><a [routerLink]="['/location', location.id, 'view']">{{ location.id }}</a></td>
+                    <td>{{ location.country }}</td>
+                    <td>{{ location.town }}</td>
+                    <td>{{ location.region }}</td>
+                    <td>{{ location.locality }}</td>
+                    <td>{{ location.zone }}</td>
+                    <td>{{ location.lattitude }}</td>
+                    <td>{{ location.longitude }}</td>
+                    <td>{{ location.createdat | date:'medium' }}</td>
+                    <td>{{ location.updatedat | date:'medium' }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/location', location.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/location', location.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(location)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

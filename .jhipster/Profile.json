@@ -1,0 +1,119 @@
+{
+    "name": "Profile",
+    "fields": [
+        {
+            "fieldName": "slug",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "userid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "islock",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "lockdelay",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "about",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "fullname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "defaultlanguage",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "postalcode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phones",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "website",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "facebook",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "twitter",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gplus",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "linkedin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "instagram",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "othercontacts",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "otherfields",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "createdat",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "updatedat",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "profile",
+            "relationshipName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "location",
+            "otherEntityRelationshipName": "profile",
+            "relationshipName": "location",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20200212095700",
+    "entityTableName": "profile",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

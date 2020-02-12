@@ -1,0 +1,139 @@
+<div>
+    <h2 id="page-heading">
+        <span>Tourgroups</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tourgroup" [routerLink]="['/tourgroup/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Tourgroup
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="tourgroups?.length === 0">
+        <span>No tourgroups found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="tourgroups?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoryid"><span>Categoryid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productid"><span>Productid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="evenementid"><span>Evenementid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="slug"><span>Slug</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="name"><span>Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="islock"><span>Islock</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lockdelay"><span>Lockdelay</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="about"><span>About</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="title"><span>Title</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tag"><span>Tag</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tagcolor"><span>Tagcolor</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="postalcode"><span>Postalcode</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="phones"><span>Phones</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="website"><span>Website</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="facebook"><span>Facebook</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="twitter"><span>Twitter</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="gplus"><span>Gplus</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="linkedin"><span>Linkedin</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="instagram"><span>Instagram</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="email"><span>Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="position"><span>Position</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="othercontacts"><span>Othercontacts</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="otherfields"><span>Otherfields</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdat"><span>Createdat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="updatedat"><span>Updatedat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="filesTourgroupid"><span>Files</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="locationId"><span>Location</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoryId"><span>Category</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productId"><span>Product</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="evenementId"><span>Evenement</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let tourgroup of tourgroups ;trackBy: trackId">
+                    <td><a [routerLink]="['/tourgroup', tourgroup.id, 'view']">{{ tourgroup.id }}</a></td>
+                    <td>{{ tourgroup.categoryid }}</td>
+                    <td>{{ tourgroup.productid }}</td>
+                    <td>{{ tourgroup.evenementid }}</td>
+                    <td>{{ tourgroup.slug }}</td>
+                    <td>{{ tourgroup.name }}</td>
+                    <td>{{ tourgroup.islock }}</td>
+                    <td>{{ tourgroup.lockdelay | date:'medium' }}</td>
+                    <td>{{ tourgroup.about }}</td>
+                    <td>{{ tourgroup.title }}</td>
+                    <td>{{ tourgroup.tag }}</td>
+                    <td>{{ tourgroup.tagcolor }}</td>
+                    <td>{{ tourgroup.postalcode }}</td>
+                    <td>{{ tourgroup.phones }}</td>
+                    <td>{{ tourgroup.website }}</td>
+                    <td>{{ tourgroup.facebook }}</td>
+                    <td>{{ tourgroup.twitter }}</td>
+                    <td>{{ tourgroup.gplus }}</td>
+                    <td>{{ tourgroup.linkedin }}</td>
+                    <td>{{ tourgroup.instagram }}</td>
+                    <td>{{ tourgroup.email }}</td>
+                    <td>{{ tourgroup.position }}</td>
+                    <td>{{ tourgroup.othercontacts }}</td>
+                    <td>{{ tourgroup.otherfields }}</td>
+                    <td>{{ tourgroup.createdat | date:'medium' }}</td>
+                    <td>{{ tourgroup.updatedat | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="tourgroup.filesId">
+                            <a [routerLink]="['/files', tourgroup.filesId , 'view']" >{{ tourgroup.filesTourgroupid }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="tourgroup.locationId">
+                            <a [routerLink]="['/location', tourgroup.locationId , 'view']" >{{ tourgroup.locationId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="tourgroup.categoryId">
+                            <a [routerLink]="['/category', tourgroup.categoryId , 'view']" >{{ tourgroup.categoryId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="tourgroup.productId">
+                            <a [routerLink]="['/product', tourgroup.productId , 'view']" >{{ tourgroup.productId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="tourgroup.evenementId">
+                            <a [routerLink]="['/evenement', tourgroup.evenementId , 'view']" >{{ tourgroup.evenementId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/tourgroup', tourgroup.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/tourgroup', tourgroup.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(tourgroup)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

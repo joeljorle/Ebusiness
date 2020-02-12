@@ -1,0 +1,146 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tourcategory">
+            <h2><span>Tourcategory</span> {{ tourcategory.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Categoryid</span></dt>
+                <dd>
+                    <span>{{ tourcategory.categoryid }}</span>
+                </dd>
+                <dt><span>Productid</span></dt>
+                <dd>
+                    <span>{{ tourcategory.productid }}</span>
+                </dd>
+                <dt><span>Evenementid</span></dt>
+                <dd>
+                    <span>{{ tourcategory.evenementid }}</span>
+                </dd>
+                <dt><span>Slug</span></dt>
+                <dd>
+                    <span>{{ tourcategory.slug }}</span>
+                </dd>
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{ tourcategory.name }}</span>
+                </dd>
+                <dt><span>Islock</span></dt>
+                <dd>
+                    <span>{{ tourcategory.islock }}</span>
+                </dd>
+                <dt><span>Lockdelay</span></dt>
+                <dd>
+                    <span>{{ tourcategory.lockdelay }}</span>
+                </dd>
+                <dt><span>About</span></dt>
+                <dd>
+                    <span>{{ tourcategory.about }}</span>
+                </dd>
+                <dt><span>Title</span></dt>
+                <dd>
+                    <span>{{ tourcategory.title }}</span>
+                </dd>
+                <dt><span>Tag</span></dt>
+                <dd>
+                    <span>{{ tourcategory.tag }}</span>
+                </dd>
+                <dt><span>Tagcolor</span></dt>
+                <dd>
+                    <span>{{ tourcategory.tagcolor }}</span>
+                </dd>
+                <dt><span>Postalcode</span></dt>
+                <dd>
+                    <span>{{ tourcategory.postalcode }}</span>
+                </dd>
+                <dt><span>Phones</span></dt>
+                <dd>
+                    <span>{{ tourcategory.phones }}</span>
+                </dd>
+                <dt><span>Website</span></dt>
+                <dd>
+                    <span>{{ tourcategory.website }}</span>
+                </dd>
+                <dt><span>Facebook</span></dt>
+                <dd>
+                    <span>{{ tourcategory.facebook }}</span>
+                </dd>
+                <dt><span>Twitter</span></dt>
+                <dd>
+                    <span>{{ tourcategory.twitter }}</span>
+                </dd>
+                <dt><span>Gplus</span></dt>
+                <dd>
+                    <span>{{ tourcategory.gplus }}</span>
+                </dd>
+                <dt><span>Linkedin</span></dt>
+                <dd>
+                    <span>{{ tourcategory.linkedin }}</span>
+                </dd>
+                <dt><span>Instagram</span></dt>
+                <dd>
+                    <span>{{ tourcategory.instagram }}</span>
+                </dd>
+                <dt><span>Email</span></dt>
+                <dd>
+                    <span>{{ tourcategory.email }}</span>
+                </dd>
+                <dt><span>Othercontacts</span></dt>
+                <dd>
+                    <span>{{ tourcategory.othercontacts }}</span>
+                </dd>
+                <dt><span>Otherfields</span></dt>
+                <dd>
+                    <span>{{ tourcategory.otherfields }}</span>
+                </dd>
+                <dt><span>Createdat</span></dt>
+                <dd>
+                    <span>{{ tourcategory.createdat }}</span>
+                </dd>
+                <dt><span>Updatedat</span></dt>
+                <dd>
+                    <span>{{ tourcategory.updatedat }}</span>
+                </dd>
+                <dt><span>Files</span></dt>
+                <dd>
+                    <div *ngIf="tourcategory.filesId">
+                        <a [routerLink]="['/files', tourcategory.filesId, 'view']">{{ tourcategory.filesTourcategoryid }}</a>
+                    </div>
+                </dd>
+                <dt><span>Category</span></dt>
+                <dd>
+                    <div *ngIf="tourcategory.categoryId">
+                        <a [routerLink]="['/category', tourcategory.categoryId, 'view']">{{ tourcategory.categoryId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Product</span></dt>
+                <dd>
+                    <div *ngIf="tourcategory.productId">
+                        <a [routerLink]="['/product', tourcategory.productId, 'view']">{{ tourcategory.productId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Evenement</span></dt>
+                <dd>
+                    <div *ngIf="tourcategory.evenementId">
+                        <a [routerLink]="['/evenement', tourcategory.evenementId, 'view']">{{ tourcategory.evenementId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tourcategory', tourcategory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

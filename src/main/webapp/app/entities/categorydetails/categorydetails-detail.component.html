@@ -1,0 +1,154 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="categorydetails">
+            <h2><span>Categorydetails</span> {{ categorydetails.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>About</span></dt>
+                <dd>
+                    <span>{{ categorydetails.about }}</span>
+                </dd>
+                <dt><span>Title</span></dt>
+                <dd>
+                    <span>{{ categorydetails.title }}</span>
+                </dd>
+                <dt><span>Tag</span></dt>
+                <dd>
+                    <span>{{ categorydetails.tag }}</span>
+                </dd>
+                <dt><span>Tagcolor</span></dt>
+                <dd>
+                    <span>{{ categorydetails.tagcolor }}</span>
+                </dd>
+                <dt><span>Defaultlanguage</span></dt>
+                <dd>
+                    <span>{{ categorydetails.defaultlanguage }}</span>
+                </dd>
+                <dt><span>Postalcode</span></dt>
+                <dd>
+                    <span>{{ categorydetails.postalcode }}</span>
+                </dd>
+                <dt><span>Phones</span></dt>
+                <dd>
+                    <span>{{ categorydetails.phones }}</span>
+                </dd>
+                <dt><span>Website</span></dt>
+                <dd>
+                    <span>{{ categorydetails.website }}</span>
+                </dd>
+                <dt><span>Email</span></dt>
+                <dd>
+                    <span>{{ categorydetails.email }}</span>
+                </dd>
+                <dt><span>Facebook</span></dt>
+                <dd>
+                    <span>{{ categorydetails.facebook }}</span>
+                </dd>
+                <dt><span>Twitter</span></dt>
+                <dd>
+                    <span>{{ categorydetails.twitter }}</span>
+                </dd>
+                <dt><span>Gplus</span></dt>
+                <dd>
+                    <span>{{ categorydetails.gplus }}</span>
+                </dd>
+                <dt><span>Linkedin</span></dt>
+                <dd>
+                    <span>{{ categorydetails.linkedin }}</span>
+                </dd>
+                <dt><span>Instagram</span></dt>
+                <dd>
+                    <span>{{ categorydetails.instagram }}</span>
+                </dd>
+                <dt><span>Opentimes</span></dt>
+                <dd>
+                    <span>{{ categorydetails.opentimes }}</span>
+                </dd>
+                <dt><span>Othercontacts</span></dt>
+                <dd>
+                    <span>{{ categorydetails.othercontacts }}</span>
+                </dd>
+                <dt><span>Otherfields</span></dt>
+                <dd>
+                    <span>{{ categorydetails.otherfields }}</span>
+                </dd>
+                <dt><span>Generalabout</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generalabout }}</span>
+                </dd>
+                <dt><span>Generaltax</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generaltax }}</span>
+                </dd>
+                <dt><span>Generalstock</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generalstock }}</span>
+                </dd>
+                <dt><span>Generalprice</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generalprice }}</span>
+                </dd>
+                <dt><span>Generalmaxstock</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generalmaxstock }}</span>
+                </dd>
+                <dt><span>Generaltag</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generaltag }}</span>
+                </dd>
+                <dt><span>Generaltagcolor</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generaltagcolor }}</span>
+                </dd>
+                <dt><span>Generalhidden</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generalhidden }}</span>
+                </dd>
+                <dt><span>Generalhiddendelay</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generalhiddendelay }}</span>
+                </dd>
+                <dt><span>Generallock</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generallock }}</span>
+                </dd>
+                <dt><span>Generallockdelay</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generallockdelay }}</span>
+                </dd>
+                <dt><span>Generalexpire</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generalexpire }}</span>
+                </dd>
+                <dt><span>Generalexpiredelay</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generalexpiredelay }}</span>
+                </dd>
+                <dt><span>Childsname</span></dt>
+                <dd>
+                    <span>{{ categorydetails.childsname }}</span>
+                </dd>
+                <dt><span>Productsname</span></dt>
+                <dd>
+                    <span>{{ categorydetails.productsname }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/categorydetails', categorydetails.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

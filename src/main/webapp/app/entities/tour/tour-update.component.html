@@ -1,0 +1,250 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-tour-heading">Create or edit a Tour</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_categoryid">Categoryid</label>
+                    <input type="number" class="form-control" name="categoryid" id="field_categoryid"
+                           formControlName="categoryid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_userid">Userid</label>
+                    <input type="number" class="form-control" name="userid" id="field_userid"
+                           formControlName="userid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_productid">Productid</label>
+                    <input type="number" class="form-control" name="productid" id="field_productid"
+                           formControlName="productid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_evenementid">Evenementid</label>
+                    <input type="number" class="form-control" name="evenementid" id="field_evenementid"
+                           formControlName="evenementid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_slug">Slug</label>
+                    <input type="text" class="form-control" name="slug" id="field_slug"
+                           formControlName="slug"/>
+                    <div *ngIf="editForm.get('slug')!.invalid && (editForm.get('slug')!.dirty || editForm.get('slug')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('slug')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_islock">Islock</label>
+                    <input type="checkbox" class="form-control" name="islock" id="field_islock"
+                           formControlName="islock"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_lockdelay">Lockdelay</label>
+                    <div class="d-flex">
+                        <input id="field_lockdelay" type="datetime-local" class="form-control" name="lockdelay" formControlName="lockdelay" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_about">About</label>
+                    <textarea class="form-control" name="about" id="field_about"
+                              formControlName="about"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_title">Title</label>
+                    <input type="text" class="form-control" name="title" id="field_title"
+                           formControlName="title"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tag">Tag</label>
+                    <input type="text" class="form-control" name="tag" id="field_tag"
+                           formControlName="tag"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tagcolor">Tagcolor</label>
+                    <select class="form-control" name="tagcolor" formControlName="tagcolor" id="field_tagcolor">
+                        <option value="RED">RED</option>
+                        <option value="BLUE">BLUE</option>
+                        <option value="GREEN">GREEN</option>
+                        <option value="YELLOW">YELLOW</option>
+                        <option value="BLACK">BLACK</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_postalcode">Postalcode</label>
+                    <input type="text" class="form-control" name="postalcode" id="field_postalcode"
+                           formControlName="postalcode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_phones">Phones</label>
+                    <input type="text" class="form-control" name="phones" id="field_phones"
+                           formControlName="phones"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_website">Website</label>
+                    <input type="text" class="form-control" name="website" id="field_website"
+                           formControlName="website"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_facebook">Facebook</label>
+                    <input type="text" class="form-control" name="facebook" id="field_facebook"
+                           formControlName="facebook"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_twitter">Twitter</label>
+                    <input type="text" class="form-control" name="twitter" id="field_twitter"
+                           formControlName="twitter"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_gplus">Gplus</label>
+                    <input type="text" class="form-control" name="gplus" id="field_gplus"
+                           formControlName="gplus"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_linkedin">Linkedin</label>
+                    <input type="text" class="form-control" name="linkedin" id="field_linkedin"
+                           formControlName="linkedin"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_instagram">Instagram</label>
+                    <input type="text" class="form-control" name="instagram" id="field_instagram"
+                           formControlName="instagram"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_url">Url</label>
+                    <input type="text" class="form-control" name="url" id="field_url"
+                           formControlName="url"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_position">Position</label>
+                    <input type="number" class="form-control" name="position" id="field_position"
+                           formControlName="position"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_othercontacts">Othercontacts</label>
+                    <textarea class="form-control" name="othercontacts" id="field_othercontacts"
+                              formControlName="othercontacts"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_otherfields">Otherfields</label>
+                    <textarea class="form-control" name="otherfields" id="field_otherfields"
+                              formControlName="otherfields"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_createdat">Createdat</label>
+                    <div class="d-flex">
+                        <input id="field_createdat" type="datetime-local" class="form-control" name="createdat" formControlName="createdat" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_updatedat">Updatedat</label>
+                    <div class="d-flex">
+                        <input id="field_updatedat" type="datetime-local" class="form-control" name="updatedat" formControlName="updatedat" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_files">Files</label>
+                    <select class="form-control" id="field_files" name="files" formControlName="filesId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="filesOption.id" *ngFor="let filesOption of files; trackBy: trackById">{{ filesOption.tourid }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_currency">Currency</label>
+                    <select class="form-control" id="field_currency" name="currency" formControlName="currencyId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="currencyOption.id" *ngFor="let currencyOption of currencies; trackBy: trackById">{{ currencyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_location">Location</label>
+                    <select class="form-control" id="field_location" name="location" formControlName="locationId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="locationOption.id" *ngFor="let locationOption of locations; trackBy: trackById">{{ locationOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_category">Category</label>
+                    <select class="form-control" id="field_category" name="category" formControlName="categoryId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="categoryOption.id" *ngFor="let categoryOption of categories; trackBy: trackById">{{ categoryOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_product">Product</label>
+                    <select class="form-control" id="field_product" name="product" formControlName="productId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productOption.id" *ngFor="let productOption of products; trackBy: trackById">{{ productOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_evenement">Evenement</label>
+                    <select class="form-control" id="field_evenement" name="evenement" formControlName="evenementId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="evenementOption.id" *ngFor="let evenementOption of evenements; trackBy: trackById">{{ evenementOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,156 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tourgroup">
+            <h2><span>Tourgroup</span> {{ tourgroup.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Categoryid</span></dt>
+                <dd>
+                    <span>{{ tourgroup.categoryid }}</span>
+                </dd>
+                <dt><span>Productid</span></dt>
+                <dd>
+                    <span>{{ tourgroup.productid }}</span>
+                </dd>
+                <dt><span>Evenementid</span></dt>
+                <dd>
+                    <span>{{ tourgroup.evenementid }}</span>
+                </dd>
+                <dt><span>Slug</span></dt>
+                <dd>
+                    <span>{{ tourgroup.slug }}</span>
+                </dd>
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{ tourgroup.name }}</span>
+                </dd>
+                <dt><span>Islock</span></dt>
+                <dd>
+                    <span>{{ tourgroup.islock }}</span>
+                </dd>
+                <dt><span>Lockdelay</span></dt>
+                <dd>
+                    <span>{{ tourgroup.lockdelay }}</span>
+                </dd>
+                <dt><span>About</span></dt>
+                <dd>
+                    <span>{{ tourgroup.about }}</span>
+                </dd>
+                <dt><span>Title</span></dt>
+                <dd>
+                    <span>{{ tourgroup.title }}</span>
+                </dd>
+                <dt><span>Tag</span></dt>
+                <dd>
+                    <span>{{ tourgroup.tag }}</span>
+                </dd>
+                <dt><span>Tagcolor</span></dt>
+                <dd>
+                    <span>{{ tourgroup.tagcolor }}</span>
+                </dd>
+                <dt><span>Postalcode</span></dt>
+                <dd>
+                    <span>{{ tourgroup.postalcode }}</span>
+                </dd>
+                <dt><span>Phones</span></dt>
+                <dd>
+                    <span>{{ tourgroup.phones }}</span>
+                </dd>
+                <dt><span>Website</span></dt>
+                <dd>
+                    <span>{{ tourgroup.website }}</span>
+                </dd>
+                <dt><span>Facebook</span></dt>
+                <dd>
+                    <span>{{ tourgroup.facebook }}</span>
+                </dd>
+                <dt><span>Twitter</span></dt>
+                <dd>
+                    <span>{{ tourgroup.twitter }}</span>
+                </dd>
+                <dt><span>Gplus</span></dt>
+                <dd>
+                    <span>{{ tourgroup.gplus }}</span>
+                </dd>
+                <dt><span>Linkedin</span></dt>
+                <dd>
+                    <span>{{ tourgroup.linkedin }}</span>
+                </dd>
+                <dt><span>Instagram</span></dt>
+                <dd>
+                    <span>{{ tourgroup.instagram }}</span>
+                </dd>
+                <dt><span>Email</span></dt>
+                <dd>
+                    <span>{{ tourgroup.email }}</span>
+                </dd>
+                <dt><span>Position</span></dt>
+                <dd>
+                    <span>{{ tourgroup.position }}</span>
+                </dd>
+                <dt><span>Othercontacts</span></dt>
+                <dd>
+                    <span>{{ tourgroup.othercontacts }}</span>
+                </dd>
+                <dt><span>Otherfields</span></dt>
+                <dd>
+                    <span>{{ tourgroup.otherfields }}</span>
+                </dd>
+                <dt><span>Createdat</span></dt>
+                <dd>
+                    <span>{{ tourgroup.createdat }}</span>
+                </dd>
+                <dt><span>Updatedat</span></dt>
+                <dd>
+                    <span>{{ tourgroup.updatedat }}</span>
+                </dd>
+                <dt><span>Files</span></dt>
+                <dd>
+                    <div *ngIf="tourgroup.filesId">
+                        <a [routerLink]="['/files', tourgroup.filesId, 'view']">{{ tourgroup.filesTourgroupid }}</a>
+                    </div>
+                </dd>
+                <dt><span>Location</span></dt>
+                <dd>
+                    <div *ngIf="tourgroup.locationId">
+                        <a [routerLink]="['/location', tourgroup.locationId, 'view']">{{ tourgroup.locationId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Category</span></dt>
+                <dd>
+                    <div *ngIf="tourgroup.categoryId">
+                        <a [routerLink]="['/category', tourgroup.categoryId, 'view']">{{ tourgroup.categoryId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Product</span></dt>
+                <dd>
+                    <div *ngIf="tourgroup.productId">
+                        <a [routerLink]="['/product', tourgroup.productId, 'view']">{{ tourgroup.productId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Evenement</span></dt>
+                <dd>
+                    <div *ngIf="tourgroup.evenementId">
+                        <a [routerLink]="['/evenement', tourgroup.evenementId, 'view']">{{ tourgroup.evenementId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tourgroup', tourgroup.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

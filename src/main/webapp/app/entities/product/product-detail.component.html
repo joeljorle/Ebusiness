@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="product">
+            <h2><span>Product</span> {{ product.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Categoryid</span></dt>
+                <dd>
+                    <span>{{ product.categoryid }}</span>
+                </dd>
+                <dt><span>Slug</span></dt>
+                <dd>
+                    <span>{{ product.slug }}</span>
+                </dd>
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{ product.name }}</span>
+                </dd>
+                <dt><span>Islock</span></dt>
+                <dd>
+                    <span>{{ product.islock }}</span>
+                </dd>
+                <dt><span>Lockdelay</span></dt>
+                <dd>
+                    <span>{{ product.lockdelay }}</span>
+                </dd>
+                <dt><span>Type</span></dt>
+                <dd>
+                    <span>{{ product.type }}</span>
+                </dd>
+                <dt><span>Createdat</span></dt>
+                <dd>
+                    <span>{{ product.createdat }}</span>
+                </dd>
+                <dt><span>Updatedat</span></dt>
+                <dd>
+                    <span>{{ product.updatedat }}</span>
+                </dd>
+                <dt><span>Files</span></dt>
+                <dd>
+                    <div *ngIf="product.filesId">
+                        <a [routerLink]="['/files', product.filesId, 'view']">{{ product.filesId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Productdetails</span></dt>
+                <dd>
+                    <div *ngIf="product.productdetailsId">
+                        <a [routerLink]="['/productdetails', product.productdetailsId, 'view']">{{ product.productdetailsId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Currency</span></dt>
+                <dd>
+                    <div *ngIf="product.currencyId">
+                        <a [routerLink]="['/currency', product.currencyId, 'view']">{{ product.currencyId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Location</span></dt>
+                <dd>
+                    <div *ngIf="product.locationId">
+                        <a [routerLink]="['/location', product.locationId, 'view']">{{ product.locationId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Category</span></dt>
+                <dd>
+                    <div *ngIf="product.categoryId">
+                        <a [routerLink]="['/category', product.categoryId, 'view']">{{ product.categoryId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product', product.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

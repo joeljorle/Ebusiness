@@ -1,0 +1,101 @@
+<div>
+    <h2 id="page-heading">
+        <span>Paymentcategories</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-paymentcategory" [routerLink]="['/paymentcategory/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Paymentcategory
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="paymentcategories?.length === 0">
+        <span>No paymentcategories found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="paymentcategories?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentmethodid"><span>Paymentmethodid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoryid"><span>Categoryid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="url"><span>Url</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="apiurl"><span>Apiurl</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="apikey"><span>Apikey</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="key2"><span>Key 2</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="key3"><span>Key 3</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="key4"><span>Key 4</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="phonenumber"><span>Phonenumber</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="chanel"><span>Chanel</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code"><span>Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="username"><span>Username</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="password"><span>Password</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdat"><span>Createdat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="updatedat"><span>Updatedat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoryId"><span>Category</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentmethodId"><span>Paymentmethod</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let paymentcategory of paymentcategories ;trackBy: trackId">
+                    <td><a [routerLink]="['/paymentcategory', paymentcategory.id, 'view']">{{ paymentcategory.id }}</a></td>
+                    <td>{{ paymentcategory.paymentmethodid }}</td>
+                    <td>{{ paymentcategory.categoryid }}</td>
+                    <td>{{ paymentcategory.url }}</td>
+                    <td>{{ paymentcategory.apiurl }}</td>
+                    <td>{{ paymentcategory.apikey }}</td>
+                    <td>{{ paymentcategory.key2 }}</td>
+                    <td>{{ paymentcategory.key3 }}</td>
+                    <td>{{ paymentcategory.key4 }}</td>
+                    <td>{{ paymentcategory.phonenumber }}</td>
+                    <td>{{ paymentcategory.chanel }}</td>
+                    <td>{{ paymentcategory.code }}</td>
+                    <td>{{ paymentcategory.username }}</td>
+                    <td>{{ paymentcategory.password }}</td>
+                    <td>{{ paymentcategory.createdat | date:'medium' }}</td>
+                    <td>{{ paymentcategory.updatedat | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="paymentcategory.categoryId">
+                            <a [routerLink]="['/category', paymentcategory.categoryId , 'view']" >{{ paymentcategory.categoryId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="paymentcategory.paymentmethodId">
+                            <a [routerLink]="['/paymentmethod', paymentcategory.paymentmethodId , 'view']" >{{ paymentcategory.paymentmethodId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/paymentcategory', paymentcategory.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/paymentcategory', paymentcategory.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(paymentcategory)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

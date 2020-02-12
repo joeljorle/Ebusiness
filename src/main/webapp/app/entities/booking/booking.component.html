@@ -1,0 +1,107 @@
+<div>
+    <h2 id="page-heading">
+        <span>Bookings</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-booking" [routerLink]="['/booking/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Booking
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="bookings?.length === 0">
+        <span>No bookings found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="bookings?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="slug"><span>Slug</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userid"><span>Userid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tourid"><span>Tourid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tourgroupid"><span>Tourgroupid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoryid"><span>Categoryid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productid"><span>Productid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="evenementid"><span>Evenementid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdat"><span>Createdat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="updatedat"><span>Updatedat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="currencyId"><span>Currency</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="bookingviewId"><span>Bookingview</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="bookingdetailsId"><span>Bookingdetails</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoryId"><span>Category</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="evenementId"><span>Evenement</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let booking of bookings ;trackBy: trackId">
+                    <td><a [routerLink]="['/booking', booking.id, 'view']">{{ booking.id }}</a></td>
+                    <td>{{ booking.slug }}</td>
+                    <td>{{ booking.userid }}</td>
+                    <td>{{ booking.tourid }}</td>
+                    <td>{{ booking.tourgroupid }}</td>
+                    <td>{{ booking.categoryid }}</td>
+                    <td>{{ booking.productid }}</td>
+                    <td>{{ booking.evenementid }}</td>
+                    <td>{{ booking.createdat | date:'medium' }}</td>
+                    <td>{{ booking.updatedat | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="booking.currencyId">
+                            <a [routerLink]="['/currency', booking.currencyId , 'view']" >{{ booking.currencyId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="booking.bookingviewId">
+                            <a [routerLink]="['/bookingview', booking.bookingviewId , 'view']" >{{ booking.bookingviewId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="booking.bookingdetailsId">
+                            <a [routerLink]="['/bookingdetails', booking.bookingdetailsId , 'view']" >{{ booking.bookingdetailsId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="booking.categoryId">
+                            <a [routerLink]="['/category', booking.categoryId , 'view']" >{{ booking.categoryId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="booking.evenementId">
+                            <a [routerLink]="['/evenement', booking.evenementId , 'view']" >{{ booking.evenementId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/booking', booking.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/booking', booking.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(booking)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

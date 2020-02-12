@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reviews">
+            <h2><span>Reviews</span> {{ reviews.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Slug</span></dt>
+                <dd>
+                    <span>{{ reviews.slug }}</span>
+                </dd>
+                <dt><span>Userid</span></dt>
+                <dd>
+                    <span>{{ reviews.userid }}</span>
+                </dd>
+                <dt><span>Categoryid</span></dt>
+                <dd>
+                    <span>{{ reviews.categoryid }}</span>
+                </dd>
+                <dt><span>Productid</span></dt>
+                <dd>
+                    <span>{{ reviews.productid }}</span>
+                </dd>
+                <dt><span>Tourid</span></dt>
+                <dd>
+                    <span>{{ reviews.tourid }}</span>
+                </dd>
+                <dt><span>Tourgroupid</span></dt>
+                <dd>
+                    <span>{{ reviews.tourgroupid }}</span>
+                </dd>
+                <dt><span>Evenementid</span></dt>
+                <dd>
+                    <span>{{ reviews.evenementid }}</span>
+                </dd>
+                <dt><span>Text</span></dt>
+                <dd>
+                    <span>{{ reviews.text }}</span>
+                </dd>
+                <dt><span>Createdat</span></dt>
+                <dd>
+                    <span>{{ reviews.createdat }}</span>
+                </dd>
+                <dt><span>Updatedat</span></dt>
+                <dd>
+                    <span>{{ reviews.updatedat }}</span>
+                </dd>
+                <dt><span>Category</span></dt>
+                <dd>
+                    <div *ngIf="reviews.categoryId">
+                        <a [routerLink]="['/category', reviews.categoryId, 'view']">{{ reviews.categoryId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Product</span></dt>
+                <dd>
+                    <div *ngIf="reviews.productId">
+                        <a [routerLink]="['/product', reviews.productId, 'view']">{{ reviews.productId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Evenement</span></dt>
+                <dd>
+                    <div *ngIf="reviews.evenementId">
+                        <a [routerLink]="['/evenement', reviews.evenementId, 'view']">{{ reviews.evenementId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/reviews', reviews.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

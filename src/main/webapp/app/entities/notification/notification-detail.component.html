@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="notification">
+            <h2><span>Notification</span> {{ notification.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Slug</span></dt>
+                <dd>
+                    <span>{{ notification.slug }}</span>
+                </dd>
+                <dt><span>Userid</span></dt>
+                <dd>
+                    <span>{{ notification.userid }}</span>
+                </dd>
+                <dt><span>Urltarget</span></dt>
+                <dd>
+                    <span>{{ notification.urltarget }}</span>
+                </dd>
+                <dt><span>Message</span></dt>
+                <dd>
+                    <span>{{ notification.message }}</span>
+                </dd>
+                <dt><span>Title</span></dt>
+                <dd>
+                    <span>{{ notification.title }}</span>
+                </dd>
+                <dt><span>Logo</span></dt>
+                <dd>
+                    <span>{{ notification.logo }}</span>
+                </dd>
+                <dt><span>Logodata</span></dt>
+                <dd>
+                    <div *ngIf="notification.logodata">
+                        <a (click)="openFile(notification.logodataContentType!, notification.logodata)">open</a>
+                        {{ notification.logodataContentType }}, {{ byteSize(notification.logodata) }}
+                    </div>
+                </dd>
+                <dt><span>Isview</span></dt>
+                <dd>
+                    <span>{{ notification.isview }}</span>
+                </dd>
+                <dt><span>Notificationmodel</span></dt>
+                <dd>
+                    <span>{{ notification.notificationmodel }}</span>
+                </dd>
+                <dt><span>Createdat</span></dt>
+                <dd>
+                    <span>{{ notification.createdat }}</span>
+                </dd>
+                <dt><span>Updatedat</span></dt>
+                <dd>
+                    <span>{{ notification.updatedat }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/notification', notification.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

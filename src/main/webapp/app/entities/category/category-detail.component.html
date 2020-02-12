@@ -1,0 +1,98 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="category">
+            <h2><span>Category</span> {{ category.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Slug</span></dt>
+                <dd>
+                    <span>{{ category.slug }}</span>
+                </dd>
+                <dt><span>Userid</span></dt>
+                <dd>
+                    <span>{{ category.userid }}</span>
+                </dd>
+                <dt><span>Categoryid</span></dt>
+                <dd>
+                    <span>{{ category.categoryid }}</span>
+                </dd>
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{ category.name }}</span>
+                </dd>
+                <dt><span>Route</span></dt>
+                <dd>
+                    <span>{{ category.route }}</span>
+                </dd>
+                <dt><span>Isheader</span></dt>
+                <dd>
+                    <span>{{ category.isheader }}</span>
+                </dd>
+                <dt><span>Isgroup</span></dt>
+                <dd>
+                    <span>{{ category.isgroup }}</span>
+                </dd>
+                <dt><span>Islock</span></dt>
+                <dd>
+                    <span>{{ category.islock }}</span>
+                </dd>
+                <dt><span>Lockdelay</span></dt>
+                <dd>
+                    <span>{{ category.lockdelay }}</span>
+                </dd>
+                <dt><span>Type</span></dt>
+                <dd>
+                    <span>{{ category.type }}</span>
+                </dd>
+                <dt><span>Createdat</span></dt>
+                <dd>
+                    <span>{{ category.createdat }}</span>
+                </dd>
+                <dt><span>Updatedat</span></dt>
+                <dd>
+                    <span>{{ category.updatedat }}</span>
+                </dd>
+                <dt><span>Files</span></dt>
+                <dd>
+                    <div *ngIf="category.filesId">
+                        <a [routerLink]="['/files', category.filesId, 'view']">{{ category.filesId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Categorydetails</span></dt>
+                <dd>
+                    <div *ngIf="category.categorydetailsId">
+                        <a [routerLink]="['/categorydetails', category.categorydetailsId, 'view']">{{ category.categorydetailsId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Location</span></dt>
+                <dd>
+                    <div *ngIf="category.locationId">
+                        <a [routerLink]="['/location', category.locationId, 'view']">{{ category.locationId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Category</span></dt>
+                <dd>
+                    <div *ngIf="category.categoryId">
+                        <a [routerLink]="['/category', category.categoryId, 'view']">{{ category.categoryId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/category', category.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

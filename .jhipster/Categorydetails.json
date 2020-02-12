@@ -1,0 +1,150 @@
+{
+    "name": "Categorydetails",
+    "fields": [
+        {
+            "fieldName": "about",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tag",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tagcolor",
+            "fieldType": "Tagcolor",
+            "fieldValues": "RED,BLUE,GREEN,YELLOW,BLACK"
+        },
+        {
+            "fieldName": "defaultlanguage",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "postalcode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phones",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "website",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "facebook",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "twitter",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gplus",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "linkedin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "instagram",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "opentimes",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "othercontacts",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "otherfields",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "generalabout",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "generaltax",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "generalstock",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "generalprice",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "generalmaxstock",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "generaltag",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "generaltagcolor",
+            "fieldType": "Tagcolor",
+            "fieldValues": "RED,BLUE,GREEN,YELLOW,BLACK"
+        },
+        {
+            "fieldName": "generalhidden",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "generalhiddendelay",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "generallock",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "generallockdelay",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "generalexpire",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "generalexpiredelay",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "childsname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "productsname",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200212100500",
+    "entityTableName": "categorydetails",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

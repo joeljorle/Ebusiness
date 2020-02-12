@@ -1,0 +1,97 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-currency-heading">Create or edit a Currency</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_slug">Slug</label>
+                    <input type="text" class="form-control" name="slug" id="field_slug"
+                           formControlName="slug"/>
+                    <div *ngIf="editForm.get('slug')!.invalid && (editForm.get('slug')!.dirty || editForm.get('slug')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('slug')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_abrev">Abrev</label>
+                    <input type="text" class="form-control" name="abrev" id="field_abrev"
+                           formControlName="abrev"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_logo">Logo</label>
+                    <textarea class="form-control" name="logo" id="field_logo"
+                              formControlName="logo"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_logodata">Logodata</label>
+                    <div>
+                        <div *ngIf="editForm.get('logodata')!.value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('logodataContentType')!.value, editForm.get('logodata')!.value)">open</a><br>
+                            <span class="pull-left">{{ editForm.get('logodataContentType')!.value }}, {{ byteSize(editForm.get('logodata')!.value) }}</span>
+                            <button type="button" (click)="editForm.patchValue({logodata: null});editForm.patchValue({logodataContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_logodata" (change)="setFileData($event, 'logodata', false)"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="logodata" id="field_logodata"
+                           formControlName="logodata"/>
+                    <input type="hidden" class="form-control" name="logodataContentType" id="field_logodataContentType"
+                           formControlName="logodataContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_createdat">Createdat</label>
+                    <div class="d-flex">
+                        <input id="field_createdat" type="datetime-local" class="form-control" name="createdat" formControlName="createdat" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_updatedat">Updatedat</label>
+                    <div class="d-flex">
+                        <input id="field_updatedat" type="datetime-local" class="form-control" name="updatedat" formControlName="updatedat" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_category">Category</label>
+                    <select class="form-control" id="field_category" name="category" formControlName="categoryId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="categoryOption.id" *ngFor="let categoryOption of categories; trackBy: trackById">{{ categoryOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

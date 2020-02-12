@@ -1,0 +1,170 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tour">
+            <h2><span>Tour</span> {{ tour.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Categoryid</span></dt>
+                <dd>
+                    <span>{{ tour.categoryid }}</span>
+                </dd>
+                <dt><span>Userid</span></dt>
+                <dd>
+                    <span>{{ tour.userid }}</span>
+                </dd>
+                <dt><span>Productid</span></dt>
+                <dd>
+                    <span>{{ tour.productid }}</span>
+                </dd>
+                <dt><span>Evenementid</span></dt>
+                <dd>
+                    <span>{{ tour.evenementid }}</span>
+                </dd>
+                <dt><span>Slug</span></dt>
+                <dd>
+                    <span>{{ tour.slug }}</span>
+                </dd>
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{ tour.name }}</span>
+                </dd>
+                <dt><span>Islock</span></dt>
+                <dd>
+                    <span>{{ tour.islock }}</span>
+                </dd>
+                <dt><span>Lockdelay</span></dt>
+                <dd>
+                    <span>{{ tour.lockdelay }}</span>
+                </dd>
+                <dt><span>About</span></dt>
+                <dd>
+                    <span>{{ tour.about }}</span>
+                </dd>
+                <dt><span>Title</span></dt>
+                <dd>
+                    <span>{{ tour.title }}</span>
+                </dd>
+                <dt><span>Tag</span></dt>
+                <dd>
+                    <span>{{ tour.tag }}</span>
+                </dd>
+                <dt><span>Tagcolor</span></dt>
+                <dd>
+                    <span>{{ tour.tagcolor }}</span>
+                </dd>
+                <dt><span>Postalcode</span></dt>
+                <dd>
+                    <span>{{ tour.postalcode }}</span>
+                </dd>
+                <dt><span>Phones</span></dt>
+                <dd>
+                    <span>{{ tour.phones }}</span>
+                </dd>
+                <dt><span>Website</span></dt>
+                <dd>
+                    <span>{{ tour.website }}</span>
+                </dd>
+                <dt><span>Facebook</span></dt>
+                <dd>
+                    <span>{{ tour.facebook }}</span>
+                </dd>
+                <dt><span>Twitter</span></dt>
+                <dd>
+                    <span>{{ tour.twitter }}</span>
+                </dd>
+                <dt><span>Gplus</span></dt>
+                <dd>
+                    <span>{{ tour.gplus }}</span>
+                </dd>
+                <dt><span>Linkedin</span></dt>
+                <dd>
+                    <span>{{ tour.linkedin }}</span>
+                </dd>
+                <dt><span>Instagram</span></dt>
+                <dd>
+                    <span>{{ tour.instagram }}</span>
+                </dd>
+                <dt><span>Email</span></dt>
+                <dd>
+                    <span>{{ tour.email }}</span>
+                </dd>
+                <dt><span>Url</span></dt>
+                <dd>
+                    <span>{{ tour.url }}</span>
+                </dd>
+                <dt><span>Position</span></dt>
+                <dd>
+                    <span>{{ tour.position }}</span>
+                </dd>
+                <dt><span>Othercontacts</span></dt>
+                <dd>
+                    <span>{{ tour.othercontacts }}</span>
+                </dd>
+                <dt><span>Otherfields</span></dt>
+                <dd>
+                    <span>{{ tour.otherfields }}</span>
+                </dd>
+                <dt><span>Createdat</span></dt>
+                <dd>
+                    <span>{{ tour.createdat }}</span>
+                </dd>
+                <dt><span>Updatedat</span></dt>
+                <dd>
+                    <span>{{ tour.updatedat }}</span>
+                </dd>
+                <dt><span>Files</span></dt>
+                <dd>
+                    <div *ngIf="tour.filesId">
+                        <a [routerLink]="['/files', tour.filesId, 'view']">{{ tour.filesTourid }}</a>
+                    </div>
+                </dd>
+                <dt><span>Currency</span></dt>
+                <dd>
+                    <div *ngIf="tour.currencyId">
+                        <a [routerLink]="['/currency', tour.currencyId, 'view']">{{ tour.currencyId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Location</span></dt>
+                <dd>
+                    <div *ngIf="tour.locationId">
+                        <a [routerLink]="['/location', tour.locationId, 'view']">{{ tour.locationId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Category</span></dt>
+                <dd>
+                    <div *ngIf="tour.categoryId">
+                        <a [routerLink]="['/category', tour.categoryId, 'view']">{{ tour.categoryId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Product</span></dt>
+                <dd>
+                    <div *ngIf="tour.productId">
+                        <a [routerLink]="['/product', tour.productId, 'view']">{{ tour.productId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Evenement</span></dt>
+                <dd>
+                    <div *ngIf="tour.evenementId">
+                        <a [routerLink]="['/evenement', tour.evenementId, 'view']">{{ tour.evenementId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tour', tour.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

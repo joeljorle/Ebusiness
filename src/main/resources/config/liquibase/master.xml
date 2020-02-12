@@ -14,6 +14,54 @@
     <property name="uuidType" value="varchar(36)" dbms="h2, mysql, mariadb"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212095700_added_entity_Profile.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212095800_added_entity_Tour.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212095900_added_entity_Tourcategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212100000_added_entity_Tourgroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212100100_added_entity_Evenement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212100200_added_entity_Product.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212100300_added_entity_Productdetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212100400_added_entity_Category.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212100500_added_entity_Categorydetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212100600_added_entity_Files.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212100700_added_entity_Follows.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212100800_added_entity_Likes.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212100900_added_entity_Ratings.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212101000_added_entity_Reviews.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212101100_added_entity_Paymentmethod.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212101200_added_entity_Paymentcategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212101300_added_entity_Paymentaction.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212101400_added_entity_Cart.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212101500_added_entity_Cartproducts.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212101600_added_entity_Booking.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212101700_added_entity_Bookingdetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212101800_added_entity_Bookingproducts.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212101900_added_entity_Bookingview.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212102000_added_entity_Location.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212102100_added_entity_Shipping.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212102200_added_entity_Notification.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212102300_added_entity_Currency.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212102400_added_entity_Cherche.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212102500_added_entity_Actus.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20200212095700_added_entity_constraints_Profile.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212095800_added_entity_constraints_Tour.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212095900_added_entity_constraints_Tourcategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212100000_added_entity_constraints_Tourgroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212100100_added_entity_constraints_Evenement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212100200_added_entity_constraints_Product.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212100400_added_entity_constraints_Category.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212100700_added_entity_constraints_Follows.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212100800_added_entity_constraints_Likes.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212100900_added_entity_constraints_Ratings.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212101000_added_entity_constraints_Reviews.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212101200_added_entity_constraints_Paymentcategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212101300_added_entity_constraints_Paymentaction.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212101400_added_entity_constraints_Cart.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212101500_added_entity_constraints_Cartproducts.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212101600_added_entity_constraints_Booking.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212101800_added_entity_constraints_Bookingproducts.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212102100_added_entity_constraints_Shipping.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200212102300_added_entity_constraints_Currency.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

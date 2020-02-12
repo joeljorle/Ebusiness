@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span>Files</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-files" [routerLink]="['/files/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Files
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="files?.length === 0">
+        <span>No files found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="files?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="slug"><span>Slug</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userid"><span>Userid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoryid"><span>Categoryid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productid"><span>Productid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tourid"><span>Tourid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tourgroupid"><span>Tourgroupid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tourcategoryid"><span>Tourcategoryid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="evenementid"><span>Evenementid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="islogoimg"><span>Islogoimg</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isprofileimg"><span>Isprofileimg</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="iscoverimg"><span>Iscoverimg</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="issliderimg"><span>Issliderimg</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isotherimg"><span>Isotherimg</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdat"><span>Createdat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="updatedat"><span>Updatedat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let files of files ;trackBy: trackId">
+                    <td><a [routerLink]="['/files', files.id, 'view']">{{ files.id }}</a></td>
+                    <td>{{ files.slug }}</td>
+                    <td>{{ files.userid }}</td>
+                    <td>{{ files.categoryid }}</td>
+                    <td>{{ files.productid }}</td>
+                    <td>{{ files.tourid }}</td>
+                    <td>{{ files.tourgroupid }}</td>
+                    <td>{{ files.tourcategoryid }}</td>
+                    <td>{{ files.evenementid }}</td>
+                    <td>{{ files.islogoimg }}</td>
+                    <td>{{ files.isprofileimg }}</td>
+                    <td>{{ files.iscoverimg }}</td>
+                    <td>{{ files.issliderimg }}</td>
+                    <td>{{ files.isotherimg }}</td>
+                    <td>{{ files.createdat | date:'medium' }}</td>
+                    <td>{{ files.updatedat | date:'medium' }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/files', files.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/files', files.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(files)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
