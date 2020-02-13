@@ -1,0 +1,10 @@
+{
+  "ebusinessApp": {
+    "Notificationmodel": {
+      "null": "",
+      "SMS": "SMS",
+      "PUSH": "PUSH",
+      "INTERNAL": "INTERNAL"
+    }
+  }
+}

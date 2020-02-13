@@ -1,0 +1,49 @@
+{
+  "ebusinessApp": {
+    "tourcategory": {
+      "home": {
+        "title": "Tourcategories",
+        "createLabel": "Create a new Tourcategory",
+        "createOrEditLabel": "Create or edit a Tourcategory",
+        "notFound": "No Tourcategories found"
+      },
+      "created": "A new Tourcategory is created with identifier {{ param }}",
+      "updated": "A Tourcategory is updated with identifier {{ param }}",
+      "deleted": "A Tourcategory is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tourcategory {{ id }}?"
+      },
+      "detail": {
+        "title": "Tourcategory"
+      },
+      "categoryid": "Categoryid",
+      "productid": "Productid",
+      "evenementid": "Evenementid",
+      "slug": "Slug",
+      "name": "Name",
+      "islock": "Islock",
+      "lockdelay": "Lockdelay",
+      "about": "About",
+      "title": "Title",
+      "tag": "Tag",
+      "tagcolor": "Tagcolor",
+      "postalcode": "Postalcode",
+      "phones": "Phones",
+      "website": "Website",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "gplus": "Gplus",
+      "linkedin": "Linkedin",
+      "instagram": "Instagram",
+      "email": "Email",
+      "othercontacts": "Othercontacts",
+      "otherfields": "Otherfields",
+      "createdat": "Createdat",
+      "updatedat": "Updatedat",
+      "files": "Files",
+      "category": "Category",
+      "product": "Product",
+      "evenement": "Evenement"
+    }
+  }
+}

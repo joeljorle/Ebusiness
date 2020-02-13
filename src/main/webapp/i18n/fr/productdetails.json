@@ -1,0 +1,51 @@
+{
+  "ebusinessApp": {
+    "productdetails": {
+      "home": {
+        "title": "Productdetails",
+        "createLabel": "Créer un nouveau Productdetails",
+        "createOrEditLabel": "Créer ou éditer un Productdetails",
+        "notFound": "Aucun Productdetails trouvé"
+      },
+      "created": "Un nouveau Productdetails a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Productdetails avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Productdetails avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Productdetails {{ id }} ?"
+      },
+      "detail": {
+        "title": "Productdetails"
+      },
+      "about": "About",
+      "title": "Title",
+      "tag": "Tag",
+      "tagcolor": "Tagcolor",
+      "defaultlanguage": "Defaultlanguage",
+      "postalcode": "Postalcode",
+      "phones": "Phones",
+      "website": "Website",
+      "email": "Email",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "gplus": "Gplus",
+      "linkedin": "Linkedin",
+      "instagram": "Instagram",
+      "opentimes": "Opentimes",
+      "othercontacts": "Othercontacts",
+      "otherfields": "Otherfields",
+      "sizes": "Sizes",
+      "colors": "Colors",
+      "models": "Models",
+      "shippingprice": "Shippingprice",
+      "serialnumber": "Serialnumber",
+      "tax": "Tax",
+      "stock": "Stock",
+      "price": "Price",
+      "maxqty": "Maxqty",
+      "availableat": "Availableat",
+      "lockactiondelay": "Lockactiondelay",
+      "lockaction": "Lockaction",
+      "expireat": "Expireat"
+    }
+  }
+}

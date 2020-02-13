@@ -1,0 +1,171 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-profile-heading" jhiTranslate="ebusinessApp.profile.home.createOrEditLabel">Create or edit a Profile</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.slug" for="field_slug">Slug</label>
+                    <input type="text" class="form-control" name="slug" id="field_slug"
+                           formControlName="slug"/>
+                    <div *ngIf="editForm.get('slug')!.invalid && (editForm.get('slug')!.dirty || editForm.get('slug')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('slug')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.userid" for="field_userid">Userid</label>
+                    <input type="number" class="form-control" name="userid" id="field_userid"
+                           formControlName="userid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.islock" for="field_islock">Islock</label>
+                    <input type="checkbox" class="form-control" name="islock" id="field_islock"
+                           formControlName="islock"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.lockdelay" for="field_lockdelay">Lockdelay</label>
+                    <div class="d-flex">
+                        <input id="field_lockdelay" type="datetime-local" class="form-control" name="lockdelay" formControlName="lockdelay" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.about" for="field_about">About</label>
+                    <textarea class="form-control" name="about" id="field_about"
+                              formControlName="about"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.fullname" for="field_fullname">Fullname</label>
+                    <input type="text" class="form-control" name="fullname" id="field_fullname"
+                           formControlName="fullname"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.defaultlanguage" for="field_defaultlanguage">Defaultlanguage</label>
+                    <input type="text" class="form-control" name="defaultlanguage" id="field_defaultlanguage"
+                           formControlName="defaultlanguage"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.postalcode" for="field_postalcode">Postalcode</label>
+                    <input type="text" class="form-control" name="postalcode" id="field_postalcode"
+                           formControlName="postalcode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.phones" for="field_phones">Phones</label>
+                    <input type="text" class="form-control" name="phones" id="field_phones"
+                           formControlName="phones"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.website" for="field_website">Website</label>
+                    <input type="text" class="form-control" name="website" id="field_website"
+                           formControlName="website"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.facebook" for="field_facebook">Facebook</label>
+                    <input type="text" class="form-control" name="facebook" id="field_facebook"
+                           formControlName="facebook"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.twitter" for="field_twitter">Twitter</label>
+                    <input type="text" class="form-control" name="twitter" id="field_twitter"
+                           formControlName="twitter"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.gplus" for="field_gplus">Gplus</label>
+                    <input type="text" class="form-control" name="gplus" id="field_gplus"
+                           formControlName="gplus"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.linkedin" for="field_linkedin">Linkedin</label>
+                    <input type="text" class="form-control" name="linkedin" id="field_linkedin"
+                           formControlName="linkedin"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.instagram" for="field_instagram">Instagram</label>
+                    <input type="text" class="form-control" name="instagram" id="field_instagram"
+                           formControlName="instagram"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.othercontacts" for="field_othercontacts">Othercontacts</label>
+                    <textarea class="form-control" name="othercontacts" id="field_othercontacts"
+                              formControlName="othercontacts"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.otherfields" for="field_otherfields">Otherfields</label>
+                    <textarea class="form-control" name="otherfields" id="field_otherfields"
+                              formControlName="otherfields"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.createdat" for="field_createdat">Createdat</label>
+                    <div class="d-flex">
+                        <input id="field_createdat" type="datetime-local" class="form-control" name="createdat" formControlName="createdat" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.updatedat" for="field_updatedat">Updatedat</label>
+                    <div class="d-flex">
+                        <input id="field_updatedat" type="datetime-local" class="form-control" name="updatedat" formControlName="updatedat" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" formControlName="userId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.profile.location" for="field_location">Location</label>
+                    <select class="form-control" id="field_location" name="location" formControlName="locationId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="locationOption.id" *ngFor="let locationOption of locations; trackBy: trackById">{{ locationOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

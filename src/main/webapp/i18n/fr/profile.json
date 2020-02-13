@@ -1,0 +1,43 @@
+{
+  "ebusinessApp": {
+    "profile": {
+      "home": {
+        "title": "Profiles",
+        "createLabel": "Créer un nouveau Profile",
+        "createOrEditLabel": "Créer ou éditer un Profile",
+        "notFound": "Aucun Profile trouvé"
+      },
+      "created": "Un nouveau Profile a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Profile avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Profile avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Profile {{ id }} ?"
+      },
+      "detail": {
+        "title": "Profile"
+      },
+      "slug": "Slug",
+      "userid": "Userid",
+      "name": "Name",
+      "islock": "Islock",
+      "lockdelay": "Lockdelay",
+      "about": "About",
+      "fullname": "Fullname",
+      "defaultlanguage": "Defaultlanguage",
+      "postalcode": "Postalcode",
+      "phones": "Phones",
+      "website": "Website",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "gplus": "Gplus",
+      "linkedin": "Linkedin",
+      "instagram": "Instagram",
+      "othercontacts": "Othercontacts",
+      "otherfields": "Otherfields",
+      "createdat": "Createdat",
+      "updatedat": "Updatedat",
+      "user": "User",
+      "location": "Location"
+    }
+  }
+}

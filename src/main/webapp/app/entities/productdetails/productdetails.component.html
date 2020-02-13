@@ -1,0 +1,119 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ebusinessApp.productdetails.home.title">Productdetails</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-productdetails" [routerLink]="['/productdetails/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="ebusinessApp.productdetails.home.createLabel">
+            Create a new Productdetails
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="productdetails?.length === 0">
+        <span jhiTranslate="ebusinessApp.productdetails.home.notFound">No productdetails found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="productdetails?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="about"><span jhiTranslate="ebusinessApp.productdetails.about">About</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="title"><span jhiTranslate="ebusinessApp.productdetails.title">Title</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tag"><span jhiTranslate="ebusinessApp.productdetails.tag">Tag</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tagcolor"><span jhiTranslate="ebusinessApp.productdetails.tagcolor">Tagcolor</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="defaultlanguage"><span jhiTranslate="ebusinessApp.productdetails.defaultlanguage">Defaultlanguage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="postalcode"><span jhiTranslate="ebusinessApp.productdetails.postalcode">Postalcode</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="phones"><span jhiTranslate="ebusinessApp.productdetails.phones">Phones</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="website"><span jhiTranslate="ebusinessApp.productdetails.website">Website</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="email"><span jhiTranslate="ebusinessApp.productdetails.email">Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="facebook"><span jhiTranslate="ebusinessApp.productdetails.facebook">Facebook</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="twitter"><span jhiTranslate="ebusinessApp.productdetails.twitter">Twitter</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="gplus"><span jhiTranslate="ebusinessApp.productdetails.gplus">Gplus</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="linkedin"><span jhiTranslate="ebusinessApp.productdetails.linkedin">Linkedin</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="instagram"><span jhiTranslate="ebusinessApp.productdetails.instagram">Instagram</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="opentimes"><span jhiTranslate="ebusinessApp.productdetails.opentimes">Opentimes</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="othercontacts"><span jhiTranslate="ebusinessApp.productdetails.othercontacts">Othercontacts</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="otherfields"><span jhiTranslate="ebusinessApp.productdetails.otherfields">Otherfields</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sizes"><span jhiTranslate="ebusinessApp.productdetails.sizes">Sizes</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="colors"><span jhiTranslate="ebusinessApp.productdetails.colors">Colors</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="models"><span jhiTranslate="ebusinessApp.productdetails.models">Models</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shippingprice"><span jhiTranslate="ebusinessApp.productdetails.shippingprice">Shippingprice</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="serialnumber"><span jhiTranslate="ebusinessApp.productdetails.serialnumber">Serialnumber</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tax"><span jhiTranslate="ebusinessApp.productdetails.tax">Tax</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="stock"><span jhiTranslate="ebusinessApp.productdetails.stock">Stock</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="price"><span jhiTranslate="ebusinessApp.productdetails.price">Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="maxqty"><span jhiTranslate="ebusinessApp.productdetails.maxqty">Maxqty</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="availableat"><span jhiTranslate="ebusinessApp.productdetails.availableat">Availableat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lockactiondelay"><span jhiTranslate="ebusinessApp.productdetails.lockactiondelay">Lockactiondelay</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lockaction"><span jhiTranslate="ebusinessApp.productdetails.lockaction">Lockaction</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="expireat"><span jhiTranslate="ebusinessApp.productdetails.expireat">Expireat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let productdetails of productdetails ;trackBy: trackId">
+                    <td><a [routerLink]="['/productdetails', productdetails.id, 'view']">{{ productdetails.id }}</a></td>
+                    <td>{{ productdetails.about }}</td>
+                    <td>{{ productdetails.title }}</td>
+                    <td>{{ productdetails.tag }}</td>
+                    <td jhiTranslate="{{ 'ebusinessApp.Tagcolor.' + productdetails.tagcolor }}">{{ productdetails.tagcolor }}</td>
+                    <td>{{ productdetails.defaultlanguage }}</td>
+                    <td>{{ productdetails.postalcode }}</td>
+                    <td>{{ productdetails.phones }}</td>
+                    <td>{{ productdetails.website }}</td>
+                    <td>{{ productdetails.email }}</td>
+                    <td>{{ productdetails.facebook }}</td>
+                    <td>{{ productdetails.twitter }}</td>
+                    <td>{{ productdetails.gplus }}</td>
+                    <td>{{ productdetails.linkedin }}</td>
+                    <td>{{ productdetails.instagram }}</td>
+                    <td>{{ productdetails.opentimes }}</td>
+                    <td>{{ productdetails.othercontacts }}</td>
+                    <td>{{ productdetails.otherfields }}</td>
+                    <td>{{ productdetails.sizes }}</td>
+                    <td>{{ productdetails.colors }}</td>
+                    <td>{{ productdetails.models }}</td>
+                    <td>{{ productdetails.shippingprice }}</td>
+                    <td>{{ productdetails.serialnumber }}</td>
+                    <td>{{ productdetails.tax }}</td>
+                    <td>{{ productdetails.stock }}</td>
+                    <td>{{ productdetails.price }}</td>
+                    <td>{{ productdetails.maxqty }}</td>
+                    <td>{{ productdetails.availableat | date:'medium' }}</td>
+                    <td>{{ productdetails.lockactiondelay | date:'medium' }}</td>
+                    <td>{{ productdetails.lockaction }}</td>
+                    <td>{{ productdetails.expireat | date:'medium' }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/productdetails', productdetails.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/productdetails', productdetails.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(productdetails)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

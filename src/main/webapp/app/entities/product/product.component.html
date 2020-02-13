@@ -1,0 +1,105 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ebusinessApp.product.home.title">Products</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product" [routerLink]="['/product/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="ebusinessApp.product.home.createLabel">
+            Create a new Product
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="products?.length === 0">
+        <span jhiTranslate="ebusinessApp.product.home.notFound">No products found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="products?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoryid"><span jhiTranslate="ebusinessApp.product.categoryid">Categoryid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="slug"><span jhiTranslate="ebusinessApp.product.slug">Slug</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="name"><span jhiTranslate="ebusinessApp.product.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="islock"><span jhiTranslate="ebusinessApp.product.islock">Islock</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lockdelay"><span jhiTranslate="ebusinessApp.product.lockdelay">Lockdelay</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="type"><span jhiTranslate="ebusinessApp.product.type">Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdat"><span jhiTranslate="ebusinessApp.product.createdat">Createdat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="updatedat"><span jhiTranslate="ebusinessApp.product.updatedat">Updatedat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="filesId"><span jhiTranslate="ebusinessApp.product.files">Files</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productdetailsId"><span jhiTranslate="ebusinessApp.product.productdetails">Productdetails</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="currencyId"><span jhiTranslate="ebusinessApp.product.currency">Currency</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="locationId"><span jhiTranslate="ebusinessApp.product.location">Location</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoryId"><span jhiTranslate="ebusinessApp.product.category">Category</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let product of products ;trackBy: trackId">
+                    <td><a [routerLink]="['/product', product.id, 'view']">{{ product.id }}</a></td>
+                    <td>{{ product.categoryid }}</td>
+                    <td>{{ product.slug }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.islock }}</td>
+                    <td>{{ product.lockdelay | date:'medium' }}</td>
+                    <td jhiTranslate="{{ 'ebusinessApp.Type.' + product.type }}">{{ product.type }}</td>
+                    <td>{{ product.createdat | date:'medium' }}</td>
+                    <td>{{ product.updatedat | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="product.filesId">
+                            <a [routerLink]="['/files', product.filesId , 'view']" >{{ product.filesId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="product.productdetailsId">
+                            <a [routerLink]="['/productdetails', product.productdetailsId , 'view']" >{{ product.productdetailsId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="product.currencyId">
+                            <a [routerLink]="['/currency', product.currencyId , 'view']" >{{ product.currencyId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="product.locationId">
+                            <a [routerLink]="['/location', product.locationId , 'view']" >{{ product.locationId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="product.categoryId">
+                            <a [routerLink]="['/category', product.categoryId , 'view']" >{{ product.categoryId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/product', product.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/product', product.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(product)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

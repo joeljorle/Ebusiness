@@ -1,0 +1,62 @@
+{
+    "name": "Cart",
+    "fields": [
+        {
+            "fieldName": "slug",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "categoryid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "userid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "totalprice",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "createdat",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "updatedat",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "currency",
+            "otherEntityRelationshipName": "cart",
+            "relationshipName": "currency",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "cartproducts",
+            "otherEntityRelationshipName": "cart",
+            "relationshipName": "cartproducts"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "category",
+            "otherEntityRelationshipName": "cart",
+            "relationshipName": "category",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200213070300",
+    "entityTableName": "cart",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

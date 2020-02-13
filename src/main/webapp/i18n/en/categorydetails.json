@@ -1,0 +1,53 @@
+{
+  "ebusinessApp": {
+    "categorydetails": {
+      "home": {
+        "title": "Categorydetails",
+        "createLabel": "Create a new Categorydetails",
+        "createOrEditLabel": "Create or edit a Categorydetails",
+        "notFound": "No Categorydetails found"
+      },
+      "created": "A new Categorydetails is created with identifier {{ param }}",
+      "updated": "A Categorydetails is updated with identifier {{ param }}",
+      "deleted": "A Categorydetails is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Categorydetails {{ id }}?"
+      },
+      "detail": {
+        "title": "Categorydetails"
+      },
+      "about": "About",
+      "title": "Title",
+      "tag": "Tag",
+      "tagcolor": "Tagcolor",
+      "defaultlanguage": "Defaultlanguage",
+      "postalcode": "Postalcode",
+      "phones": "Phones",
+      "website": "Website",
+      "email": "Email",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "gplus": "Gplus",
+      "linkedin": "Linkedin",
+      "instagram": "Instagram",
+      "opentimes": "Opentimes",
+      "othercontacts": "Othercontacts",
+      "otherfields": "Otherfields",
+      "generalabout": "Generalabout",
+      "generaltax": "Generaltax",
+      "generalstock": "Generalstock",
+      "generalprice": "Generalprice",
+      "generalmaxstock": "Generalmaxstock",
+      "generaltag": "Generaltag",
+      "generaltagcolor": "Generaltagcolor",
+      "generalhidden": "Generalhidden",
+      "generalhiddendelay": "Generalhiddendelay",
+      "generallock": "Generallock",
+      "generallockdelay": "Generallockdelay",
+      "generalexpire": "Generalexpire",
+      "generalexpiredelay": "Generalexpiredelay",
+      "childsname": "Childsname",
+      "productsname": "Productsname"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "ebusinessApp": {
+    "paymentaction": {
+      "home": {
+        "title": "Paymentactions",
+        "createLabel": "Create a new Paymentaction",
+        "createOrEditLabel": "Create or edit a Paymentaction",
+        "notFound": "No Paymentactions found"
+      },
+      "created": "A new Paymentaction is created with identifier {{ param }}",
+      "updated": "A Paymentaction is updated with identifier {{ param }}",
+      "deleted": "A Paymentaction is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Paymentaction {{ id }}?"
+      },
+      "detail": {
+        "title": "Paymentaction"
+      },
+      "slug": "Slug",
+      "userid": "Userid",
+      "paymentmethodid": "Paymentmethodid",
+      "evenementid": "Evenementid",
+      "productid": "Productid",
+      "categoryid": "Categoryid",
+      "expireat": "Expireat",
+      "code": "Code",
+      "code1": "Code 1",
+      "code2": "Code 2",
+      "amount": "Amount",
+      "createdat": "Createdat",
+      "updatedat": "Updatedat",
+      "product": "Product",
+      "evenement": "Evenement",
+      "paymentmethod": "Paymentmethod"
+    }
+  }
+}

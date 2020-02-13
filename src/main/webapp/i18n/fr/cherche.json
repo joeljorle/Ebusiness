@@ -1,0 +1,28 @@
+{
+  "ebusinessApp": {
+    "cherche": {
+      "home": {
+        "title": "Cherches",
+        "createLabel": "Créer un nouveau Cherche",
+        "createOrEditLabel": "Créer ou éditer un Cherche",
+        "notFound": "Aucun Cherche trouvé"
+      },
+      "created": "Un nouveau Cherche a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Cherche avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Cherche avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Cherche {{ id }} ?"
+      },
+      "detail": {
+        "title": "Cherche"
+      },
+      "slug": "Slug",
+      "name": "Name",
+      "abrev": "Abrev",
+      "userid": "Userid",
+      "details": "Details",
+      "createdat": "Createdat",
+      "updatedat": "Updatedat"
+    }
+  }
+}

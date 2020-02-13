@@ -1,0 +1,84 @@
+{
+    "name": "Reviews",
+    "fields": [
+        {
+            "fieldName": "slug",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "userid",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "categoryid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "productid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tourid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tourgroupid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "evenementid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "text",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdat",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "updatedat",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "category",
+            "otherEntityRelationshipName": "reviews",
+            "relationshipName": "category",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "product",
+            "otherEntityRelationshipName": "reviews",
+            "relationshipName": "product",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "evenement",
+            "otherEntityRelationshipName": "reviews",
+            "relationshipName": "evenement",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200213065900",
+    "entityTableName": "reviews",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

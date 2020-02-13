@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reviews">
+            <h2><span jhiTranslate="ebusinessApp.reviews.detail.title">Reviews</span> {{ reviews.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ebusinessApp.reviews.slug">Slug</span></dt>
+                <dd>
+                    <span>{{ reviews.slug }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.reviews.userid">Userid</span></dt>
+                <dd>
+                    <span>{{ reviews.userid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.reviews.categoryid">Categoryid</span></dt>
+                <dd>
+                    <span>{{ reviews.categoryid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.reviews.productid">Productid</span></dt>
+                <dd>
+                    <span>{{ reviews.productid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.reviews.tourid">Tourid</span></dt>
+                <dd>
+                    <span>{{ reviews.tourid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.reviews.tourgroupid">Tourgroupid</span></dt>
+                <dd>
+                    <span>{{ reviews.tourgroupid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.reviews.evenementid">Evenementid</span></dt>
+                <dd>
+                    <span>{{ reviews.evenementid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.reviews.text">Text</span></dt>
+                <dd>
+                    <span>{{ reviews.text }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.reviews.createdat">Createdat</span></dt>
+                <dd>
+                    <span>{{ reviews.createdat }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.reviews.updatedat">Updatedat</span></dt>
+                <dd>
+                    <span>{{ reviews.updatedat }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.reviews.category">Category</span></dt>
+                <dd>
+                    <div *ngIf="reviews.categoryId">
+                        <a [routerLink]="['/category', reviews.categoryId, 'view']">{{ reviews.categoryId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.reviews.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="reviews.productId">
+                        <a [routerLink]="['/product', reviews.productId, 'view']">{{ reviews.productId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.reviews.evenement">Evenement</span></dt>
+                <dd>
+                    <div *ngIf="reviews.evenementId">
+                        <a [routerLink]="['/evenement', reviews.evenementId, 'view']">{{ reviews.evenementId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/reviews', reviews.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

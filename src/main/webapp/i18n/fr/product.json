@@ -1,0 +1,43 @@
+{
+  "ebusinessApp": {
+    "product": {
+      "home": {
+        "title": "Products",
+        "createLabel": "Créer un nouveau Product",
+        "createOrEditLabel": "Créer ou éditer un Product",
+        "notFound": "Aucun Product trouvé"
+      },
+      "created": "Un nouveau Product a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Product avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Product avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Product {{ id }} ?"
+      },
+      "detail": {
+        "title": "Product"
+      },
+      "categoryid": "Categoryid",
+      "slug": "Slug",
+      "name": "Name",
+      "islock": "Islock",
+      "lockdelay": "Lockdelay",
+      "type": "Type",
+      "createdat": "Createdat",
+      "updatedat": "Updatedat",
+      "files": "Files",
+      "productdetails": "Productdetails",
+      "currency": "Currency",
+      "location": "Location",
+      "tour": "Tour",
+      "evenement": "Evenement",
+      "tourgroup": "Tourgroup",
+      "tourcategory": "Tourcategory",
+      "likes": "Likes",
+      "follows": "Follows",
+      "ratings": "Ratings",
+      "reviews": "Reviews",
+      "paymentaction": "Paymentaction",
+      "category": "Category"
+    }
+  }
+}

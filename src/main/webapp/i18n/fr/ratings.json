@@ -1,0 +1,34 @@
+{
+  "ebusinessApp": {
+    "ratings": {
+      "home": {
+        "title": "Ratings",
+        "createLabel": "Créer un nouveau Ratings",
+        "createOrEditLabel": "Créer ou éditer un Ratings",
+        "notFound": "Aucun Ratings trouvé"
+      },
+      "created": "Un nouveau Ratings a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ratings avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ratings avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ratings {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ratings"
+      },
+      "slug": "Slug",
+      "userid": "Userid",
+      "categoryid": "Categoryid",
+      "productid": "Productid",
+      "tourid": "Tourid",
+      "tourgroupid": "Tourgroupid",
+      "evenementid": "Evenementid",
+      "value": "Value",
+      "createdat": "Createdat",
+      "updatedat": "Updatedat",
+      "category": "Category",
+      "product": "Product",
+      "evenement": "Evenement"
+    }
+  }
+}

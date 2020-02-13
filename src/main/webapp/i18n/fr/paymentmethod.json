@@ -1,0 +1,29 @@
+{
+  "ebusinessApp": {
+    "paymentmethod": {
+      "home": {
+        "title": "Paymentmethods",
+        "createLabel": "Créer un nouveau Paymentmethod",
+        "createOrEditLabel": "Créer ou éditer un Paymentmethod",
+        "notFound": "Aucun Paymentmethod trouvé"
+      },
+      "created": "Un nouveau Paymentmethod a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Paymentmethod avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Paymentmethod avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Paymentmethod {{ id }} ?"
+      },
+      "detail": {
+        "title": "Paymentmethod"
+      },
+      "slug": "Slug",
+      "name": "Name",
+      "logo": "Logo",
+      "logodata": "Logodata",
+      "createdat": "Createdat",
+      "updatedat": "Updatedat",
+      "paymentaction": "Paymentaction",
+      "paymentcategory": "Paymentcategory"
+    }
+  }
+}

@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bookingdetails">
+            <h2><span jhiTranslate="ebusinessApp.bookingdetails.detail.title">Bookingdetails</span> {{ bookingdetails.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ebusinessApp.bookingdetails.subtotal">Subtotal</span></dt>
+                <dd>
+                    <span>{{ bookingdetails.subtotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.bookingdetails.total">Total</span></dt>
+                <dd>
+                    <span>{{ bookingdetails.total }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.bookingdetails.tax">Tax</span></dt>
+                <dd>
+                    <span>{{ bookingdetails.tax }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.bookingdetails.shipping">Shipping</span></dt>
+                <dd>
+                    <span>{{ bookingdetails.shipping }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.bookingdetails.shippingstate">Shippingstate</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ebusinessApp.Shippingstate.' + bookingdetails.shippingstate }}">{{ bookingdetails.shippingstate }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.bookingdetails.about">About</span></dt>
+                <dd>
+                    <span>{{ bookingdetails.about }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.bookingdetails.couponconde">Couponconde</span></dt>
+                <dd>
+                    <span>{{ bookingdetails.couponconde }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.bookingdetails.qrcode">Qrcode</span></dt>
+                <dd>
+                    <span>{{ bookingdetails.qrcode }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.bookingdetails.code">Code</span></dt>
+                <dd>
+                    <span>{{ bookingdetails.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.bookingdetails.url">Url</span></dt>
+                <dd>
+                    <span>{{ bookingdetails.url }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.bookingdetails.token">Token</span></dt>
+                <dd>
+                    <span>{{ bookingdetails.token }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.bookingdetails.paymentmode">Paymentmode</span></dt>
+                <dd>
+                    <span>{{ bookingdetails.paymentmode }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.bookingdetails.startdate">Startdate</span></dt>
+                <dd>
+                    <span>{{ bookingdetails.startdate }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.bookingdetails.enddate">Enddate</span></dt>
+                <dd>
+                    <span>{{ bookingdetails.enddate }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.bookingdetails.enventstate">Enventstate</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ebusinessApp.Evenementstate.' + bookingdetails.enventstate }}">{{ bookingdetails.enventstate }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.bookingdetails.places">Places</span></dt>
+                <dd>
+                    <span>{{ bookingdetails.places }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bookingdetails', bookingdetails.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

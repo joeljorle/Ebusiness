@@ -1,0 +1,38 @@
+{
+  "ebusinessApp": {
+    "paymentcategory": {
+      "home": {
+        "title": "Paymentcategories",
+        "createLabel": "Create a new Paymentcategory",
+        "createOrEditLabel": "Create or edit a Paymentcategory",
+        "notFound": "No Paymentcategories found"
+      },
+      "created": "A new Paymentcategory is created with identifier {{ param }}",
+      "updated": "A Paymentcategory is updated with identifier {{ param }}",
+      "deleted": "A Paymentcategory is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Paymentcategory {{ id }}?"
+      },
+      "detail": {
+        "title": "Paymentcategory"
+      },
+      "paymentmethodid": "Paymentmethodid",
+      "categoryid": "Categoryid",
+      "url": "Url",
+      "apiurl": "Apiurl",
+      "apikey": "Apikey",
+      "key2": "Key 2",
+      "key3": "Key 3",
+      "key4": "Key 4",
+      "phonenumber": "Phonenumber",
+      "chanel": "Chanel",
+      "code": "Code",
+      "username": "Username",
+      "password": "Password",
+      "createdat": "Createdat",
+      "updatedat": "Updatedat",
+      "category": "Category",
+      "paymentmethod": "Paymentmethod"
+    }
+  }
+}

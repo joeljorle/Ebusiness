@@ -1,0 +1,237 @@
+{
+    "name": "Evenement",
+    "fields": [
+        {
+            "fieldName": "categoryid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "userid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "productid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "slug",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "islock",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "lockdelay",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "islimited",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "limiteddelay",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "limitedbooking",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "startdate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "enddate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "about",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tag",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tagcolor",
+            "fieldType": "Tagcolor",
+            "fieldValues": "RED,BLUE,GREEN,YELLOW,BLACK"
+        },
+        {
+            "fieldName": "postalcode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phones",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "website",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "facebook",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "twitter",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gplus",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "linkedin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "instagram",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "url",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "othercontacts",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "otherfields",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "createdat",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "updatedat",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "files",
+            "otherEntityRelationshipName": "evenement",
+            "relationshipName": "files",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "currency",
+            "otherEntityRelationshipName": "evenement",
+            "relationshipName": "currency",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "location",
+            "otherEntityRelationshipName": "evenement",
+            "relationshipName": "location",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tour",
+            "otherEntityRelationshipName": "evenement",
+            "javadoc": "Evenement to many relationship.",
+            "relationshipName": "tour"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tourgroup",
+            "otherEntityRelationshipName": "evenement",
+            "relationshipName": "tourgroup"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tourcategory",
+            "otherEntityRelationshipName": "evenement",
+            "relationshipName": "tourcategory"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "likes",
+            "otherEntityRelationshipName": "evenement",
+            "relationshipName": "likes"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "ratings",
+            "otherEntityRelationshipName": "evenement",
+            "relationshipName": "ratings"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "reviews",
+            "otherEntityRelationshipName": "evenement",
+            "relationshipName": "reviews"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "follows",
+            "otherEntityRelationshipName": "evenement",
+            "relationshipName": "follows"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "booking",
+            "otherEntityRelationshipName": "evenement",
+            "relationshipName": "booking"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "paymentaction",
+            "otherEntityRelationshipName": "evenement",
+            "relationshipName": "paymentaction"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "category",
+            "otherEntityRelationshipName": "evenement",
+            "relationshipName": "category",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "product",
+            "otherEntityRelationshipName": "evenement",
+            "relationshipName": "product",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200213065000",
+    "entityTableName": "evenement",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

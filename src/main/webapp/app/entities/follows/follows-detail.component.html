@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="follows">
+            <h2><span jhiTranslate="ebusinessApp.follows.detail.title">Follows</span> {{ follows.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ebusinessApp.follows.slug">Slug</span></dt>
+                <dd>
+                    <span>{{ follows.slug }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.follows.userid">Userid</span></dt>
+                <dd>
+                    <span>{{ follows.userid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.follows.categoryid">Categoryid</span></dt>
+                <dd>
+                    <span>{{ follows.categoryid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.follows.productid">Productid</span></dt>
+                <dd>
+                    <span>{{ follows.productid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.follows.tourid">Tourid</span></dt>
+                <dd>
+                    <span>{{ follows.tourid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.follows.evenementid">Evenementid</span></dt>
+                <dd>
+                    <span>{{ follows.evenementid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.follows.tourgroupid">Tourgroupid</span></dt>
+                <dd>
+                    <span>{{ follows.tourgroupid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.follows.alert">Alert</span></dt>
+                <dd>
+                    <span>{{ follows.alert }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.follows.alertEvenement">Alert Evenement</span></dt>
+                <dd>
+                    <span>{{ follows.alertEvenement }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.follows.followchild">Followchild</span></dt>
+                <dd>
+                    <span>{{ follows.followchild }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.follows.createdat">Createdat</span></dt>
+                <dd>
+                    <span>{{ follows.createdat }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.follows.updatedat">Updatedat</span></dt>
+                <dd>
+                    <span>{{ follows.updatedat }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.follows.category">Category</span></dt>
+                <dd>
+                    <div *ngIf="follows.categoryId">
+                        <a [routerLink]="['/category', follows.categoryId, 'view']">{{ follows.categoryId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.follows.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="follows.productId">
+                        <a [routerLink]="['/product', follows.productId, 'view']">{{ follows.productId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.follows.evenement">Evenement</span></dt>
+                <dd>
+                    <div *ngIf="follows.evenementId">
+                        <a [routerLink]="['/evenement', follows.evenementId, 'view']">{{ follows.evenementId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/follows', follows.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

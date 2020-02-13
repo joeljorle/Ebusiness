@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="booking">
+            <h2><span jhiTranslate="ebusinessApp.booking.detail.title">Booking</span> {{ booking.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ebusinessApp.booking.slug">Slug</span></dt>
+                <dd>
+                    <span>{{ booking.slug }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.booking.userid">Userid</span></dt>
+                <dd>
+                    <span>{{ booking.userid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.booking.tourid">Tourid</span></dt>
+                <dd>
+                    <span>{{ booking.tourid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.booking.tourgroupid">Tourgroupid</span></dt>
+                <dd>
+                    <span>{{ booking.tourgroupid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.booking.categoryid">Categoryid</span></dt>
+                <dd>
+                    <span>{{ booking.categoryid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.booking.productid">Productid</span></dt>
+                <dd>
+                    <span>{{ booking.productid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.booking.evenementid">Evenementid</span></dt>
+                <dd>
+                    <span>{{ booking.evenementid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.booking.createdat">Createdat</span></dt>
+                <dd>
+                    <span>{{ booking.createdat }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.booking.updatedat">Updatedat</span></dt>
+                <dd>
+                    <span>{{ booking.updatedat }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.booking.currency">Currency</span></dt>
+                <dd>
+                    <div *ngIf="booking.currencyId">
+                        <a [routerLink]="['/currency', booking.currencyId, 'view']">{{ booking.currencyId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.booking.bookingview">Bookingview</span></dt>
+                <dd>
+                    <div *ngIf="booking.bookingviewId">
+                        <a [routerLink]="['/bookingview', booking.bookingviewId, 'view']">{{ booking.bookingviewId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.booking.bookingdetails">Bookingdetails</span></dt>
+                <dd>
+                    <div *ngIf="booking.bookingdetailsId">
+                        <a [routerLink]="['/bookingdetails', booking.bookingdetailsId, 'view']">{{ booking.bookingdetailsId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.booking.category">Category</span></dt>
+                <dd>
+                    <div *ngIf="booking.categoryId">
+                        <a [routerLink]="['/category', booking.categoryId, 'view']">{{ booking.categoryId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.booking.evenement">Evenement</span></dt>
+                <dd>
+                    <div *ngIf="booking.evenementId">
+                        <a [routerLink]="['/evenement', booking.evenementId, 'view']">{{ booking.evenementId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/booking', booking.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

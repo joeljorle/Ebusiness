@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ebusinessApp.bookingview.home.title">Bookingviews</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-bookingview" [routerLink]="['/bookingview/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="ebusinessApp.bookingview.home.createLabel">
+            Create a new Bookingview
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="bookingviews?.length === 0">
+        <span jhiTranslate="ebusinessApp.bookingview.home.notFound">No bookingviews found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="bookingviews?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="title"><span jhiTranslate="ebusinessApp.bookingview.title">Title</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subtitle"><span jhiTranslate="ebusinessApp.bookingview.subtitle">Subtitle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="logo"><span jhiTranslate="ebusinessApp.bookingview.logo">Logo</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="logodata"><span jhiTranslate="ebusinessApp.bookingview.logodata">Logodata</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="bg"><span jhiTranslate="ebusinessApp.bookingview.bg">Bg</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="bgdata"><span jhiTranslate="ebusinessApp.bookingview.bgdata">Bgdata</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let bookingview of bookingviews ;trackBy: trackId">
+                    <td><a [routerLink]="['/bookingview', bookingview.id, 'view']">{{ bookingview.id }}</a></td>
+                    <td>{{ bookingview.title }}</td>
+                    <td>{{ bookingview.subtitle }}</td>
+                    <td>{{ bookingview.logo }}</td>
+                    <td>
+                        <a *ngIf="bookingview.logodata" (click)="openFile(bookingview.logodataContentType, bookingview.logodata)" jhiTranslate="entity.action.open">open</a>
+                        <span *ngIf="bookingview.logodata">{{ bookingview.logodataContentType }}, {{ byteSize(bookingview.logodata) }}</span>
+                    </td>
+                    <td>{{ bookingview.bg }}</td>
+                    <td>
+                        <a *ngIf="bookingview.bgdata" (click)="openFile(bookingview.bgdataContentType, bookingview.bgdata)" jhiTranslate="entity.action.open">open</a>
+                        <span *ngIf="bookingview.bgdata">{{ bookingview.bgdataContentType }}, {{ byteSize(bookingview.bgdata) }}</span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/bookingview', bookingview.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/bookingview', bookingview.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(bookingview)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

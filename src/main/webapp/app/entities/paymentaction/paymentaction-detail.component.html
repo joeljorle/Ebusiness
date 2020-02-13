@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="paymentaction">
+            <h2><span jhiTranslate="ebusinessApp.paymentaction.detail.title">Paymentaction</span> {{ paymentaction.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ebusinessApp.paymentaction.slug">Slug</span></dt>
+                <dd>
+                    <span>{{ paymentaction.slug }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentaction.userid">Userid</span></dt>
+                <dd>
+                    <span>{{ paymentaction.userid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentaction.paymentmethodid">Paymentmethodid</span></dt>
+                <dd>
+                    <span>{{ paymentaction.paymentmethodid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentaction.evenementid">Evenementid</span></dt>
+                <dd>
+                    <span>{{ paymentaction.evenementid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentaction.productid">Productid</span></dt>
+                <dd>
+                    <span>{{ paymentaction.productid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentaction.categoryid">Categoryid</span></dt>
+                <dd>
+                    <span>{{ paymentaction.categoryid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentaction.expireat">Expireat</span></dt>
+                <dd>
+                    <span>{{ paymentaction.expireat }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentaction.code">Code</span></dt>
+                <dd>
+                    <span>{{ paymentaction.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentaction.code1">Code 1</span></dt>
+                <dd>
+                    <span>{{ paymentaction.code1 }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentaction.code2">Code 2</span></dt>
+                <dd>
+                    <span>{{ paymentaction.code2 }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentaction.amount">Amount</span></dt>
+                <dd>
+                    <span>{{ paymentaction.amount }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentaction.createdat">Createdat</span></dt>
+                <dd>
+                    <span>{{ paymentaction.createdat }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentaction.updatedat">Updatedat</span></dt>
+                <dd>
+                    <span>{{ paymentaction.updatedat }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentaction.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="paymentaction.productId">
+                        <a [routerLink]="['/product', paymentaction.productId, 'view']">{{ paymentaction.productId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentaction.evenement">Evenement</span></dt>
+                <dd>
+                    <div *ngIf="paymentaction.evenementId">
+                        <a [routerLink]="['/evenement', paymentaction.evenementId, 'view']">{{ paymentaction.evenementId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentaction.paymentmethod">Paymentmethod</span></dt>
+                <dd>
+                    <div *ngIf="paymentaction.paymentmethodId">
+                        <a [routerLink]="['/paymentmethod', paymentaction.paymentmethodId, 'view']">{{ paymentaction.paymentmethodId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/paymentaction', paymentaction.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
