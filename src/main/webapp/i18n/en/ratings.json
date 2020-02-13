@@ -1,0 +1,34 @@
+{
+  "ebusinessApp": {
+    "ratings": {
+      "home": {
+        "title": "Ratings",
+        "createLabel": "Create a new Ratings",
+        "createOrEditLabel": "Create or edit a Ratings",
+        "notFound": "No Ratings found"
+      },
+      "created": "A new Ratings is created with identifier {{ param }}",
+      "updated": "A Ratings is updated with identifier {{ param }}",
+      "deleted": "A Ratings is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ratings {{ id }}?"
+      },
+      "detail": {
+        "title": "Ratings"
+      },
+      "slug": "Slug",
+      "userid": "Userid",
+      "categoryid": "Categoryid",
+      "productid": "Productid",
+      "tourid": "Tourid",
+      "tourgroupid": "Tourgroupid",
+      "evenementid": "Evenementid",
+      "value": "Value",
+      "createdat": "Createdat",
+      "updatedat": "Updatedat",
+      "category": "Category",
+      "product": "Product",
+      "evenement": "Evenement"
+    }
+  }
+}

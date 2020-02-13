@@ -1,0 +1,107 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ebusinessApp.category.home.title">Categories</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-category" [routerLink]="['/category/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="ebusinessApp.category.home.createLabel">
+            Create a new Category
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="categories?.length === 0">
+        <span jhiTranslate="ebusinessApp.category.home.notFound">No categories found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="categories?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="slug"><span jhiTranslate="ebusinessApp.category.slug">Slug</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userid"><span jhiTranslate="ebusinessApp.category.userid">Userid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoryid"><span jhiTranslate="ebusinessApp.category.categoryid">Categoryid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="name"><span jhiTranslate="ebusinessApp.category.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="route"><span jhiTranslate="ebusinessApp.category.route">Route</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isheader"><span jhiTranslate="ebusinessApp.category.isheader">Isheader</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isgroup"><span jhiTranslate="ebusinessApp.category.isgroup">Isgroup</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="islock"><span jhiTranslate="ebusinessApp.category.islock">Islock</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lockdelay"><span jhiTranslate="ebusinessApp.category.lockdelay">Lockdelay</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="type"><span jhiTranslate="ebusinessApp.category.type">Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdat"><span jhiTranslate="ebusinessApp.category.createdat">Createdat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="updatedat"><span jhiTranslate="ebusinessApp.category.updatedat">Updatedat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="filesId"><span jhiTranslate="ebusinessApp.category.files">Files</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categorydetailsId"><span jhiTranslate="ebusinessApp.category.categorydetails">Categorydetails</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="locationId"><span jhiTranslate="ebusinessApp.category.location">Location</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoryId"><span jhiTranslate="ebusinessApp.category.category">Category</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let category of categories ;trackBy: trackId">
+                    <td><a [routerLink]="['/category', category.id, 'view']">{{ category.id }}</a></td>
+                    <td>{{ category.slug }}</td>
+                    <td>{{ category.userid }}</td>
+                    <td>{{ category.categoryid }}</td>
+                    <td>{{ category.name }}</td>
+                    <td>{{ category.route }}</td>
+                    <td>{{ category.isheader }}</td>
+                    <td>{{ category.isgroup }}</td>
+                    <td>{{ category.islock }}</td>
+                    <td>{{ category.lockdelay | date:'medium' }}</td>
+                    <td jhiTranslate="{{ 'ebusinessApp.Type.' + category.type }}">{{ category.type }}</td>
+                    <td>{{ category.createdat | date:'medium' }}</td>
+                    <td>{{ category.updatedat | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="category.filesId">
+                            <a [routerLink]="['/files', category.filesId , 'view']" >{{ category.filesId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="category.categorydetailsId">
+                            <a [routerLink]="['/categorydetails', category.categorydetailsId , 'view']" >{{ category.categorydetailsId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="category.locationId">
+                            <a [routerLink]="['/location', category.locationId , 'view']" >{{ category.locationId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="category.categoryId">
+                            <a [routerLink]="['/category', category.categoryId , 'view']" >{{ category.categoryId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/category', category.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/category', category.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(category)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,156 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tourgroup">
+            <h2><span jhiTranslate="ebusinessApp.tourgroup.detail.title">Tourgroup</span> {{ tourgroup.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.categoryid">Categoryid</span></dt>
+                <dd>
+                    <span>{{ tourgroup.categoryid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.productid">Productid</span></dt>
+                <dd>
+                    <span>{{ tourgroup.productid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.evenementid">Evenementid</span></dt>
+                <dd>
+                    <span>{{ tourgroup.evenementid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.slug">Slug</span></dt>
+                <dd>
+                    <span>{{ tourgroup.slug }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.name">Name</span></dt>
+                <dd>
+                    <span>{{ tourgroup.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.islock">Islock</span></dt>
+                <dd>
+                    <span>{{ tourgroup.islock }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.lockdelay">Lockdelay</span></dt>
+                <dd>
+                    <span>{{ tourgroup.lockdelay }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.about">About</span></dt>
+                <dd>
+                    <span>{{ tourgroup.about }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.title">Title</span></dt>
+                <dd>
+                    <span>{{ tourgroup.title }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.tag">Tag</span></dt>
+                <dd>
+                    <span>{{ tourgroup.tag }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.tagcolor">Tagcolor</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ebusinessApp.Tagcolor.' + tourgroup.tagcolor }}">{{ tourgroup.tagcolor }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.postalcode">Postalcode</span></dt>
+                <dd>
+                    <span>{{ tourgroup.postalcode }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.phones">Phones</span></dt>
+                <dd>
+                    <span>{{ tourgroup.phones }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.website">Website</span></dt>
+                <dd>
+                    <span>{{ tourgroup.website }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.facebook">Facebook</span></dt>
+                <dd>
+                    <span>{{ tourgroup.facebook }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.twitter">Twitter</span></dt>
+                <dd>
+                    <span>{{ tourgroup.twitter }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.gplus">Gplus</span></dt>
+                <dd>
+                    <span>{{ tourgroup.gplus }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.linkedin">Linkedin</span></dt>
+                <dd>
+                    <span>{{ tourgroup.linkedin }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.instagram">Instagram</span></dt>
+                <dd>
+                    <span>{{ tourgroup.instagram }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.email">Email</span></dt>
+                <dd>
+                    <span>{{ tourgroup.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.position">Position</span></dt>
+                <dd>
+                    <span>{{ tourgroup.position }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.othercontacts">Othercontacts</span></dt>
+                <dd>
+                    <span>{{ tourgroup.othercontacts }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.otherfields">Otherfields</span></dt>
+                <dd>
+                    <span>{{ tourgroup.otherfields }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.createdat">Createdat</span></dt>
+                <dd>
+                    <span>{{ tourgroup.createdat }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.updatedat">Updatedat</span></dt>
+                <dd>
+                    <span>{{ tourgroup.updatedat }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.files">Files</span></dt>
+                <dd>
+                    <div *ngIf="tourgroup.filesId">
+                        <a [routerLink]="['/files', tourgroup.filesId, 'view']">{{ tourgroup.filesTourgroupid }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.location">Location</span></dt>
+                <dd>
+                    <div *ngIf="tourgroup.locationId">
+                        <a [routerLink]="['/location', tourgroup.locationId, 'view']">{{ tourgroup.locationId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.category">Category</span></dt>
+                <dd>
+                    <div *ngIf="tourgroup.categoryId">
+                        <a [routerLink]="['/category', tourgroup.categoryId, 'view']">{{ tourgroup.categoryId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="tourgroup.productId">
+                        <a [routerLink]="['/product', tourgroup.productId, 'view']">{{ tourgroup.productId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.tourgroup.evenement">Evenement</span></dt>
+                <dd>
+                    <div *ngIf="tourgroup.evenementId">
+                        <a [routerLink]="['/evenement', tourgroup.evenementId, 'view']">{{ tourgroup.evenementId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tourgroup', tourgroup.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

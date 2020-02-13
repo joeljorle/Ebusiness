@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Tourcategory.
+    -->
+    <changeSet id="20200213064800-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="files_id"
+                                 baseTableName="tourcategory"
+                                 constraintName="fk_tourcategory_files_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="files"/>
+
+        <addForeignKeyConstraint baseColumnNames="category_id"
+                                 baseTableName="tourcategory"
+                                 constraintName="fk_tourcategory_category_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="category"/>
+
+        <addForeignKeyConstraint baseColumnNames="product_id"
+                                 baseTableName="tourcategory"
+                                 constraintName="fk_tourcategory_product_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product"/>
+
+        <addForeignKeyConstraint baseColumnNames="evenement_id"
+                                 baseTableName="tourcategory"
+                                 constraintName="fk_tourcategory_evenement_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="evenement"/>
+
+    </changeSet>
+</databaseChangeLog>

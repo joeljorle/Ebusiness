@@ -1,0 +1,154 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="categorydetails">
+            <h2><span jhiTranslate="ebusinessApp.categorydetails.detail.title">Categorydetails</span> {{ categorydetails.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.about">About</span></dt>
+                <dd>
+                    <span>{{ categorydetails.about }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.title">Title</span></dt>
+                <dd>
+                    <span>{{ categorydetails.title }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.tag">Tag</span></dt>
+                <dd>
+                    <span>{{ categorydetails.tag }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.tagcolor">Tagcolor</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ebusinessApp.Tagcolor.' + categorydetails.tagcolor }}">{{ categorydetails.tagcolor }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.defaultlanguage">Defaultlanguage</span></dt>
+                <dd>
+                    <span>{{ categorydetails.defaultlanguage }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.postalcode">Postalcode</span></dt>
+                <dd>
+                    <span>{{ categorydetails.postalcode }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.phones">Phones</span></dt>
+                <dd>
+                    <span>{{ categorydetails.phones }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.website">Website</span></dt>
+                <dd>
+                    <span>{{ categorydetails.website }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.email">Email</span></dt>
+                <dd>
+                    <span>{{ categorydetails.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.facebook">Facebook</span></dt>
+                <dd>
+                    <span>{{ categorydetails.facebook }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.twitter">Twitter</span></dt>
+                <dd>
+                    <span>{{ categorydetails.twitter }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.gplus">Gplus</span></dt>
+                <dd>
+                    <span>{{ categorydetails.gplus }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.linkedin">Linkedin</span></dt>
+                <dd>
+                    <span>{{ categorydetails.linkedin }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.instagram">Instagram</span></dt>
+                <dd>
+                    <span>{{ categorydetails.instagram }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.opentimes">Opentimes</span></dt>
+                <dd>
+                    <span>{{ categorydetails.opentimes }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.othercontacts">Othercontacts</span></dt>
+                <dd>
+                    <span>{{ categorydetails.othercontacts }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.otherfields">Otherfields</span></dt>
+                <dd>
+                    <span>{{ categorydetails.otherfields }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.generalabout">Generalabout</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generalabout }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.generaltax">Generaltax</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generaltax }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.generalstock">Generalstock</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generalstock }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.generalprice">Generalprice</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generalprice }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.generalmaxstock">Generalmaxstock</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generalmaxstock }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.generaltag">Generaltag</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generaltag }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.generaltagcolor">Generaltagcolor</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ebusinessApp.Tagcolor.' + categorydetails.generaltagcolor }}">{{ categorydetails.generaltagcolor }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.generalhidden">Generalhidden</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generalhidden }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.generalhiddendelay">Generalhiddendelay</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generalhiddendelay }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.generallock">Generallock</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generallock }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.generallockdelay">Generallockdelay</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generallockdelay }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.generalexpire">Generalexpire</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generalexpire }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.generalexpiredelay">Generalexpiredelay</span></dt>
+                <dd>
+                    <span>{{ categorydetails.generalexpiredelay }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.childsname">Childsname</span></dt>
+                <dd>
+                    <span>{{ categorydetails.childsname }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.categorydetails.productsname">Productsname</span></dt>
+                <dd>
+                    <span>{{ categorydetails.productsname }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/categorydetails', categorydetails.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

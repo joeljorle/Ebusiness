@@ -1,0 +1,95 @@
+{
+    "name": "Location",
+    "fields": [
+        {
+            "fieldName": "country",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "town",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "region",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "locality",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "zone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lattitude",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "longitude",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdat",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "updatedat",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "category",
+            "otherEntityRelationshipName": "location",
+            "relationshipName": "category",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "product",
+            "otherEntityRelationshipName": "location",
+            "relationshipName": "product",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "evenement",
+            "otherEntityRelationshipName": "location",
+            "relationshipName": "evenement",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "profile",
+            "otherEntityRelationshipName": "location",
+            "relationshipName": "profile",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "tour",
+            "otherEntityRelationshipName": "location",
+            "relationshipName": "tour",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "tourgroup",
+            "otherEntityRelationshipName": "location",
+            "relationshipName": "tourgroup",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200213070900",
+    "entityTableName": "location",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

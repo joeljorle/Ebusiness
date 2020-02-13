@@ -1,0 +1,147 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-paymentaction-heading" jhiTranslate="ebusinessApp.paymentaction.home.createOrEditLabel">Create or edit a Paymentaction</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.paymentaction.slug" for="field_slug">Slug</label>
+                    <input type="text" class="form-control" name="slug" id="field_slug"
+                           formControlName="slug"/>
+                    <div *ngIf="editForm.get('slug')!.invalid && (editForm.get('slug')!.dirty || editForm.get('slug')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('slug')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.paymentaction.userid" for="field_userid">Userid</label>
+                    <input type="number" class="form-control" name="userid" id="field_userid"
+                           formControlName="userid"/>
+                    <div *ngIf="editForm.get('userid')!.invalid && (editForm.get('userid')!.dirty || editForm.get('userid')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('userid')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('userid')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.paymentaction.paymentmethodid" for="field_paymentmethodid">Paymentmethodid</label>
+                    <input type="number" class="form-control" name="paymentmethodid" id="field_paymentmethodid"
+                           formControlName="paymentmethodid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.paymentaction.evenementid" for="field_evenementid">Evenementid</label>
+                    <input type="number" class="form-control" name="evenementid" id="field_evenementid"
+                           formControlName="evenementid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.paymentaction.productid" for="field_productid">Productid</label>
+                    <input type="number" class="form-control" name="productid" id="field_productid"
+                           formControlName="productid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.paymentaction.categoryid" for="field_categoryid">Categoryid</label>
+                    <input type="number" class="form-control" name="categoryid" id="field_categoryid"
+                           formControlName="categoryid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.paymentaction.expireat" for="field_expireat">Expireat</label>
+                    <div class="d-flex">
+                        <input id="field_expireat" type="datetime-local" class="form-control" name="expireat" formControlName="expireat" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.paymentaction.code" for="field_code">Code</label>
+                    <input type="text" class="form-control" name="code" id="field_code"
+                           formControlName="code"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.paymentaction.code1" for="field_code1">Code 1</label>
+                    <input type="text" class="form-control" name="code1" id="field_code1"
+                           formControlName="code1"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.paymentaction.code2" for="field_code2">Code 2</label>
+                    <input type="text" class="form-control" name="code2" id="field_code2"
+                           formControlName="code2"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.paymentaction.amount" for="field_amount">Amount</label>
+                    <input type="number" class="form-control" name="amount" id="field_amount"
+                           formControlName="amount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.paymentaction.createdat" for="field_createdat">Createdat</label>
+                    <div class="d-flex">
+                        <input id="field_createdat" type="datetime-local" class="form-control" name="createdat" formControlName="createdat" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.paymentaction.updatedat" for="field_updatedat">Updatedat</label>
+                    <div class="d-flex">
+                        <input id="field_updatedat" type="datetime-local" class="form-control" name="updatedat" formControlName="updatedat" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.paymentaction.product" for="field_product">Product</label>
+                    <select class="form-control" id="field_product" name="product" formControlName="productId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productOption.id" *ngFor="let productOption of products; trackBy: trackById">{{ productOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.paymentaction.evenement" for="field_evenement">Evenement</label>
+                    <select class="form-control" id="field_evenement" name="evenement" formControlName="evenementId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="evenementOption.id" *ngFor="let evenementOption of evenements; trackBy: trackById">{{ evenementOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.paymentaction.paymentmethod" for="field_paymentmethod">Paymentmethod</label>
+                    <select class="form-control" id="field_paymentmethod" name="paymentmethod" formControlName="paymentmethodId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="paymentmethodOption.id" *ngFor="let paymentmethodOption of paymentmethods; trackBy: trackById">{{ paymentmethodOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

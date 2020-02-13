@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-cartproducts-heading" jhiTranslate="ebusinessApp.cartproducts.home.createOrEditLabel">Create or edit a Cartproducts</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.cartproducts.cartid" for="field_cartid">Cartid</label>
+                    <input type="number" class="form-control" name="cartid" id="field_cartid"
+                           formControlName="cartid"/>
+                    <div *ngIf="editForm.get('cartid')!.invalid && (editForm.get('cartid')!.dirty || editForm.get('cartid')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('cartid')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('cartid')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.cartproducts.productid" for="field_productid">Productid</label>
+                    <input type="number" class="form-control" name="productid" id="field_productid"
+                           formControlName="productid"/>
+                    <div *ngIf="editForm.get('productid')!.invalid && (editForm.get('productid')!.dirty || editForm.get('productid')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('productid')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('productid')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.cartproducts.cartqty" for="field_cartqty">Cartqty</label>
+                    <input type="number" class="form-control" name="cartqty" id="field_cartqty"
+                           formControlName="cartqty"/>
+                    <div *ngIf="editForm.get('cartqty')!.invalid && (editForm.get('cartqty')!.dirty || editForm.get('cartqty')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('cartqty')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('cartqty')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ebusinessApp.cartproducts.cart" for="field_cart">Cart</label>
+                    <select class="form-control" id="field_cart" name="cart" formControlName="cartId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cartOption.id" *ngFor="let cartOption of carts; trackBy: trackById">{{ cartOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

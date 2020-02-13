@@ -1,0 +1,33 @@
+{
+  "ebusinessApp": {
+    "likes": {
+      "home": {
+        "title": "Likes",
+        "createLabel": "Créer un nouveau Likes",
+        "createOrEditLabel": "Créer ou éditer un Likes",
+        "notFound": "Aucun Likes trouvé"
+      },
+      "created": "Un nouveau Likes a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Likes avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Likes avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Likes {{ id }} ?"
+      },
+      "detail": {
+        "title": "Likes"
+      },
+      "slug": "Slug",
+      "userid": "Userid",
+      "categoryid": "Categoryid",
+      "productid": "Productid",
+      "tourid": "Tourid",
+      "tourgroupid": "Tourgroupid",
+      "evenementid": "Evenementid",
+      "createdat": "Createdat",
+      "updatedat": "Updatedat",
+      "category": "Category",
+      "product": "Product",
+      "evenement": "Evenement"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "ebusinessApp": {
+    "shipping": {
+      "home": {
+        "title": "Shippings",
+        "createLabel": "Créer un nouveau Shipping",
+        "createOrEditLabel": "Créer ou éditer un Shipping",
+        "notFound": "Aucun Shipping trouvé"
+      },
+      "created": "Un nouveau Shipping a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Shipping avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Shipping avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Shipping {{ id }} ?"
+      },
+      "detail": {
+        "title": "Shipping"
+      },
+      "name": "Name",
+      "price": "Price",
+      "createdat": "Createdat",
+      "updatedat": "Updatedat",
+      "category": "Category"
+    }
+  }
+}

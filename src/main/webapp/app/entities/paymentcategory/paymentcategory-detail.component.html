@@ -1,0 +1,98 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="paymentcategory">
+            <h2><span jhiTranslate="ebusinessApp.paymentcategory.detail.title">Paymentcategory</span> {{ paymentcategory.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ebusinessApp.paymentcategory.paymentmethodid">Paymentmethodid</span></dt>
+                <dd>
+                    <span>{{ paymentcategory.paymentmethodid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentcategory.categoryid">Categoryid</span></dt>
+                <dd>
+                    <span>{{ paymentcategory.categoryid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentcategory.url">Url</span></dt>
+                <dd>
+                    <span>{{ paymentcategory.url }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentcategory.apiurl">Apiurl</span></dt>
+                <dd>
+                    <span>{{ paymentcategory.apiurl }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentcategory.apikey">Apikey</span></dt>
+                <dd>
+                    <span>{{ paymentcategory.apikey }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentcategory.key2">Key 2</span></dt>
+                <dd>
+                    <span>{{ paymentcategory.key2 }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentcategory.key3">Key 3</span></dt>
+                <dd>
+                    <span>{{ paymentcategory.key3 }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentcategory.key4">Key 4</span></dt>
+                <dd>
+                    <span>{{ paymentcategory.key4 }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentcategory.phonenumber">Phonenumber</span></dt>
+                <dd>
+                    <span>{{ paymentcategory.phonenumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentcategory.chanel">Chanel</span></dt>
+                <dd>
+                    <span>{{ paymentcategory.chanel }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentcategory.code">Code</span></dt>
+                <dd>
+                    <span>{{ paymentcategory.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentcategory.username">Username</span></dt>
+                <dd>
+                    <span>{{ paymentcategory.username }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentcategory.password">Password</span></dt>
+                <dd>
+                    <span>{{ paymentcategory.password }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentcategory.createdat">Createdat</span></dt>
+                <dd>
+                    <span>{{ paymentcategory.createdat }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentcategory.updatedat">Updatedat</span></dt>
+                <dd>
+                    <span>{{ paymentcategory.updatedat }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentcategory.category">Category</span></dt>
+                <dd>
+                    <div *ngIf="paymentcategory.categoryId">
+                        <a [routerLink]="['/category', paymentcategory.categoryId, 'view']">{{ paymentcategory.categoryId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.paymentcategory.paymentmethod">Paymentmethod</span></dt>
+                <dd>
+                    <div *ngIf="paymentcategory.paymentmethodId">
+                        <a [routerLink]="['/paymentmethod', paymentcategory.paymentmethodId, 'view']">{{ paymentcategory.paymentmethodId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/paymentcategory', paymentcategory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

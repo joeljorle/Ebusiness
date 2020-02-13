@@ -1,0 +1,36 @@
+{
+  "ebusinessApp": {
+    "location": {
+      "home": {
+        "title": "Locations",
+        "createLabel": "Create a new Location",
+        "createOrEditLabel": "Create or edit a Location",
+        "notFound": "No Locations found"
+      },
+      "created": "A new Location is created with identifier {{ param }}",
+      "updated": "A Location is updated with identifier {{ param }}",
+      "deleted": "A Location is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Location {{ id }}?"
+      },
+      "detail": {
+        "title": "Location"
+      },
+      "country": "Country",
+      "town": "Town",
+      "region": "Region",
+      "locality": "Locality",
+      "zone": "Zone",
+      "lattitude": "Lattitude",
+      "longitude": "Longitude",
+      "createdat": "Createdat",
+      "updatedat": "Updatedat",
+      "category": "Category",
+      "product": "Product",
+      "evenement": "Evenement",
+      "profile": "Profile",
+      "tour": "Tour",
+      "tourgroup": "Tourgroup"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "ebusinessApp": {
+    "reviews": {
+      "home": {
+        "title": "Reviews",
+        "createLabel": "Créer un nouveau Reviews",
+        "createOrEditLabel": "Créer ou éditer un Reviews",
+        "notFound": "Aucun Reviews trouvé"
+      },
+      "created": "Un nouveau Reviews a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Reviews avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Reviews avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Reviews {{ id }} ?"
+      },
+      "detail": {
+        "title": "Reviews"
+      },
+      "slug": "Slug",
+      "userid": "Userid",
+      "categoryid": "Categoryid",
+      "productid": "Productid",
+      "tourid": "Tourid",
+      "tourgroupid": "Tourgroupid",
+      "evenementid": "Evenementid",
+      "text": "Text",
+      "createdat": "Createdat",
+      "updatedat": "Updatedat",
+      "category": "Category",
+      "product": "Product",
+      "evenement": "Evenement"
+    }
+  }
+}

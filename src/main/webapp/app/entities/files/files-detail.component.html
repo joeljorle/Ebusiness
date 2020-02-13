@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="files">
+            <h2><span jhiTranslate="ebusinessApp.files.detail.title">Files</span> {{ files.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ebusinessApp.files.slug">Slug</span></dt>
+                <dd>
+                    <span>{{ files.slug }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.files.userid">Userid</span></dt>
+                <dd>
+                    <span>{{ files.userid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.files.categoryid">Categoryid</span></dt>
+                <dd>
+                    <span>{{ files.categoryid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.files.productid">Productid</span></dt>
+                <dd>
+                    <span>{{ files.productid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.files.tourid">Tourid</span></dt>
+                <dd>
+                    <span>{{ files.tourid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.files.tourgroupid">Tourgroupid</span></dt>
+                <dd>
+                    <span>{{ files.tourgroupid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.files.tourcategoryid">Tourcategoryid</span></dt>
+                <dd>
+                    <span>{{ files.tourcategoryid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.files.evenementid">Evenementid</span></dt>
+                <dd>
+                    <span>{{ files.evenementid }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.files.islogoimg">Islogoimg</span></dt>
+                <dd>
+                    <span>{{ files.islogoimg }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.files.isprofileimg">Isprofileimg</span></dt>
+                <dd>
+                    <span>{{ files.isprofileimg }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.files.iscoverimg">Iscoverimg</span></dt>
+                <dd>
+                    <span>{{ files.iscoverimg }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.files.issliderimg">Issliderimg</span></dt>
+                <dd>
+                    <span>{{ files.issliderimg }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.files.isotherimg">Isotherimg</span></dt>
+                <dd>
+                    <span>{{ files.isotherimg }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.files.createdat">Createdat</span></dt>
+                <dd>
+                    <span>{{ files.createdat }}</span>
+                </dd>
+                <dt><span jhiTranslate="ebusinessApp.files.updatedat">Updatedat</span></dt>
+                <dd>
+                    <span>{{ files.updatedat }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/files', files.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

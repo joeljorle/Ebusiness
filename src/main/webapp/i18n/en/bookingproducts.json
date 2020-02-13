@@ -1,0 +1,25 @@
+{
+  "ebusinessApp": {
+    "bookingproducts": {
+      "home": {
+        "title": "Bookingproducts",
+        "createLabel": "Create a new Bookingproducts",
+        "createOrEditLabel": "Create or edit a Bookingproducts",
+        "notFound": "No Bookingproducts found"
+      },
+      "created": "A new Bookingproducts is created with identifier {{ param }}",
+      "updated": "A Bookingproducts is updated with identifier {{ param }}",
+      "deleted": "A Bookingproducts is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bookingproducts {{ id }}?"
+      },
+      "detail": {
+        "title": "Bookingproducts"
+      },
+      "bookingid": "Bookingid",
+      "productid": "Productid",
+      "bookingqty": "Bookingqty",
+      "booking": "Booking"
+    }
+  }
+}

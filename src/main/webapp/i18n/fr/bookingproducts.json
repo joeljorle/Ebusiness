@@ -1,0 +1,25 @@
+{
+  "ebusinessApp": {
+    "bookingproducts": {
+      "home": {
+        "title": "Bookingproducts",
+        "createLabel": "Créer un nouveau Bookingproducts",
+        "createOrEditLabel": "Créer ou éditer un Bookingproducts",
+        "notFound": "Aucun Bookingproducts trouvé"
+      },
+      "created": "Un nouveau Bookingproducts a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Bookingproducts avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Bookingproducts avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Bookingproducts {{ id }} ?"
+      },
+      "detail": {
+        "title": "Bookingproducts"
+      },
+      "bookingid": "Bookingid",
+      "productid": "Productid",
+      "bookingqty": "Bookingqty",
+      "booking": "Booking"
+    }
+  }
+}

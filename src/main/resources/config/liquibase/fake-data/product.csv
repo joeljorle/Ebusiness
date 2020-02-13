@@ -1,0 +1,11 @@
+id;categoryid;slug;name;islock;lockdelay;type;createdat;updatedat
+1;23324;Checking Account;Gambia Assistant;true;2020-02-12T17:04:47;FOOD;2020-02-12T11:22:26;2020-02-12T14:15:59
+2;16316;reboot;Dynamic magenta Track;true;2020-02-12T23:54:37;SHOP;2020-02-12T08:21:18;2020-02-12T20:09:07
+3;6255;Generic Metal Tuna;navigating Metical;false;2020-02-13T04:31:57;HOUSE;2020-02-12T08:59:45;2020-02-12T10:24:25
+4;82822;New Zealand;Bedfordshire;false;2020-02-12T16:18:54;FOOD;2020-02-12T14:12:42;2020-02-13T05:48:38
+5;4184;Business-focused;Computer Oklahoma Identity;false;2020-02-12T23:37:27;HOUSE;2020-02-12T09:25:25;2020-02-13T01:55:42
+6;80377;JSON;New Mexico Implementation Steel;true;2020-02-13T03:03:45;SIMPLE;2020-02-12T19:49:31;2020-02-13T03:21:21
+7;63453;Chips Bike Keyboard;Central Ergonomic Concrete Ball;true;2020-02-12T13:36:55;SHOP;2020-02-12T11:54:06;2020-02-12T22:45:12
+8;99001;South Dakota Underpass virtual;Stand-alone Computer efficient;false;2020-02-12T18:40:52;SHOP;2020-02-12T08:09:36;2020-02-12T11:29:15
+9;71562;sticky brand solution;Customer;false;2020-02-12T15:53:37;SHOP;2020-02-13T05:10:50;2020-02-12T08:19:31
+10;5859;deposit;convergence;true;2020-02-12T11:58:10;FOOD;2020-02-12T18:02:42;2020-02-12T08:27:52

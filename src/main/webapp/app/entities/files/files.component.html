@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ebusinessApp.files.home.title">Files</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-files" [routerLink]="['/files/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="ebusinessApp.files.home.createLabel">
+            Create a new Files
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="files?.length === 0">
+        <span jhiTranslate="ebusinessApp.files.home.notFound">No files found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="files?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="slug"><span jhiTranslate="ebusinessApp.files.slug">Slug</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userid"><span jhiTranslate="ebusinessApp.files.userid">Userid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoryid"><span jhiTranslate="ebusinessApp.files.categoryid">Categoryid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productid"><span jhiTranslate="ebusinessApp.files.productid">Productid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tourid"><span jhiTranslate="ebusinessApp.files.tourid">Tourid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tourgroupid"><span jhiTranslate="ebusinessApp.files.tourgroupid">Tourgroupid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tourcategoryid"><span jhiTranslate="ebusinessApp.files.tourcategoryid">Tourcategoryid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="evenementid"><span jhiTranslate="ebusinessApp.files.evenementid">Evenementid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="islogoimg"><span jhiTranslate="ebusinessApp.files.islogoimg">Islogoimg</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isprofileimg"><span jhiTranslate="ebusinessApp.files.isprofileimg">Isprofileimg</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="iscoverimg"><span jhiTranslate="ebusinessApp.files.iscoverimg">Iscoverimg</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="issliderimg"><span jhiTranslate="ebusinessApp.files.issliderimg">Issliderimg</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isotherimg"><span jhiTranslate="ebusinessApp.files.isotherimg">Isotherimg</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdat"><span jhiTranslate="ebusinessApp.files.createdat">Createdat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="updatedat"><span jhiTranslate="ebusinessApp.files.updatedat">Updatedat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let files of files ;trackBy: trackId">
+                    <td><a [routerLink]="['/files', files.id, 'view']">{{ files.id }}</a></td>
+                    <td>{{ files.slug }}</td>
+                    <td>{{ files.userid }}</td>
+                    <td>{{ files.categoryid }}</td>
+                    <td>{{ files.productid }}</td>
+                    <td>{{ files.tourid }}</td>
+                    <td>{{ files.tourgroupid }}</td>
+                    <td>{{ files.tourcategoryid }}</td>
+                    <td>{{ files.evenementid }}</td>
+                    <td>{{ files.islogoimg }}</td>
+                    <td>{{ files.isprofileimg }}</td>
+                    <td>{{ files.iscoverimg }}</td>
+                    <td>{{ files.issliderimg }}</td>
+                    <td>{{ files.isotherimg }}</td>
+                    <td>{{ files.createdat | date:'medium' }}</td>
+                    <td>{{ files.updatedat | date:'medium' }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/files', files.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/files', files.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(files)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

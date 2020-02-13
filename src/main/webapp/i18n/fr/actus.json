@@ -1,0 +1,29 @@
+{
+  "ebusinessApp": {
+    "actus": {
+      "home": {
+        "title": "Actuses",
+        "createLabel": "Créer un nouveau Actus",
+        "createOrEditLabel": "Créer ou éditer un Actus",
+        "notFound": "Aucun Actus trouvé"
+      },
+      "created": "Un nouveau Actus a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Actus avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Actus avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Actus {{ id }} ?"
+      },
+      "detail": {
+        "title": "Actus"
+      },
+      "slug": "Slug",
+      "name": "Name",
+      "abrev": "Abrev",
+      "userid": "Userid",
+      "image": "Image",
+      "details": "Details",
+      "createdat": "Createdat",
+      "updatedat": "Updatedat"
+    }
+  }
+}

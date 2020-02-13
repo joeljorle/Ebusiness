@@ -1,0 +1,191 @@
+{
+    "name": "Category",
+    "fields": [
+        {
+            "fieldName": "slug",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "userid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "categoryid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "route",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isheader",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isgroup",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "islock",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "lockdelay",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "Type",
+            "fieldValues": "SHOP,FOOD,HOUSE,SIMPLE,EVENEMENT"
+        },
+        {
+            "fieldName": "createdat",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "updatedat",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "files",
+            "otherEntityRelationshipName": "category",
+            "relationshipName": "files",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "categorydetails",
+            "otherEntityRelationshipName": "category",
+            "relationshipName": "categorydetails",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "location",
+            "otherEntityRelationshipName": "category",
+            "relationshipName": "location",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "product",
+            "otherEntityRelationshipName": "category",
+            "javadoc": "category to many relationship.",
+            "relationshipName": "product"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "evenement",
+            "otherEntityRelationshipName": "category",
+            "relationshipName": "evenement"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tour",
+            "otherEntityRelationshipName": "category",
+            "relationshipName": "tour"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "likes",
+            "otherEntityRelationshipName": "category",
+            "relationshipName": "likes"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "follows",
+            "otherEntityRelationshipName": "category",
+            "relationshipName": "follows"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "ratings",
+            "otherEntityRelationshipName": "category",
+            "relationshipName": "ratings"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "reviews",
+            "otherEntityRelationshipName": "category",
+            "relationshipName": "reviews"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "category",
+            "otherEntityRelationshipName": "category",
+            "relationshipName": "category"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tourgroup",
+            "otherEntityRelationshipName": "category",
+            "relationshipName": "tourgroup"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tourcategory",
+            "otherEntityRelationshipName": "category",
+            "relationshipName": "tourcategory"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "booking",
+            "otherEntityRelationshipName": "category",
+            "relationshipName": "booking"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "cart",
+            "otherEntityRelationshipName": "category",
+            "relationshipName": "cart"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "paymentcategory",
+            "otherEntityRelationshipName": "category",
+            "relationshipName": "paymentcategory"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "currency",
+            "otherEntityRelationshipName": "category",
+            "relationshipName": "currency"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "shipping",
+            "otherEntityRelationshipName": "category",
+            "relationshipName": "shipping"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "category",
+            "otherEntityRelationshipName": "category",
+            "relationshipName": "category",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200213065300",
+    "entityTableName": "category",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

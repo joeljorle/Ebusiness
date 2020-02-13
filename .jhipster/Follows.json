@@ -1,0 +1,92 @@
+{
+    "name": "Follows",
+    "fields": [
+        {
+            "fieldName": "slug",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "userid",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "categoryid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "productid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tourid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "evenementid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tourgroupid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "alert",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "alertEvenement",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "followchild",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "createdat",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "updatedat",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "category",
+            "otherEntityRelationshipName": "follows",
+            "relationshipName": "category",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "product",
+            "otherEntityRelationshipName": "follows",
+            "relationshipName": "product",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "evenement",
+            "otherEntityRelationshipName": "follows",
+            "relationshipName": "evenement",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200213065600",
+    "entityTableName": "follows",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
